@@ -89,7 +89,7 @@ namespace BKP
 		public void Move(Controls controls, List<Platform> platforms)
 		{
             // Stop
-            if (controls.isPressed(Keys.LeftControl, Buttons.B))
+            if (controls.isPressed(Keys.Down, Buttons.B))
             {
                 state = 0;
                 // Do nothing
@@ -98,7 +98,7 @@ namespace BKP
             {
                 state = 0;
                 // Rewind
-                if (controls.isPressed(Keys.R, Buttons.LeftTrigger))
+                if (controls.isPressed(Keys.Left, Buttons.LeftTrigger))
                 {
                     state = -1;
                     if (pastPos.Count > 0)
@@ -114,7 +114,7 @@ namespace BKP
             else
             {
                 // Rewind
-                if (controls.isPressed(Keys.R, Buttons.LeftTrigger))
+                if (controls.isPressed(Keys.Left, Buttons.LeftTrigger))
                 {
                     state = -1;
                     if (pastPos.Count > 0)
@@ -130,7 +130,7 @@ namespace BKP
                 {
                     pastPos.Push(new Vector3(spriteX, spriteY, (float)y_vel));
 
-                    if (controls.isPressed(Keys.F, Buttons.RightTrigger))
+                    if (controls.isPressed(Keys.Right, Buttons.RightTrigger))
                     {
                         state = 2;
                         x_accel = speed * 2;
