@@ -27,6 +27,7 @@ namespace BKP
         Sprite pause, rewind, ff;
         Controls controls;
         ScrollingBackground background;
+        TmxMap map;
 
         public BKPMain()
         {
@@ -45,15 +46,22 @@ namespace BKP
             // TODO: Add your initialization logic here
 
             player1 = new Player(50, 550, 50, 50);
+            map = new TmxMap("L1-tutorial.tmx");
             platforms = new List<Platform>();
-            platforms.Add(new Platform(700, 550, 100, 50, false));
-            platforms.Add(new Platform(850, 450, 100, 50, false));
-            platforms.Add(new Platform(1000, 350, 100, 50, false));
-            platforms.Add(new Platform(1150, 250, 100, 50, false));
-            platforms.Add(new Platform(1300, 150, 100, 50, false));
-            for (int i = 0; i < 10; i++)
+          	for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++) {
+                TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
+              	int x = tile.X;
+              	int y = tile.Y;
+              	int gid = tile.Gid;
+             	platforms.Add(new Platform(x, y, 70, 70, false));
+            }
+            for (int i = 0; i < map.Layers["floor"].Tiles.Count; i++)
             {
-                platforms.Add(new Platform(i * 100, 660, 100, 50, true));
+                TmxLayerTile tile = map.Layers["floor"].Tiles[i];
+                int x = tile.X;
+                int y = tile.Y;
+                int gid = tile.Gid;
+                platforms.Add(new Platform(x, y, 70, 70, true));
             }
             pause = new Sprite(50, 400, 100, 100);
             rewind = new Sprite(50, 400, 100, 100);
