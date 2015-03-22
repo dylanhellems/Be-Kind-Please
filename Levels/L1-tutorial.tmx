@@ -330,6 +330,10 @@
   </tile>
   <tile id="109">
    <image width="70" height="70" source="../Platformer Art Complete Pack_0/Base pack/Tiles/sign.png"/>
+   <objectgroup draworder="index">
+    <object id="0" x="-12" y="8" width="102" height="44"/>
+    <object id="0" x="118" y="34"/>
+   </objectgroup>
   </tile>
   <tile id="110">
    <image width="70" height="70" source="../Platformer Art Complete Pack_0/Base pack/Tiles/signExit.png"/>
@@ -461,9 +465,14 @@
    eJzt1jsKACEMBUCv7B7G82qxtUXA/wyksjAYHyQlYBdldQOwmAxwi95fjp5Fzb6PPm/O62QgJrf6/uJsMhA3Yr8yj/uZ8RgyBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvKICSuAL4g==
   </data>
  </layer>
- <layer name="Tile Layer 1" width="100" height="100">
+ <layer name="Platform" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1TEKgzAUBmBv0c26uItjb9XuIr2AZ9ZBoQSRILGK+T4IPyEhL8tLigLYqz/7ApnpLnJGqJzzOWd1QI1cfIOEnIV9sLw11Z/vAWda+xf0Anc2bKy9p/H5mesFclNHZpsoU9Vb9sGRHpHZJMpXZMaeAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcFUjAskO5w==
+   eJzt1DEOgCAQAEF+Yac09sbS/z/MQugvEQLRmWYbAtccKQHwxlq6leZBcwDfVv+aPHIImIBdgIdd4G/2YM9GbfVePQc9LcEejXoFG70HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgVjcQqQl4
+  </data>
+ </layer>
+ <layer name="Objects" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1T0KgDAMBtCcWNC9FC/gmXXuIHToD+Q9CBkC4VtCIqDfsTrAJurqAMmUTXYwzt10yMwdgL9APs/P7PzqmhUEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgXwa4F3g==
   </data>
  </layer>
 </map>
