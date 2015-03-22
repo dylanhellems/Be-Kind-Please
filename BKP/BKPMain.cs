@@ -48,12 +48,13 @@ namespace BKP
             player1 = new Player(50, 550, 50, 50);
             map = new TmxMap("Content/levels/L1-tutorial.tmx");
             platforms = new List<Platform>();
-          	for (int i = 0; i < map.Layers["Platform"].Tiles.Count; i++) {
+            for (int i = 0; i < map.Layers["Platform"].Tiles.Count; i++)
+            {
                 TmxLayerTile tile = map.Layers["Platform"].Tiles[i];
-              	int x = tile.X;
-              	int y = tile.Y;
-              	int gid = tile.Gid;
-             	platforms.Add(new Platform(x, y, 70, 70, false));
+                int x = tile.X;
+                int y = tile.Y;
+                int gid = tile.Gid;
+                platforms.Add(new Platform(x, y, 70, 70, false));
             }
             /*for (int i = 0; i < map.Layers["floor"].Tiles.Count; i++)
             {
