@@ -119,6 +119,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TiledSharp\TiledSharp\TiledSharp.csproj">
+      <Project>{e4130f8d-d301-4e0c-916d-489c4a23c9b1}</Project>
+      <Name>TiledSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->
   <Target Name="BeforeResolveReferences">
     <CreateProperty Value="$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows;$(AssemblySearchPaths)">
