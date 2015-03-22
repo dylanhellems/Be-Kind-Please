@@ -46,7 +46,7 @@ namespace BKP
             // TODO: Add your initialization logic here
 
             player1 = new Player(50, 550, 50, 50);
-            map = new TmxMap("L1-tutorial.tmx");
+            map = new TmxMap("Content/levels/L1-tutorial.tmx");
             platforms = new List<Platform>();
           	for (int i = 0; i < map.Layers["Platform"].Tiles.Count; i++) {
                 TmxLayerTile tile = map.Layers["Platform"].Tiles[i];
