@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -46,24 +47,33 @@ namespace BKP
             // TODO: Add your initialization logic here
 
             player1 = new Player(50, 550, 50, 50);
-            map = new TmxMap("Content/levels/L1-tutorial.tmx");
+            map = new TmxMap("Content/levels/test.tmx");
             platforms = new List<Platform>();
-            for (int i = 0; i < map.Layers["Platform"].Tiles.Count; i++)
+            Debug.Print("" + map.Layers["platforms"].Tiles.Count);
+            for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
-                TmxLayerTile tile = map.Layers["Platform"].Tiles[i];
-                int x = tile.X;
-                int y = tile.Y;
+                TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
+                int x = tile.X*70;
+                int y = 250 + ((tile.Y - 1))*70;
                 int gid = tile.Gid;
-                platforms.Add(new Platform(x, y, 70, 70, false));
+                if (gid > 0)
+                {
+                    Debug.Print("" + tile.X + " - " + tile.Y);
+                    platforms.Add(new Platform(x, y, 70, 70, false));
+                }
             }
-            /*for (int i = 0; i < map.Layers["floor"].Tiles.Count; i++)
+            for (int i = 0; i < map.Layers["floor"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["floor"].Tiles[i];
-                int x = tile.X;
-                int y = tile.Y;
+                int x = tile.X*70;
+                int y = 650;
                 int gid = tile.Gid;
-                platforms.Add(new Platform(x, y, 70, 70, true));
-            }*/
+                if (gid > 0)
+                {
+                    Debug.Print("" + tile.X + " - " + tile.Y);
+                    platforms.Add(new Platform(x, y, 70, 70, true));
+                }
+            }
             pause = new Sprite(50, 400, 100, 100);
             rewind = new Sprite(50, 400, 100, 100);
             ff = new Sprite(50, 400, 100, 100);
