@@ -1,25 +1,29 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
 
 namespace BKP
 {
     class MovingObstacle : Obstacle
     {
-        double speed;
+        public double speed;
 
-        public void LoadContent()
+        public void LoadContent(ContentManager content)
         {
 
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch sprite, GameTime gameTime)
         {
 
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
         }

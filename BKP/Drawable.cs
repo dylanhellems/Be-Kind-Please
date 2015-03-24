@@ -11,13 +11,13 @@ namespace BKP
 {
     abstract class Drawable
     {
-        double width;
-        double height;
-        double x;
-        double y;
-        Texture2D texture;
+        public double width;
+        public double height;
+        public double x;
+        public double y;
+        public Texture2D texture;
         
-        public bool isTouching(Drawable) {
+        public bool isTouching(Drawable drawable) {
             return false;
         }
 
@@ -29,8 +29,8 @@ namespace BKP
             return 0;
         }
 
-        abstract public void LoadContent();
-        abstract public void Draw();
-        abstract public void Update();
+        abstract public void LoadContent(ContentManager content, String str);
+        abstract public void Draw(SpriteBatch sprite, GameTime gameTime);
+        abstract public void Update(GameTime gameTime);
     }
 }

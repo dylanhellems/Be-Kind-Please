@@ -12,21 +12,21 @@ namespace BKP
 {
     class Level
     {
-        TmxMap map;
-        double startTime;
-        List<Drawable> entities;
+        public TmxMap map;
+        public double startTime;
+        public List<Drawable> entities;
 
-        public void LoadContent()
+        public void LoadContent(ContentManager manager)
         {
 
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch sprite, GameTime gameTime)
         {
 
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
         }

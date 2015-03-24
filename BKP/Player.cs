@@ -9,9 +9,10 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace BKP
 {
-	class Player : Sprite
+	//class Player : Sprite
+    class Player : Drawable
     {
-        //private bool moving;
+/*        //private bool moving;
         //private bool walledL;
         //private bool walledR;
         private int state;
@@ -238,6 +239,63 @@ namespace BKP
 			{
 				y_vel /= 2;
 			}
-		}
+		} */
+
+
+        public double speed;
+        public double grounded;
+        public bool paused;
+        public CappedStack<Vector3> pastPos;
+        public int state;
+
+        public bool play()
+        {
+            return false;
+        }
+
+        public bool pause()
+        {
+            return false;
+        }
+
+        public bool fastForward()
+        {
+            return false;
+        }
+
+        public bool rewind()
+        {
+            return false;
+        }
+
+        public void jump()
+        {
+
+        }
+
+        public void checkCollisions()
+        {
+
+        }
+
+        public int getState()
+        {
+            return state;
+        }
+
+        public void LoadContent(ContentManager content)
+        {
+
+        }
+
+        public void Draw(SpriteBatch sprite, GameTime gameTime)
+        {
+
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
+        }
     }
 }
