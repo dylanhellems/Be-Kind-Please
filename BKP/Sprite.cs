@@ -10,7 +10,7 @@ namespace BKP
 {
 	class Sprite
 	{
-		protected int spriteX, spriteY;
+		protected int spriteX, spriteY, gid;
 		protected int spriteWidth, spriteHeight;
 		protected Texture2D image;
 
@@ -35,6 +35,13 @@ namespace BKP
         public int getCenterY()
         {
             return spriteY + spriteHeight / 2;
+        }
+
+        public Rectangle getTile()
+        {
+            int row = gid / 12;
+            int col = gid % 12;
+            return new Rectangle(col * 71, row * 71, 70, 70);
         }
 
         public bool isTouching(Sprite s) {

@@ -13,13 +13,14 @@ namespace BKP
     {
         private bool isFloor;
 
-        public Platform(int x, int y, int width, int height, bool floor)
+        public Platform(int x, int y, int width, int height, bool floor, int gid)
         {
             this.spriteX = x;
             this.spriteY = y;
             this.spriteWidth = width;
             this.spriteHeight = height;
             this.isFloor = floor;
+            this.gid = gid - 1;
         }
 
         public bool IsFloor() {
@@ -48,7 +49,12 @@ namespace BKP
 
         public void LoadContent(ContentManager content)
         {
-            image = content.Load<Texture2D>("grass");
+            image = content.Load<Texture2D>("tiles_spritesheet");
+        }
+
+        new public void Draw(SpriteBatch sb)
+        {
+            sb.Draw(image, new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight), getTile(), Color.White);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace BKP
 
             player1 = new Player(50, 550, 50, 50);
             map = new TmxMap("Content/levels/test.tmx");
-            tiles = map.Tilesets["Tiles"];
+            tiles = map.Tilesets["tiles_spritesheet"];
             platforms = new List<Platform>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
@@ -59,7 +59,8 @@ namespace BKP
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    platforms.Add(new Platform(x, y, 70, 70, false));
+                    Debug.Print("" + gid);
+                    platforms.Add(new Platform(x, y, 70, 70, false, gid));
                 }
             }
             for (int i = 0; i < map.Layers["floor"].Tiles.Count; i++)
@@ -71,7 +72,7 @@ namespace BKP
                 if (gid > 0)
                 {
                     Debug.Print("" + tile.X + " - " + tile.Y);
-                    platforms.Add(new Platform(x, y, 70, 70, true));
+                    platforms.Add(new Platform(x, y, 70, 70, true, gid));
                 }
             }
             pause = new Sprite(50, 400, 100, 100);
