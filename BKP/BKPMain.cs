@@ -29,6 +29,7 @@ namespace BKP
         Controls controls;
         ScrollingBackground background;
         TmxMap map;
+        TmxTileset tiles;
 
         public BKPMain()
         {
@@ -48,8 +49,8 @@ namespace BKP
 
             player1 = new Player(50, 550, 50, 50);
             map = new TmxMap("Content/levels/test.tmx");
+            tiles = map.Tilesets["Tiles"];
             platforms = new List<Platform>();
-            Debug.Print("" + map.Layers["platforms"].Tiles.Count);
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
@@ -58,7 +59,6 @@ namespace BKP
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    Debug.Print("" + tile.X + " - " + tile.Y);
                     platforms.Add(new Platform(x, y, 70, 70, false));
                 }
             }
