@@ -71,7 +71,6 @@ namespace BKP
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    Debug.Print("" + tile.X + " - " + tile.Y);
                     platforms.Add(new Platform(x, y, 70, 70, true, gid));
                 }
             }

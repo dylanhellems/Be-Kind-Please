@@ -149,7 +149,13 @@ namespace BKP
                     // Gravity
                     if (!grounded)
                     {
-                        y_vel += gravity;
+                        if (state == 2)
+                        {
+                            y_vel += gravity * 2;
+                        }
+                        else {
+                            y_vel += gravity;
+                        }
                         if (y_vel > maxFallSpeed)
                             y_vel = maxFallSpeed;
                         spriteY += Convert.ToInt32(y_vel);
