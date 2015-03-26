@@ -11,19 +11,19 @@ namespace BKP
 {
     class Obstacle : Drawable
     {
-        public bool isLethal();
+        public bool isLethal;
 
-        public void LoadContent(ContentManager content, String str)
+        override public void LoadContent(ContentManager content, String str)
         {
 
         }
 
-        public void Draw(SpriteBatch sprite, GameTime gameTime)
+        override public void Draw(SpriteBatch sprite, GameTime gameTime)
         {
 
         }
 
-        public void Update(GameTime gameTime)
+        override public void Update(GameTime gameTime)
         {
 
         }

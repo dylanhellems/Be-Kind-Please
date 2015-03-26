@@ -13,17 +13,17 @@ namespace BKP
     {
         public double speed;
 
-        public void LoadContent(ContentManager content)
+        new public void LoadContent(ContentManager content)
         {
 
         }
 
-        public void Draw(SpriteBatch sprite, GameTime gameTime)
+        new public void Draw(SpriteBatch sprite, GameTime gameTime)
         {
 
         }
 
-        public void Update(GameTime gameTime)
+        new public void Update(GameTime gameTime)
         {
 
         }
