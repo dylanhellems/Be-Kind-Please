@@ -23,7 +23,12 @@ namespace BKP
         Vector2 screenCenter;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont font;
         Player player1;
+        int endX;
+        string time;
+        TimeSpan sinceInit;
+        GameTime timer;
         List<Platform> platforms;
         Sprite pause, rewind, ff;
         Controls controls;
@@ -49,6 +54,7 @@ namespace BKP
 
             player1 = new Player(50, 550, 50, 50);
             map = new TmxMap("Content/levels/test.tmx");
+            endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
             tiles = map.Tilesets["tiles_spritesheet"];
             platforms = new List<Platform>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
@@ -82,6 +88,9 @@ namespace BKP
             Console.WriteLine("Number of joysticks: " + Sdl.SDL_NumJoysticks());
             controls = new Controls();
 
+            timer = new GameTime();
+            time = "";
+            sinceInit = new TimeSpan(0);
         }
 
         /// <summary>
@@ -92,6 +101,7 @@ namespace BKP
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("font");
             player1.LoadContent(this.Content);
             foreach (Platform platform in platforms) {
                 platform.LoadContent(this.Content);
@@ -123,19 +133,27 @@ namespace BKP
             //set our keyboardstate tracker update can change the gamestate on every cycle
             controls.Update();
 
+            if (controls.onPress(Keys.Back, Buttons.Back)) {
+                Initialize();
+                sinceInit = new TimeSpan(0);
+            }
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
             //Up, down, left, right affect the coordinates of the sprite
-
-            player1.Update(controls, gameTime, platforms);
-            background.Update(controls, player1.getX());
+            if (!(player1.getCenterX() > endX)) { 
+                player1.Update(controls, gameTime, platforms);
+                background.Update(controls, player1.getX());
+            }
             pause.Update(cameraWorldPosition);
             rewind.Update(cameraWorldPosition);
             ff.Update(cameraWorldPosition);
 
             base.Update(gameTime);
+
+            sinceInit += gameTime.ElapsedGameTime;
         }
 
         /// <summary>
@@ -164,20 +182,38 @@ namespace BKP
             {
                 platform.Draw(spriteBatch);
             }
-            switch (player1.getState())
+            if (player1.getCenterX() > endX)
             {
-                case -1:
-                    rewind.Draw(spriteBatch);
-                    break;
-                case 0:
-                    pause.Draw(spriteBatch);
-                    break;
-                case 2:
-                    ff.Draw(spriteBatch);
-                    break;
-                default:
-                    break;
+                pause.Draw(spriteBatch);
             }
+            else
+            {
+                switch (player1.getState())
+                {
+                    case -1:
+                        rewind.Draw(spriteBatch);
+                        break;
+                    case 0:
+                        pause.Draw(spriteBatch);
+                        break;
+                    case 2:
+                        ff.Draw(spriteBatch);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (!(player1.getCenterX() > endX))
+            {
+                time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
+            }
+            else
+            {
+                spriteBatch.DrawString(font, "You Win!", cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 4)), new Color(255, 255, 255));
+            }
+
+            spriteBatch.DrawString(font, time, cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 2)), new Color(255, 255, 255));
             spriteBatch.End();
 
             base.Draw(gameTime);
