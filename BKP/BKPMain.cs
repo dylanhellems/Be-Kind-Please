@@ -25,7 +25,7 @@ namespace BKP
         SpriteBatch spriteBatch;
         SpriteFont font;
         Player player1;
-        int endX;
+        int endX, floory;
         string time;
         TimeSpan sinceInit;
         GameTime timer;
@@ -55,13 +55,14 @@ namespace BKP
             player1 = new Player(50, 550, 50, 50);
             map = new TmxMap("Content/levels/test.tmx");
             endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
+            floory = (int.Parse(map.Properties["floory"]));
             tiles = map.Tilesets["tiles_spritesheet"];
             platforms = new List<Platform>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
                 int x = tile.X*70;
-                int y = 250 + ((tile.Y - 1))*70;
+                int y = 650 - ((floory - tile.Y) * 70);
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
