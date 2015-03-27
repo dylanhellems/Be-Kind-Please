@@ -53,7 +53,7 @@ namespace BKP
             // TODO: Add your initialization logic here
 
             player1 = new Player(50, 550, 50, 50);
-            map = new TmxMap("Content/levels/test.tmx");
+            map = new TmxMap("Content/levels/level1.tmx");
             endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
             floory = (int.Parse(map.Properties["floory"]));
             tiles = map.Tilesets["tiles_spritesheet"];
@@ -174,7 +174,7 @@ namespace BKP
             // and generally you want to center it. So this then translates from the
             // origin to the center
             Vector2 translation = -cameraWorldPosition + screenCenter;
-            Matrix cameraMatrix = Matrix.CreateTranslation(translation.X, translation.Y, 0) * Matrix.CreateScale(1.5f, 1.5f, 1f);
+            Matrix cameraMatrix = Matrix.CreateTranslation(translation.X, translation.Y, 0) * Matrix.CreateScale(1.0f, 1.0f, 1f);
 
             spriteBatch.Begin(0, null, null, null, null, null, cameraMatrix);
             background.Draw(spriteBatch);

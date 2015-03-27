@@ -43,7 +43,7 @@ namespace BKP
 
 
 			// Movement
-			speed = 5;
+			speed = 7;
 			friction = .15;
 			x_accel = 0;
 			x_vel = 0;
