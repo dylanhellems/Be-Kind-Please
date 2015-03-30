@@ -11,26 +11,41 @@ namespace BKP
 {
     abstract class Drawable
     {
-        public double width;
-        public double height;
-        public double x;
-        public double y;
+        public int width;
+        public int height;
+        public int x;
+        public int y;
+        public int gid;
         public Texture2D texture;
         
-        public bool isTouching(Drawable drawable) {
-            return false;
+        public bool isTouching(Drawable d) {
+            if (this.x < (d.x + d.width) && (this.x + this.width) > d.x && this.y < (d.y + d.height) && (this.y + this.height) > d.y)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public double getCenterX() {
-            return 0;
+        public Rectangle getTile()
+        {
+            int row = gid / 12;
+            int col = gid % 12;
+            return new Rectangle(col * 71, row * 71, 70, 70);
         }
 
-        public double getCenterY() {
-            return 0;
+        public int getCenterX() {
+            return x + width / 2;
         }
 
-        abstract public void LoadContent(ContentManager content, String str);
-        abstract public void Draw(SpriteBatch sprite, GameTime gameTime);
+        public int getCenterY() {
+            return y + height / 2;
+        }
+
+        abstract public void LoadContent(ContentManager content, string str);
+        abstract public void Draw(SpriteBatch sb);
         abstract public void Update(GameTime gameTime);
     }
 }

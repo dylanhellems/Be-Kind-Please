@@ -47,9 +47,9 @@ namespace BKP
             spriteY = y;
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, string str)
         {
-            image = content.Load<Texture2D>("tiles_spritesheet");
+            image = content.Load<Texture2D>(str);
         }
 
         new public void Draw(SpriteBatch sb)

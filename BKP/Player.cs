@@ -9,12 +9,8 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace BKP
 {
-	class Player : Sprite
-    //class Player : Drawable
+	class Player : Drawable
     {
-        //private bool moving;
-        //private bool walledL;
-        //private bool walledR;
         private int state;
         private bool paused;
         private bool grounded;
@@ -24,7 +20,7 @@ namespace BKP
 		public double x_vel;
 		public double y_vel;
 		public int movedX;
-		private bool pushing;
+        private bool pushing;
 		public double gravity = .3;
 		public int maxFallSpeed = 20;
 		private int jumpPoint = 0;
@@ -32,10 +28,10 @@ namespace BKP
         
         public Player(int x, int y, int width, int height)
         {
-            this.spriteX = x;
-            this.spriteY = y;
-            this.spriteWidth = width;
-            this.spriteHeight = height;
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
 			grounded = false;
 			pushing = false;
             paused = false;
@@ -53,22 +49,22 @@ namespace BKP
         }
 
         public int getX(){
-            return spriteX;
+            return x;
         }
 
         public int getY()
         {
-            return spriteY;
+            return y;
         }
 
         public void setX(int x)
         {
-            spriteX = x;
+            this.x = x;
         }
 
         public void setY(int y)
         {
-            spriteY = y;
+            this.y = y;
         }
 
         public int getState()
@@ -76,20 +72,30 @@ namespace BKP
             return state;
         }
 
-        public void LoadContent(ContentManager content)
+        override public void LoadContent(ContentManager content, string str)
         {
-            image = content.Load<Texture2D>("prep2.png");
+            texture = content.Load<Texture2D>(str);
         }
 
-		public void Update(Controls controls, GameTime gameTime, List<Platform> platforms)
+        public override void Update(GameTime gameTime)
+        {
+            throw new NotImplementedException();
+        }
+
+		public void Update(Controls controls, GameTime gameTime, List<Drawable> platforms)
 		{
 			Jump(controls, gameTime);
             Move(controls, platforms);
 		}
 
-		public void Move(Controls controls, List<Platform> platforms)
+        override public void Draw(SpriteBatch sb)
+        {
+            sb.Draw(texture, new Rectangle(x, y, width, height), Color.White);
+        }
+
+		public void Move(Controls controls, List<Drawable> platforms)
 		{
-            // Stop
+            // Pause
             if (controls.isPressed(Keys.Down, Buttons.B))
             {
                 state = 0;
@@ -105,8 +111,8 @@ namespace BKP
                     if (pastPos.Count > 0)
                     {
                         Vector3 last = pastPos.Pop();
-                        spriteX = (int)last.X;
-                        spriteY = (int)last.Y;
+                        x = (int)last.X;
+                        y = (int)last.Y;
                         y_vel = (int)last.Z;
                         paused = false;
                     }
@@ -121,15 +127,15 @@ namespace BKP
                     if (pastPos.Count > 0)
                     {
                         Vector3 last = pastPos.Pop();
-                        spriteX = (int)last.X;
-                        spriteY = (int)last.Y;
+                        x = (int)last.X;
+                        y = (int)last.Y;
                         y_vel = last.Z;
                         checkCollisions(platforms);
                     }
                 }
                 else
                 {
-                    pastPos.Push(new Vector3(spriteX, spriteY, (float)y_vel));
+                    pastPos.Push(new Vector3(x, y, (float)y_vel));
 
                     if (controls.isPressed(Keys.Right, Buttons.RightTrigger))
                     {
@@ -144,7 +150,7 @@ namespace BKP
                     double playerFriction = pushing ? (friction * 3) : friction;
                     x_vel = x_vel * (1 - playerFriction) + x_accel * .10;
                     movedX = Convert.ToInt32(x_vel);
-                    spriteX += movedX;
+                    x += movedX;
 
                     // Gravity
                     if (!grounded)
@@ -158,7 +164,7 @@ namespace BKP
                         }
                         if (y_vel > maxFallSpeed)
                             y_vel = maxFallSpeed;
-                        spriteY += Convert.ToInt32(y_vel);
+                        y += Convert.ToInt32(y_vel);
                     }
                     else
                     {
@@ -177,38 +183,30 @@ namespace BKP
 
 		}
 
-		private void checkCollisions(List<Platform> platforms)
+		private void checkCollisions(List<Drawable> platforms)
 		{
             int lastY = (int)pastPos.Peek().Y;
             int lastX = (int)pastPos.Peek().X;
-            if (spriteY >= 700)
+            if (y >= 700)
             {
                 paused = true;
             }
-            foreach (Platform platform in platforms)
+            foreach (Drawable platform in platforms)
             {
                 if (this.isTouching(platform))
                 {
-                    Vector2 up = new Vector2(0, platform.getY());
+                    Vector2 up = new Vector2(0, platform.getCenterY());
                     up.Normalize();
                     Vector2 toPlayer = new Vector2(platform.getCenterX() - this.getCenterX(), platform.getCenterY() - this.getCenterY());
                     toPlayer.Normalize();
                     double angleToPlayer = Vector2.Dot(up, toPlayer) / (up.Length() * toPlayer.Length());
-                    if (platform.IsFloor())
-                    {
-                        angleToPlayer = 1;
-                    }
-
-                    //double horizontal = Math.Sqrt(Math.Abs((this.getCenterX() * this.getCenterX()) + (platform.getCenterX() * platform.getCenterX())));
-                    //double vertical = Math.Sqrt(Math.Abs((this.getCenterY() * this.getCenterY()) + (platform.getCenterY() * platform.getCenterY())));
-                    //Debugger.Log(0, "", angleToPlayer + "\n");
 
                     if (angleToPlayer < 0.6 && angleToPlayer > -0.6)
                     {
                         if (this.getCenterX() < platform.getCenterX())
                         {
                             // Collision on right side of player
-                            spriteX = lastX;
+                            x = lastX;
                             paused = true;
                         }
                     }
@@ -222,7 +220,7 @@ namespace BKP
                         else
                         {
                             // Collision on top side of player
-                            spriteY += 1;
+                            y += 1;
                             y_vel = 0;
                         }
                     }
@@ -247,13 +245,6 @@ namespace BKP
 			}
 		} 
 
-
-/*        public double speed;
-        public double grounded;
-        public bool paused;
-        public CappedStack<Vector3> pastPos;
-        public int state;
-
         public bool play()
         {
             return false;
@@ -273,35 +264,5 @@ namespace BKP
         {
             return false;
         }
-
-        public void jump()
-        {
-
-        }
-
-        public void checkCollisions()
-        {
-
-        }
-
-        public int getState()
-        {
-            return state;
-        }
-
-        public void LoadContent(ContentManager content)
-        {
-
-        }
-
-        public void Draw(SpriteBatch sprite, GameTime gameTime)
-        {
-
-        }
-
-        public void Update(GameTime gameTime)
-        {
-
-        } */
     }
 }

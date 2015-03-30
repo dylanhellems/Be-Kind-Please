@@ -9,32 +9,35 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace BKP
 {
-    class Obstacle : Drawable
+    class Overlay : Drawable
     {
-        public bool isLethal;
-
-        public Obstacle(int x, int y, int width, int height, int gid)
+        public Overlay(int x, int y, int width, int height)
         {
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
-            this.gid = gid;
         }
 
-        override public void LoadContent(ContentManager content, string str)
+        override public void LoadContent(ContentManager content, String str)
         {
             texture = content.Load<Texture2D>(str);
         }
 
         override public void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, new Rectangle(x, y, width, height), getTile(), Color.White);
+            sb.Draw(texture, new Rectangle(x, y, width, height), Color.White);
         }
 
-        override public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
+            throw new NotImplementedException();
+        }
 
+        public void Update(Vector2 pos)
+        {
+            x = (int)Math.Round(pos.X) - 50;
+            y = (int)Math.Round(pos.Y) - 250;
         }
     }
 }
