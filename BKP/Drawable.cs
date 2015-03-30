@@ -31,8 +31,8 @@ namespace BKP
 
         public Rectangle getTile()
         {
-            int row = gid / 12;
-            int col = gid % 12;
+            int row = (gid - 1) / 12;
+            int col = (gid - 1) % 12;
             return new Rectangle(col * 71, row * 71, 70, 70);
         }
 

@@ -237,6 +237,7 @@ namespace BKP
             }
             else
             {
+                this.y = platform.y + platform.height;
             }
         }
 
