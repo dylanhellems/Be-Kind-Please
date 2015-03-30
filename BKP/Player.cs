@@ -157,7 +157,7 @@ namespace BKP
                     {
                         if (state == 2)
                         {
-                            y_vel += gravity * 2;
+                            y_vel += gravity * 1.5;
                         }
                         else {
                             y_vel += gravity;

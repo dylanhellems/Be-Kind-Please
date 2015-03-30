@@ -25,6 +25,7 @@ namespace BKP
 
         public Overlay pause, rewind, ff;
         public List<Drawable> platforms;
+        public List<Drawable> nobstacles;
         
         public ScrollingBackground background;
         public TmxMap map;
@@ -66,6 +67,19 @@ namespace BKP
                     platforms.Add(new Obstacle(x, y, 70, 70, gid));
                 }
             }
+            nobstacles = new List<Drawable>();
+            for (int i = 0; i < map.Layers["background"].Tiles.Count; i++)
+            {
+                TmxLayerTile tile = map.Layers["background"].Tiles[i];
+                int x = tile.X * 70;
+                int y = 650 - ((floory - tile.Y) * 70);
+                int gid = tile.Gid;
+                if (gid > 0)
+                {
+                    nobstacles.Add(new NonObstacle(x, y, 70, 70, gid));
+                }
+            }
+
             pause = new Overlay(50, 400, 100, 100);
             rewind = new Overlay(50, 400, 100, 100);
             ff = new Overlay(50, 400, 100, 100);
@@ -92,6 +106,10 @@ namespace BKP
             player.LoadContent(this.Content, "prep2.png");
             foreach (Drawable platform in platforms) {
                 platform.LoadContent(this.Content, "tiles_spritesheet");
+            }
+            foreach (Drawable nobstacle in nobstacles)
+            {
+                nobstacle.LoadContent(this.Content, "tiles_spritesheet");
             }
             pause.LoadContent(this.Content, "pause");
             rewind.LoadContent(this.Content, "rewind");
@@ -159,6 +177,10 @@ namespace BKP
             foreach (Obstacle platform in platforms)
             {
                 platform.Draw(spriteBatch);
+            }
+            foreach (NonObstacle nobstacle in nobstacles)
+            {
+                nobstacle.Draw(spriteBatch);
             }
             if (player.getCenterX() > endX)
             {
