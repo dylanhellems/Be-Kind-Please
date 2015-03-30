@@ -35,6 +35,9 @@ namespace BKP
         ScrollingBackground background;
         TmxMap map;
         TmxTileset tiles;
+        Menu menu;
+        bool isInMenu;
+        bool gameOver;
 
         public BKPMain()
         {
@@ -92,6 +95,11 @@ namespace BKP
             timer = new GameTime();
             time = "";
             sinceInit = new TimeSpan(0);
+
+            isInMenu = false;
+            gameOver = false;
+
+            menu = new Menu();
         }
 
         /// <summary>
@@ -131,30 +139,40 @@ namespace BKP
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //set our keyboardstate tracker update can change the gamestate on every cycle
-            controls.Update();
+            if (isInMenu == false)
+            {
+                //set our keyboardstate tracker update can change the gamestate on every cycle
+                controls.Update();
 
-            if (controls.onPress(Keys.Back, Buttons.Back)) {
-                Initialize();
-                sinceInit = new TimeSpan(0);
+                if (controls.onPress(Keys.Back, Buttons.Back))
+                {
+                    Initialize();
+                    sinceInit = new TimeSpan(0);
+                }
+
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
+
+                // TODO: Add your update logic here
+                //Up, down, left, right affect the coordinates of the sprite
+                if (!(player1.getCenterX() > endX))
+                {
+                    player1.Update(controls, gameTime, platforms);
+                    background.Update(controls, player1.getX());
+                }
+                pause.Update(cameraWorldPosition);
+                rewind.Update(cameraWorldPosition);
+                ff.Update(cameraWorldPosition);
+
+                base.Update(gameTime);
+
+                sinceInit += gameTime.ElapsedGameTime;
             }
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            else
+            {
 
-            // TODO: Add your update logic here
-            //Up, down, left, right affect the coordinates of the sprite
-            if (!(player1.getCenterX() > endX)) { 
-                player1.Update(controls, gameTime, platforms);
-                background.Update(controls, player1.getX());
             }
-            pause.Update(cameraWorldPosition);
-            rewind.Update(cameraWorldPosition);
-            ff.Update(cameraWorldPosition);
-
-            base.Update(gameTime);
-
-            sinceInit += gameTime.ElapsedGameTime;
         }
 
         /// <summary>
@@ -163,61 +181,76 @@ namespace BKP
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(new Color(120, 174, 212));
 
-            vp = GraphicsDevice.Viewport;
-            screenCenter = new Vector2(vp.Width / 2, vp.Height / 2);
-            cameraWorldPosition = new Vector2(player1.getX() + 300, Math.Min(player1.getY() + 50, 600));
-            
-            // This first translates the camera target back to the origin (0,0).
-            // In SpriteBatch the origin normally appears in the top left of the screen
-            // and generally you want to center it. So this then translates from the
-            // origin to the center
-            Vector2 translation = -cameraWorldPosition + screenCenter;
-            Matrix cameraMatrix = Matrix.CreateTranslation(translation.X, translation.Y, 0) * Matrix.CreateScale(1.0f, 1.0f, 1f);
+            if (isInMenu == false)
+            {
+                GraphicsDevice.Clear(new Color(120, 174, 212));
 
-            spriteBatch.Begin(0, null, null, null, null, null, cameraMatrix);
-            background.Draw(spriteBatch);
-            player1.Draw(spriteBatch);
-            foreach (Platform platform in platforms)
-            {
-                platform.Draw(spriteBatch);
-            }
-            if (player1.getCenterX() > endX)
-            {
-                pause.Draw(spriteBatch);
-            }
-            else
-            {
-                switch (player1.getState())
+                vp = GraphicsDevice.Viewport;
+                screenCenter = new Vector2(vp.Width / 2, vp.Height / 2);
+                cameraWorldPosition = new Vector2(player1.getX() + 300, Math.Min(player1.getY() + 50, 600));
+
+                // This first translates the camera target back to the origin (0,0).
+                // In SpriteBatch the origin normally appears in the top left of the screen
+                // and generally you want to center it. So this then translates from the
+                // origin to the center
+                Vector2 translation = -cameraWorldPosition + screenCenter;
+                Matrix cameraMatrix = Matrix.CreateTranslation(translation.X, translation.Y, 0) * Matrix.CreateScale(1.0f, 1.0f, 1f);
+
+                spriteBatch.Begin(0, null, null, null, null, null, cameraMatrix);
+                background.Draw(spriteBatch);
+                player1.Draw(spriteBatch);
+                foreach (Platform platform in platforms)
                 {
-                    case -1:
-                        rewind.Draw(spriteBatch);
-                        break;
-                    case 0:
-                        pause.Draw(spriteBatch);
-                        break;
-                    case 2:
-                        ff.Draw(spriteBatch);
-                        break;
-                    default:
-                        break;
+                    platform.Draw(spriteBatch);
                 }
+                if (player1.getCenterX() > endX)
+                {
+                    pause.Draw(spriteBatch);
+                }
+                else
+                {
+                    switch (player1.getState())
+                    {
+                        case -1:
+                            rewind.Draw(spriteBatch);
+                            break;
+                        case 0:
+                            pause.Draw(spriteBatch);
+                            break;
+                        case 2:
+                            ff.Draw(spriteBatch);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                if (!(player1.getCenterX() > endX))
+                {
+                    time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
+                }
+                else
+                {
+                    spriteBatch.DrawString(font, "You Win!", cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 4)), new Color(255, 255, 255));
+                }
+
+                spriteBatch.DrawString(font, time, cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 2)), new Color(255, 255, 255));
+                spriteBatch.End();
+
+                base.Draw(gameTime);
             }
 
-            if (!(player1.getCenterX() > endX))
-            {
-                time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
-            }
             else
             {
-                spriteBatch.DrawString(font, "You Win!", cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 4)), new Color(255, 255, 255));
+                GraphicsDevice.Clear(Color.Aquamarine);
+                spriteBatch.Begin();
+
+                menu.isLevelSelect = false;
+
+                spriteBatch.End();
+                base.Draw(gameTime);
             }
-
-            spriteBatch.DrawString(font, time, cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 2)), new Color(255, 255, 255));
-            spriteBatch.End();
-
-            base.Draw(gameTime);
         }
     }
 
