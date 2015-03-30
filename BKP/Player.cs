@@ -223,10 +223,23 @@ namespace BKP
                             y += 1;
                             y_vel = 0;
                         }
+                        moveToStopOverlap(platform);
                     }
                 }
             }
 		}
+
+        private void moveToStopOverlap(Drawable platform)
+        {
+            if (this.y < platform.y)
+            {
+                this.y = platform.y - (this.height - 1);
+            }
+            else
+            {
+                this.y = platform.y + (platform.height - 1);
+            }
+        }
 
 		private void Jump(Controls controls, GameTime gameTime)
 		{
