@@ -12,6 +12,7 @@ namespace BKP
     class Menu
     {
         public Texture2D menuTexture;
+        public bool isLevelSelect;
 
         public void LoadContent(ContentManager manager)
         {
