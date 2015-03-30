@@ -7,14 +7,9 @@
  <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="1">
   <image source="../../../../../Downloads/tiles_spritesheet.png" trans="ffffff" width="852" height="856"/>
  </tileset>
- <layer name="floor" width="123" height="10">
-  <data encoding="base64" compression="zlib">
-   eJzt0CEOADAIA0DsnrT/fww1M7EAYuouqS2hEQAAAABU7WEm/auQ3+770z1eqfzd2aDbd5LjignW
-  </data>
- </layer>
  <layer name="platforms" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlMEOgCAIhr3afBtPvv+L1aE25gg0QmHj2/6tQwbymSkFQRDYo4AEemjMWdtdnA1fcL4KEm/s7l+j9nGl3eFqenQ2iqc9zvb6OM4gq2ldJFR5O1vR/I8zktWM1q/dMwz2DgW8x7BwUGsl38X4en4px5ZdY05HXb95lcyAWmtltjtczvLHXW6VE3rADuw=
+   eJztlMEKwCAIhrs2eptOvf+LbYcNJJxaYiX4wQc71DJ/t5SCIAjOowADOyz6bJ1dzIYvuLwKojd2129x9vXYXrkzPWYmxdMdR2v9Ms7A1bRODVVfzlYsv+OMuBrp+bV7hmJrKOB/DJOD2qt5L8bs/FIZn5w1lqk0679cNT2g9lJaz4j0fqdkPdsPytFMRmuWegPcfhhG
   </data>
  </layer>
  <layer name="background" width="123" height="10">

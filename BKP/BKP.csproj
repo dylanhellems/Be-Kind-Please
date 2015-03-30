@@ -57,10 +57,8 @@
     <Compile Include="Menu.cs" />
     <Compile Include="MovingObstacle.cs" />
     <Compile Include="Obstacle.cs" />
-    <Compile Include="Platform.cs" />
     <Compile Include="ScrollingBackground.cs" />
     <Compile Include="Controls.cs" />
-    <Compile Include="BKPMain.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
