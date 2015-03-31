@@ -154,16 +154,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\levels\L1-tutorial.tmx">
+    <None Include="Content\Levels\L1-tutorial.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Content\levels\level1.tmx">
+    <None Include="Content\Levels\level1.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Content\levels\test.tmx">
+    <None Include="Content\Levels\test.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Content\levels\test2.tmx">
+    <None Include="Content\Levels\test2.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
