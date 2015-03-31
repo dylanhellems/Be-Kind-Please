@@ -39,8 +39,6 @@ namespace BKP
         public Vector2 cameraWorldPosition, screenCenter;
 
         public Controls controls;
-        public GraphicsDeviceManager graphics;
-        public SpriteBatch spriteBatch;
         public SpriteFont font;
 
         public Player player;
@@ -49,6 +47,7 @@ namespace BKP
         public List<Drawable> platforms;
         public List<Drawable> nobstacles;
 
+        public string level;
         public ScrollingBackground background;
         public TmxMap map;
         public int endX, floory;
@@ -67,13 +66,15 @@ namespace BKP
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameplayScreen()
+        public GameplayScreen(string level = "Content/levels/test_extended.tmx")
         {
+            this.level = level;
+
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
 
             player = new Player(50, 550, 50, 50);
-            map = new TmxMap("Content/levels/test_extended.tmx");
+            map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
             platforms = new List<Drawable>();
@@ -119,7 +120,7 @@ namespace BKP
             TransitionPosition = 1.0F;
 
             player = new Player(50, 550, 50, 50);
-            map = new TmxMap("Content/levels/test_extended.tmx");
+            map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
             floory = (int.Parse(map.Properties["floory"]));
             platforms = new List<Drawable>();
