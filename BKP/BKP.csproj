@@ -50,20 +50,30 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CappedStack.cs" />
-    <Compile Include="NonObstacle.cs" />
-    <Compile Include="Overlay.cs" />
-    <Compile Include="Drawable.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MovingObstacle.cs" />
-    <Compile Include="Obstacle.cs" />
-    <Compile Include="ScrollingBackground.cs" />
-    <Compile Include="Controls.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Utilities\CappedStack.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Drawables\NonObstacle.cs" />
+    <Compile Include="Drawables\Overlay.cs" />
+    <Compile Include="Drawables\Drawable.cs" />
+    <Compile Include="Drawables\MovingObstacle.cs" />
+    <Compile Include="Drawables\Obstacle.cs" />
+    <Compile Include="ScreenManager\GameScreen.cs" />
+    <Compile Include="ScreenManager\InputState.cs" />
+    <Compile Include="ScreenManager\ScreenManager.cs" />
+    <Compile Include="Screens\BackgroundScreen.cs" />
+    <Compile Include="Screens\GameplayScreen.cs" />
+    <Compile Include="Screens\LoadingScreen.cs" />
+    <Compile Include="Screens\MainMenuScreen.cs" />
+    <Compile Include="Screens\MenuEntry.cs" />
+    <Compile Include="Screens\MenuScreen.cs" />
+    <Compile Include="Screens\MessageBoxScreen.cs" />
+    <Compile Include="Screens\OptionsMenuScreen.cs" />
+    <Compile Include="Screens\PauseMenuScreen.cs" />
+    <Compile Include="Screens\PlayerIndexEventArgs.cs" />
+    <Compile Include="Drawables\ScrollingBackground.cs" />
+    <Compile Include="Utilities\Controls.cs" />
+    <Compile Include="Drawables\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -79,6 +89,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\blank.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\fastforward.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
