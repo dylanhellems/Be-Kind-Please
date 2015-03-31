@@ -70,7 +70,7 @@
     <Compile Include="Screens\OptionsMenuScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
     <Compile Include="Screens\PlayerIndexEventArgs.cs" />
-    <Compile Include="Drawables\ScrollingBackground.cs" />
+    <Compile Include="Utilities\ScrollingBackground.cs" />
     <Compile Include="Utilities\Controls.cs" />
     <Compile Include="Drawables\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
