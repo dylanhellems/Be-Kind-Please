@@ -33,7 +33,7 @@ namespace BKP
         {
             int row = (gid - 1) / 12;
             int col = (gid - 1) % 12;
-            return new Rectangle(col * 71, row * 71, 70, 70);
+            return new Rectangle(col * 72, row * 72, 68, 68);
         }
 
         public int getCenterX() {

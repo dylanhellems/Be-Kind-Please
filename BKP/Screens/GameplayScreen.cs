@@ -73,31 +73,31 @@ namespace BKP
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
 
             player = new Player(50, 550, 50, 50);
-            map = new TmxMap("Content/levels/level1.tmx");
-            endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
+            map = new TmxMap("Content/levels/test_extended.tmx");
+            endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
             platforms = new List<Drawable>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
-                int x = tile.X * 70;
-                int y = 650 - ((floory - tile.Y) * 70);
+                int x = tile.X * 68;
+                int y = 650 - ((floory - tile.Y) * 68);
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    platforms.Add(new Obstacle(x, y, 70, 70, gid));
+                    platforms.Add(new Obstacle(x, y, 68, 68, gid));
                 }
             }
             nobstacles = new List<Drawable>();
             for (int i = 0; i < map.Layers["background"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["background"].Tiles[i];
-                int x = tile.X * 70;
-                int y = 650 - ((floory - tile.Y) * 70);
+                int x = tile.X * 68;
+                int y = 650 - ((floory - tile.Y) * 68);
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    nobstacles.Add(new NonObstacle(x, y, 70, 70, gid));
+                    nobstacles.Add(new NonObstacle(x, y, 68, 68, gid));
                 }
             }
 
@@ -119,7 +119,7 @@ namespace BKP
             TransitionPosition = 1.0F;
 
             player = new Player(50, 550, 50, 50);
-            map = new TmxMap("Content/levels/level1.tmx");
+            map = new TmxMap("Content/levels/test_extended.tmx");
             endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
             floory = (int.Parse(map.Properties["floory"]));
             platforms = new List<Drawable>();
@@ -177,11 +177,11 @@ namespace BKP
             player.LoadContent(content, "prep2.png");
             foreach (Drawable platform in platforms)
             {
-                platform.LoadContent(content, "tiles_spritesheet");
+                platform.LoadContent(content, "tiles_spritesheet_extended");
             }
             foreach (Drawable nobstacle in nobstacles)
             {
-                nobstacle.LoadContent(content, "tiles_spritesheet");
+                nobstacle.LoadContent(content, "tiles_spritesheet_extended");
             }
             pause.LoadContent(content, "pause");
             rewind.LoadContent(content, "rewind");
@@ -316,7 +316,6 @@ namespace BKP
 
             spriteBatch.Begin(0, null, null, null, null, null, cameraMatrix);
             background.Draw(spriteBatch);
-            player.Draw(spriteBatch);
             foreach (Obstacle platform in platforms)
             {
                 platform.Draw(spriteBatch);
@@ -346,6 +345,8 @@ namespace BKP
                         break;
                 }
             }
+
+            player.Draw(spriteBatch);
 
             if (!(player.getCenterX() > endX))
             {
