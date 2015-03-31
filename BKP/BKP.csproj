@@ -51,10 +51,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CappedStack.cs" />
-    <Compile Include="Platform.cs" />
+    <Compile Include="NonObstacle.cs" />
+    <Compile Include="Overlay.cs" />
+    <Compile Include="Drawable.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MovingObstacle.cs" />
+    <Compile Include="Obstacle.cs" />
     <Compile Include="ScrollingBackground.cs" />
     <Compile Include="Controls.cs" />
-    <Compile Include="BKPMain.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +97,9 @@
     <Content Include="Content\rewind.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\tiles_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
     <Content Include="SDL.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -118,6 +126,30 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContentManager\ContentManager\ContentManager.csproj">
+      <Project>{9ac895a5-776b-4848-b533-4da38dd681ad}</Project>
+      <Name>ContentManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TiledSharp\TiledSharp\TiledSharp.csproj">
+      <Project>{e4130f8d-d301-4e0c-916d-489c4a23c9b1}</Project>
+      <Name>TiledSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\levels\L1-tutorial.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\levels\level1.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\levels\test.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\levels\test2.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->
   <Target Name="BeforeResolveReferences">

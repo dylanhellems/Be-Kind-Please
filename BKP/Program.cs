@@ -18,7 +18,7 @@ namespace BKP
         [STAThread]
         static void Main()
         {
-            using (var game = new BKPMain())
+            using (var game = new Level())
                 game.Run();
         }
     }
