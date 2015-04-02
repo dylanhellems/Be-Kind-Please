@@ -50,6 +50,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Screens\LevelMenuScreen.cs" />
     <Compile Include="Utilities\CappedStack.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Drawables\NonObstacle.cs" />
