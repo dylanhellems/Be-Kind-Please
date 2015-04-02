@@ -6,9 +6,12 @@
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="Tile Layer 1" width="123" height="10">
+ <layer name="Platforms" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztz7EJAEAIBEH778BuzY0V4X8GNr+LAAAAALbl9YBB2fpN/693K3WgTIE=
+  </data>
+ </layer>
+ <layer name="Background" width="123" height="10">
+  <data encoding="base64" compression="zlib">
   </data>
  </layer>
 </map>
