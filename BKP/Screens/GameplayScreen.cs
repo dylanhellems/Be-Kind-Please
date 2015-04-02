@@ -196,7 +196,7 @@ namespace BKP
             ScreenManager.Game.ResetElapsedTime();
         }
 
-
+        
         /// <summary>
         /// Unload graphics content used by the game.
         /// </summary>
