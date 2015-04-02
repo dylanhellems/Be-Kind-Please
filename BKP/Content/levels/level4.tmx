@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="130" height="100" tilewidth="70" tileheight="70" nextobjectid="1">
+ <properties>
+  <property name="endx" value="118"/>
+  <property name="floory" value="9"/>
+ </properties>
+ <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
+  <image source="../../../../../Be-Kind-Please-menu-system(2)/Be-Kind-Please-menu-system/BKP/Content/tiles_spritesheet_extended.png" width="914" height="936"/>
+ </tileset>
+ <layer name="platforms" width="130" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1sENgzAMAEDWYpj+u0BH6N79tB+EKmOckIg7yU8bETuGZeHnPUHQXqYPZ3OO1qO9bA+q+3bnOVi/caWj9/lfbiTnSL27zMEIoude1etovZHmYN1EZc1RZL/bkXrZf8HR5mA2mXOL3Nnec7Ct01vk7mf2Q+sdULlLs32sipnt7bVez60+0xnmoGpmnoF47OS9grnbOCv73Ehc3fdItHp3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+vgA2zPAtg==
+  </data>
+ </layer>
+ <layer name="background" width="130" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6BVs38pC+z3EBKQAAAAAPDVXAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAagHH5QBC
+  </data>
+ </layer>
+</map>
