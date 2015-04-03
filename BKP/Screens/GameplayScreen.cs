@@ -118,7 +118,6 @@ namespace BKP
         public void Initialize()
         {
             TransitionPosition = 1.0F;
-
             player = new Player(50, 550, 50, 50);
             map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
@@ -173,9 +172,19 @@ namespace BKP
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
             gameFont = content.Load<SpriteFont>("gamefont");
-
-            font = content.Load<SpriteFont>("font");
-            player.LoadContent(content, "prep2.png");
+            List<string> walks = new List<string>();
+            for (int i = 1; i < 12; i++)
+            {
+                if (i < 10)
+                {
+                    walks.Add("Player/p2_walk0" + i);
+                }
+                else
+                {
+                    walks.Add("Player/p2_walk" + i);
+                }
+            }
+            player.LoadContent(content, walks, "Player/p2_jump.png");
             foreach (Drawable platform in platforms)
             {
                 platform.LoadContent(content, "tiles_spritesheet_extended");
@@ -220,6 +229,10 @@ namespace BKP
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+
+            vp = ScreenManager.GraphicsDevice.Viewport;
+            screenCenter = new Vector2(vp.Width / 2, vp.Height / 2);
+            cameraWorldPosition = new Vector2(player.getX() + 300, Math.Min(player.getY() + 50, 600));
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
             if (coveredByOtherScreen)
@@ -304,10 +317,6 @@ namespace BKP
             // Our player and enemy are both actually just text strings.
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
-            vp = ScreenManager.GraphicsDevice.Viewport;
-            screenCenter = new Vector2(vp.Width / 2, vp.Height / 2);
-            cameraWorldPosition = new Vector2(player.getX() + 300, Math.Min(player.getY() + 50, 600));
-
             // This first translates the camera target back to the origin (0,0).
             // In SpriteBatch the origin normally appears in the top left of the screen
             // and generally you want to center it. So this then translates from the
@@ -355,10 +364,10 @@ namespace BKP
             }
             else
             {
-                spriteBatch.DrawString(font, "You Win!", cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 4)), new Color(255, 255, 255));
+                spriteBatch.DrawString(gameFont, "You Win!", cameraWorldPosition - (new Vector2(70, vp.Height / 4)), Color.Black);
             }
 
-            spriteBatch.DrawString(font, time, cameraWorldPosition - (new Vector2(vp.Width / 4, vp.Height / 2)), new Color(255, 255, 255));
+            spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), Color.Black);
             spriteBatch.End();
 
             // If the game is transitioning on or off, fade it out to black.

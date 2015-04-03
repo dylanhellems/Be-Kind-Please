@@ -36,8 +36,8 @@ namespace BKP
 
         public void Update(Vector2 pos)
         {
-            x = (int)Math.Round(pos.X) - 50;
-            y = (int)Math.Round(pos.Y) - 250;
+            x = (int)Math.Floor(pos.X) + 300;
+            y = (int)Math.Floor(pos.Y) - 250;
         }
     }
 }

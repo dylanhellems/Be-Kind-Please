@@ -58,7 +58,7 @@ namespace BKP
         void Level1MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
-                               new GameplayScreen("Content/levels/test_extended.tmx"));
+                               new GameplayScreen("Content/levels/level1.tmx"));
         }
 
         void Level2MenuEntrySelected(object sender, PlayerIndexEventArgs e)

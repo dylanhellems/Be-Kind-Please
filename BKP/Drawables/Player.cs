@@ -25,6 +25,10 @@ namespace BKP
 		public int maxFallSpeed = 20;
 		private int jumpPoint = 0;
         private CappedStack<Vector3> pastPos;
+        private Texture2D texJump;
+        private List<Texture2D> texWalks;
+        private int animCount;
+        private int lastFrame;
         
         public Player(int x, int y, int width, int height)
         {
@@ -36,6 +40,9 @@ namespace BKP
 			pushing = false;
             paused = false;
             state = 1;
+            animCount = 0;
+            lastFrame = 0;
+            texWalks = new List<Texture2D>();
 
 
 			// Movement
@@ -72,9 +79,18 @@ namespace BKP
             return state;
         }
 
-        override public void LoadContent(ContentManager content, string str)
+        public override void LoadContent(ContentManager content, string str)
         {
-            texture = content.Load<Texture2D>(str);
+            throw new NotImplementedException();
+        }
+
+        public void LoadContent(ContentManager content, List<string> walks, string jump)
+        {
+            foreach (string walk in walks)
+            {
+                texWalks.Add(content.Load<Texture2D>(walk));
+            }
+            texJump = content.Load<Texture2D>(jump);
         }
 
         public override void Update(GameTime gameTime)
@@ -86,11 +102,42 @@ namespace BKP
 		{
 			Jump(controls, gameTime);
             Move(controls, platforms);
+            lastFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (lastFrame > 50 && state != 0) {
+                lastFrame = 0;
+                if (state == 1)
+                {
+                    animCount++;
+                }
+                else if (state == -1)
+                {
+                    animCount--;
+                }
+                else
+                {
+                    animCount += 2;
+                }
+                if (animCount > 10)
+                {
+                    animCount = 0;
+                }
+                if (animCount < 0)
+                {
+                    animCount = 10;
+                }
+            }
 		}
 
         override public void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, new Rectangle(x, y, width, height), Color.White);
+            if (!grounded)
+            {
+                sb.Draw(texJump, new Rectangle(x, y, width, height), Color.White);
+            }
+            else
+            {
+                sb.Draw(texWalks[animCount], new Rectangle(x, y, width, height), Color.White);
+            }
         }
 
 		public void Move(Controls controls, List<Drawable> platforms)
