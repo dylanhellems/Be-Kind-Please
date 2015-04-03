@@ -31,7 +31,7 @@ namespace BKP
             MenuEntry level1MenuEntry = new MenuEntry("Act 1");
             MenuEntry level2MenuEntry = new MenuEntry("Act 2");
             MenuEntry level3MenuEntry = new MenuEntry("Act 3");
-            MenuEntry level4MenuEntry = new MenuEntry("Boss");
+            MenuEntry level4MenuEntry = new MenuEntry("Prologue");
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
