@@ -364,10 +364,10 @@ namespace BKP
             }
             else
             {
-                spriteBatch.DrawString(gameFont, "You Win!", cameraWorldPosition - (new Vector2(70, vp.Height / 4)), Color.Black);
+                spriteBatch.DrawString(gameFont, "You Win!", cameraWorldPosition - (new Vector2(70, vp.Height / 4)), Color.White);
             }
 
-            spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), Color.Black);
+            spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), Color.White);
             spriteBatch.End();
 
             // If the game is transitioning on or off, fade it out to black.
