@@ -9,11 +9,12 @@
  </tileset>
  <layer name="background" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1vBqAAAAAAgDcTOAAB
+   eJztzgENAAAIA6BXs38pY9xNSEACAFw07QAAADy3A/kAQg==
   </data>
  </layer>
  <layer name="platforms" width="123" height="10">
   <data encoding="base64" compression="zlib">
+   eJztlsENgCAMRVnIARzAMbzrXQfwwBBuKx5MSIPybUslkZ/8eKFQ+9qAc01UO+gmubbgKXhmxg/B/YO7THytrM+6cGuiravGuVrWrq9ZX72e63d0nUQ1MvXkqyEuU6+ch5Vqz9snrKW3rDl5xLMpnU+6F7pnqfppaXXp/5rA+Hj9yIhBvBCj51gpNSelWb95i8WMJfdovB7ljt7jd6bsrYX2aKmzOHEab6a72KcaSFl//Y63zEubSwnWlrZWY/0f1ge+HrZ5
   </data>
  </layer>
  <layer name="moving" width="123" height="10">
