@@ -9,7 +9,7 @@
  </tileset>
  <layer name="background" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6BXs38pY9xNSEACAFw07QAAADy3A/kAQg==
+   eJztzjEBAAAIwKDVsX9BY+gBCSgA4Ju5DgAAAC3unwAq
   </data>
  </layer>
  <layer name="platforms" width="123" height="10">
