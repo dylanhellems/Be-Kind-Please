@@ -5,7 +5,7 @@
   <property name="floory" value="7"/>
  </properties>
  <tileset firstgid="1" name="spritesheet" tilewidth="70" tileheight="70" spacing="2">
-  <image source="../Be-Kind-Please/BKP/Content/tiles_spritesheet_extended.png" width="914" height="936"/>
+  <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
  <layer name="background" width="123" height="10">
   <data encoding="base64" compression="zlib">
