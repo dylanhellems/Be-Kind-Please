@@ -5,7 +5,7 @@
   <property name="floory" value="9"/>
  </properties>
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
-  <image source="../../../../../Be-Kind-Please-menu-system(2)/Be-Kind-Please-menu-system/BKP/Content/tiles_spritesheet_extended.png" width="914" height="936"/>
+  <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
  <layer name="platforms" width="130" height="100">
   <data encoding="base64" compression="zlib">
@@ -14,7 +14,7 @@
  </layer>
  <layer name="background" width="130" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzkERAAAEADB1xNC/lAL+3NkSLALgntwOAAAAPFHbAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDUlOkAaw==
+   eJzt10ERAAAIw7DZwb9BZLA7EgX9NgHoM9cBAAAAT/gvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6LQ7igBT
   </data>
  </layer>
 </map>
