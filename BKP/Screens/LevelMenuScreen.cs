@@ -25,7 +25,7 @@ namespace BKP
         /// Constructor fills in the menu contents.
         /// </summary>
         public LevelMenuScreen()
-            : base("Select a level")
+            : base("")
         {
             // Create our menu entries.
             MenuEntry level1MenuEntry = new MenuEntry("Act 1");

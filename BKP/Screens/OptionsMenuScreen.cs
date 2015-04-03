@@ -52,7 +52,7 @@ namespace BKP
         /// Constructor.
         /// </summary>
         public OptionsMenuScreen()
-            : base("Options")
+            : base("")
         {
             // Create our menu entries.
             ungulateMenuEntry = new MenuEntry(string.Empty);
