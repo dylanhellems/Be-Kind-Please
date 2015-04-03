@@ -7,14 +7,14 @@
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="platforms" width="123" height="10">
-  <data encoding="base64" compression="zlib">
-   eJztlNENgCAMRPl1AAdwDDdyke6g2wofJkRBrqWg0b7kEqIUSq/gnNGTOVJNrCTewDnX2uotQ7Pfn/agJhdp7OS1FGRceUvPoASfR6+toFZQNM71Kjkeb7q7B9wzaIP63Mvrmjnae0rjkDcyaGiw911OqM9aXqfuW+kMMzAnXhsht17qOydXTk1Xh/tNkbhwfQ7S7FXKjJH5GqTWQ+p5909SU8RvSghFkhMnd6QnvihpTVvWTJqT8R929BuJnQ==
-  </data>
- </layer>
  <layer name="background" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DXsX9BY3w6SEACXDbtAAAAADy1jOoAKg==
+   eJztzgENAAAIA6DXsX9BY3w6SEACXDftAAAAADy0jEYAKg==
+  </data>
+ </layer>
+ <layer name="platforms" width="123" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztlWEKgDAIhXetDtP/LuIhum31YzDK0DdtE/KDBxFzs6euUpKRLI0ssT3xiZ671+l3H579PrsGllwssZug5EmUnkGgU7ugL8+uvPUqFYxIs1tBv8Gb1ocItbas8T7TEifdkT33pKcHI2rNzZtXrZEZftuPe4/meiF5ifpJjVA4T6TcNL26Arlzz5r1HnD7afycUWtiZEWTn0c//EHRvZr1v07icQDDVn8J
   </data>
  </layer>
 </map>
