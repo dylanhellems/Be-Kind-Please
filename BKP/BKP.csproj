@@ -204,7 +204,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Levels\level3.tmx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Levels\level4.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
