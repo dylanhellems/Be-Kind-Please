@@ -7,14 +7,14 @@
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="background" width="123" height="10">
-  <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DXsX9BY3xOSEACwAXTDgAAADyzPh4AKg==
-  </data>
- </layer>
  <layer name="platforms" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlNEJgDAMRPvrAA7gGG7kIt1Bt9V+CEVafUkbFMmDA7FNG+6iITiOY8GcqaVWU+9wrl673zp6zvvbGbT0oq2dDi0PsiIanm3NV2aGknIeD20PsiLPujar0nn40rd78vZM05x7ZV3KgHhA9khy1fpO6sg/MmkwuPuuJ5pz7+86Vp5LzGBPy/3kPV2XeLoGnnfMJEWac1LPWZVkTfdIKJ1H/Lxb03hK8o4FUTQ9SXonM/FHaT219Ezb0w6D9oo1
+   eJztlNENgCAMRPl1AAdwDDdyke6g2wofJkRBrqWg0b7kEqIUSq/gnNGTOVJNrCTewDnX2uotQ7Pfn/agJhdp7OS1FGRceUvPoASfR6+toFZQNM71Kjkeb7q7B9wzaIP63Mvrmjnae0rjkDcyaGiw911OqM9aXqfuW+kMMzAnXhsht17qOydXTk1Xh/tNkbhwfQ7S7FXKjJH5GqTWQ+p5909SU8RvSghFkhMnd6QnvihpTVvWTJqT8R929BuJnQ==
+  </data>
+ </layer>
+ <layer name="background" width="123" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6DXsX9BY3w6SEACXDbtAAAAADy1jOoAKg==
   </data>
  </layer>
 </map>
