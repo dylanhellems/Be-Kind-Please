@@ -9,17 +9,22 @@
  </tileset>
  <layer name="background" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzjEBAAAIwKDVsX9BY+gBCSgA4Ju5DgAAAC3unwAq
+   eJztzjEBAAAIwKBVs38pY+gBCSgA4Ju5DgAAAC0E/QBC
   </data>
  </layer>
  <layer name="platforms" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlsENgCAMRVnIARzAMbzrXQfwwBBuKx5MSIPybUslkZ/8eKFQ+9qAc01UO+gmubbgKXhmxg/B/YO7THytrM+6cGuiravGuVrWrq9ZX72e63d0nUQ1MvXkqyEuU6+ch5Vqz9snrKW3rDl5xLMpnU+6F7pnqfppaXXp/5rA+Hj9yIhBvBCj51gpNSelWb95i8WMJfdovB7ljt7jd6bsrYX2aKmzOHEab6a72KcaSFl//Y63zEubSwnWlrZWY/0f1ge+HrZ5
+   eJztlsENgCAMRVnIARzAMbzrXQfwwBBuKx5MSIPybUslkZ/8eGmh9kGoc01UO+gmubbgKXhm5g/B/YO7TH6trM++cHuiravHuV7Wrq9ZX2c9d97ROIlqZOrJV0Ncpl65DivVXrdPWEtvWXPqiO+m9H7StdA1S/VPS6tL/9cE5sfxIyMH8UKM7mMtS9ZvZrGYseQdjeNR7ug7fmfK3lroGS21FydPY2a6y33qgZT113O8ZV3aXEqwtrS1Guv/sD4A03q1bw==
   </data>
  </layer>
  <layer name="moving" width="123" height="10">
   <data encoding="base64" compression="zlib">
    eJzt1jENACAQBME3hAAE4AVk4Jw3ABXJNzPJ9ldeBNTZ2cxW9RCuRtazVj0EAPjOFwOAtwOm5wNQ
+  </data>
+ </layer>
+ <layer name="foreground" width="123" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1vBqAAAAAAgDcTOAAB
   </data>
  </layer>
 </map>

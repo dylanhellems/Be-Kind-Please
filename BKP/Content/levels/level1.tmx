@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="123" height="10" tilewidth="70" tileheight="70" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="130" height="15" tilewidth="70" tileheight="70" nextobjectid="1">
  <properties>
   <property name="endx" value="118"/>
   <property name="floory" value="9"/>
@@ -7,14 +7,19 @@
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="platforms" width="123" height="10">
+ <layer name="foreground" width="130" height="15">
   <data encoding="base64" compression="zlib">
-   eJztk9sJwCAMRf3tSG7kAh3BHeq27YeFIEl8ETWQAxf64Ss5qXOGYRjn4UEMOST6LO3OZkMXNV8eiUZ21iBx7/0l5NTu1OqsBU019r4VOk45qwkg1+RZcf45W5H+j1OR1cC7H0f7jsU3DLaGA9aPpQa3d+ZcjNH55Ryf4JryjTltdU15pepv6QG3l8uKGWmt8QTXv+/RvvR6Xen6Be9mYjQ=
+   eJzt1MEJACAQA0ELsi/770AsImpgBu4fZHEMAACADuvy8ad5+X6kXR0cTZtTf68Oujan3loHXZt1kNO0WQc5TZt1kNO0WQc5LzZvnvRMfg==
   </data>
  </layer>
- <layer name="background" width="123" height="10">
+ <layer name="platforms" width="130" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzjENAAAMA6DamX+DM9GkDyggAQAAoOXWAQBqHgI7ACo=
+   eJztk8sNgCAQRLlakh3RgCXYg3SrB002huWzsrCSeckkHhRY5ukcAADMw0oCxqDRgXav8GYecl2ukfwRqzNonGm74u/k9rR0F62ZZcbaOWj/4U5vPMnyca39+3HMov3/h1d6Q/c+HO/C/nqmib2Tgs4fS47Ut9JIkHqf6t+CB5wLsb5LPeA65+YvuYPUt9L08Kd0fgsePC60/NdqO5GceVRq0Fq3BaPvER7AA3gAD+ABPIAH8MCqByckB2WA
+  </data>
+ </layer>
+ <layer name="background" width="130" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6BXs38pY3xTSEACAADAN9MOAAAAAKcsSiAAQg==
   </data>
  </layer>
 </map>
