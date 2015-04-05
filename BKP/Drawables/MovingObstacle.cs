@@ -13,10 +13,13 @@ namespace BKP
     {
         public int speed;
         public int type;
+        public int initX, initY;
 
         public MovingObstacle(int x, int y, int width, int height, int gid, int speed, int type) 
             : base(x, y, width, height, gid)
         {
+            this.initX = x;
+            this.initY = y;
             this.speed = speed;
             this.type = type;
         }
