@@ -44,8 +44,8 @@ namespace BKP
         public Player player;
 
         public Overlay pause, rewind, ff;
-        public List<Drawable> platforms;
-        public List<Drawable> nobstacles;
+        public List<Obstacle> platforms;
+        public List<NonObstacle> nobstacles;
 
         public string level;
         public ScrollingBackground background;
@@ -77,7 +77,7 @@ namespace BKP
             map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
-            platforms = new List<Drawable>();
+            platforms = new List<Obstacle>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
@@ -86,10 +86,10 @@ namespace BKP
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    platforms.Add(new Obstacle(x, y, 68, 68, gid));
+                    platforms.Add(new Obstacle(x, y, 68, 68, gid, false));
                 }
             }
-            nobstacles = new List<Drawable>();
+            nobstacles = new List<NonObstacle>();
             for (int i = 0; i < map.Layers["background"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["background"].Tiles[i];
@@ -122,7 +122,7 @@ namespace BKP
             map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
             floory = (int.Parse(map.Properties["floory"]));
-            platforms = new List<Drawable>();
+            platforms = new List<Obstacle>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
@@ -131,10 +131,10 @@ namespace BKP
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    platforms.Add(new Obstacle(x, y, 70, 70, gid));
+                    platforms.Add(new Obstacle(x, y, 70, 70, gid, false));
                 }
             }
-            nobstacles = new List<Drawable>();
+            nobstacles = new List<NonObstacle>();
             for (int i = 0; i < map.Layers["background"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["background"].Tiles[i];
@@ -230,9 +230,12 @@ namespace BKP
         {
             base.Update(gameTime, otherScreenHasFocus, false);
 
-            vp = ScreenManager.GraphicsDevice.Viewport;
-            screenCenter = new Vector2(vp.Width / 2, vp.Height / 2);
-            cameraWorldPosition = new Vector2(player.getX() + 300, Math.Min(player.getY() + 50, 600));
+            if (!(player.getCenterX() > endX))
+            {
+                vp = ScreenManager.GraphicsDevice.Viewport;
+                screenCenter = new Vector2(vp.Width / 2, vp.Height / 2);
+                cameraWorldPosition = new Vector2(player.getX() + 300, Math.Min(player.getY() + 50, 600));
+            }
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
             if (coveredByOtherScreen)
@@ -258,8 +261,12 @@ namespace BKP
                 //Up, down, left, right affect the coordinates of the sprite
                 if (!(player.getCenterX() > endX))
                 {
-                    player.Update(controls, gameTime, platforms);
+                    player.Update(controls, gameTime, platforms, false);
                     background.Update(controls, player.getX());
+                }
+                else
+                {
+                    player.Update(controls, gameTime, platforms, true);
                 }
                 pause.Update(cameraWorldPosition);
                 rewind.Update(cameraWorldPosition);
@@ -334,11 +341,7 @@ namespace BKP
             {
                 nobstacle.Draw(spriteBatch);
             }
-            if (player.getCenterX() > endX)
-            {
-                pause.Draw(spriteBatch);
-            }
-            else
+            if (!(player.getCenterX() > endX))
             {
                 switch (player.getState())
                 {

@@ -13,13 +13,14 @@ namespace BKP
     {
         public bool isLethal;
 
-        public Obstacle(int x, int y, int width, int height, int gid)
+        public Obstacle(int x, int y, int width, int height, int gid, bool isLethal)
         {
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
             this.gid = gid;
+            this.isLethal = isLethal;
         }
 
         override public void LoadContent(ContentManager content, string str)
@@ -35,6 +36,11 @@ namespace BKP
         override public void Update(GameTime gameTime)
         {
 
+        }
+
+        public bool IsLethal()
+        {
+            return isLethal;
         }
     }
 }

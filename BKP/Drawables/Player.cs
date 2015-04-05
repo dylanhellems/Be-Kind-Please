@@ -79,6 +79,11 @@ namespace BKP
             return state;
         }
 
+        public void setState(int state)
+        {
+            this.state = state;
+        }
+
         public override void LoadContent(ContentManager content, string str)
         {
             throw new NotImplementedException();
@@ -98,32 +103,70 @@ namespace BKP
             throw new NotImplementedException();
         }
 
-		public void Update(Controls controls, GameTime gameTime, List<Drawable> platforms)
+		public void Update(Controls controls, GameTime gameTime, List<Obstacle> platforms, bool levelComplete)
 		{
-			Jump(controls, gameTime);
-            Move(controls, platforms);
-            lastFrame += gameTime.ElapsedGameTime.Milliseconds;
-            if (lastFrame > 50 && state != 0) {
-                lastFrame = 0;
-                if (state == 1)
+            if (levelComplete)
+            {
+                state = 1;
+                x_accel = speed;
+                double playerFriction = pushing ? (friction * 3) : friction;
+                x_vel = x_vel * (1 - playerFriction) + x_accel * .10;
+                movedX = Convert.ToInt32(x_vel);
+                x += movedX;
+
+                // Gravity
+                if (!grounded)
                 {
-                    animCount++;
-                }
-                else if (state == -1)
-                {
-                    animCount--;
+                    if (state == 2)
+                    {
+                        y_vel += gravity * 1.5;
+                    }
+                    else
+                    {
+                        y_vel += gravity;
+                    }
+                    if (y_vel > maxFallSpeed)
+                        y_vel = maxFallSpeed;
+                    y += Convert.ToInt32(y_vel);
                 }
                 else
                 {
-                    animCount += 2;
+                    y_vel = 1;
                 }
-                if (animCount > 10)
+
+                grounded = false;
+
+                // Check up/down collisions, then left/right
+                checkCollisions(platforms);
+            }
+            else
+            {
+                Jump(controls, gameTime);
+                Move(controls, platforms);
+                lastFrame += gameTime.ElapsedGameTime.Milliseconds;
+                if (lastFrame > 50 && state != 0)
                 {
-                    animCount = 0;
-                }
-                if (animCount < 0)
-                {
-                    animCount = 10;
+                    lastFrame = 0;
+                    if (state == 1)
+                    {
+                        animCount++;
+                    }
+                    else if (state == -1)
+                    {
+                        animCount--;
+                    }
+                    else
+                    {
+                        animCount += 2;
+                    }
+                    if (animCount > 10)
+                    {
+                        animCount = 0;
+                    }
+                    if (animCount < 0)
+                    {
+                        animCount = 10;
+                    }
                 }
             }
 		}
@@ -140,7 +183,7 @@ namespace BKP
             }
         }
 
-		public void Move(Controls controls, List<Drawable> platforms)
+		public void Move(Controls controls, List<Obstacle> platforms)
 		{
             // Pause
             if (controls.isPressed(Keys.Down, Buttons.B))
@@ -220,28 +263,30 @@ namespace BKP
 
                     grounded = false;
 
-                    
-
                     // Check up/down collisions, then left/right
                     checkCollisions(platforms);
                 }
             }
-            
-
 		}
 
-		private void checkCollisions(List<Drawable> platforms)
+		private void checkCollisions(List<Obstacle> platforms)
 		{
             int lastY = (int)pastPos.Peek().Y;
             int lastX = (int)pastPos.Peek().X;
-            if (y >= 700)
+            if (y >= 800)
             {
                 paused = true;
             }
-            foreach (Drawable platform in platforms)
+            foreach (Obstacle platform in platforms)
             {
                 if (this.isTouching(platform))
                 {
+                    if (platform.IsLethal())
+                    {
+                        // Collision with lethal obstacle
+                        x = lastX;
+                        paused = true;
+                    }
                     Vector2 up = new Vector2(0, platform.getCenterY());
                     up.Normalize();
                     Vector2 toPlayer = new Vector2(platform.getCenterX() - this.getCenterX(), platform.getCenterY() - this.getCenterY());

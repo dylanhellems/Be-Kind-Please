@@ -15,8 +15,8 @@ namespace BKP
         public int type;
         public int initX, initY;
 
-        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, int type) 
-            : base(x, y, width, height, gid)
+        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, bool isLethal, int type) 
+            : base(x, y, width, height, gid, isLethal)
         {
             this.initX = x;
             this.initY = y;
