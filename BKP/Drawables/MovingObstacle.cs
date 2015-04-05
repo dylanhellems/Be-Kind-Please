@@ -12,25 +12,24 @@ namespace BKP
     class MovingObstacle : Obstacle
     {
         public int speed;
+        public int type;
 
-        public MovingObstacle(int x, int y, int width, int height, int gid, int speed) 
+        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, int type) 
             : base(x, y, width, height, gid)
         {
             this.speed = speed;
-        }
-
-        override public void LoadContent(ContentManager content, string str)
-        {
-
-        }
-
-        override public void Draw(SpriteBatch sb)
-        {
-
+            this.type = type;
         }
 
         override public void Update(GameTime gameTime)
         {
+            switch (type)
+            {
+                case 0:
+                    break;
+                default:
+                    break;
+            }
 
         }
     }
