@@ -220,7 +220,7 @@ namespace BKP
                         x = (int)last.X;
                         y = (int)last.Y;
                         y_vel = last.Z;
-                        checkCollisions(platforms);
+                        //checkCollisions(platforms);
                     }
                 }
                 else

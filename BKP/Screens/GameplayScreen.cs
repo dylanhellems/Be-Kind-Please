@@ -89,6 +89,16 @@ namespace BKP
                     platforms.Add(new Obstacle(x, y, 68, 68, gid, false));
                 }
             }
+            for (int i = 0; i < map.Layers["circular"].Tiles.Count; i++)
+            {
+                TmxLayerTile tile = map.Layers["circular"].Tiles[i];
+                int x = tile.X * 68;
+                int y = 650 - ((floory - tile.Y) * 68);
+                int gid = tile.Gid;
+                if (gid > 0)
+                {
+                }
+            }
             nobstacles = new List<NonObstacle>();
             for (int i = 0; i < map.Layers["background"].Tiles.Count; i++)
             {
@@ -273,7 +283,10 @@ namespace BKP
                 ff.Update(cameraWorldPosition);
 
                 //base.Update(gameTime);
-
+                foreach (Obstacle platform in platforms)
+                {
+                    platform.Update(gameTime);
+                }
                 sinceInit += gameTime.ElapsedGameTime;
             }
         }

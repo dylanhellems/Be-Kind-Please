@@ -14,14 +14,16 @@ namespace BKP
         public int speed;
         public int type;
         public int initX, initY;
+        public int dir;
 
-        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, bool isLethal, int type) 
+        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, int dir, bool isLethal, int type) 
             : base(x, y, width, height, gid, isLethal)
         {
             this.initX = x;
             this.initY = y;
             this.speed = speed;
             this.type = type;
+            this.dir = dir;
         }
 
         override public void Update(GameTime gameTime)
@@ -29,6 +31,22 @@ namespace BKP
             switch (type)
             {
                 case 0:
+                    if (dir == 1)
+                    {
+                        x += speed;
+                    }
+                    if (dir == 0)
+                    {
+                        x -= speed;
+                    }
+                    if (x > initX + 300)
+                    {
+                        dir = 0;
+                    }
+                    if (x < initX - 300)
+                    {
+                        dir = 1;
+                    }
                     break;
                 default:
                     break;
