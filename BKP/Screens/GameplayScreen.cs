@@ -97,6 +97,7 @@ namespace BKP
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
+                    platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
                 }
             }
             nobstacles = new List<NonObstacle>();
