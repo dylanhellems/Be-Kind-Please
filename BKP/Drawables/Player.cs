@@ -24,7 +24,7 @@ namespace BKP
 		public double gravity = .3;
 		public int maxFallSpeed = 20;
 		private int jumpPoint = 0;
-        private CappedStack<Vector3> pastPos;
+        private CappedStack<Vector4> pastPos;
         private Texture2D texJump;
         private List<Texture2D> texWalks;
         private int animCount;
@@ -52,7 +52,7 @@ namespace BKP
 			x_vel = 0;
 			y_vel = 0;
 			movedX = 0;
-            pastPos = new CappedStack<Vector3>(0);
+            pastPos = new CappedStack<Vector4>(0);
         }
 
         public int getX(){
@@ -200,10 +200,11 @@ namespace BKP
                     state = -1;
                     if (pastPos.Count > 0)
                     {
-                        Vector3 last = pastPos.Pop();
+                        Vector4 last = pastPos.Pop();
                         x = (int)last.X;
                         y = (int)last.Y;
                         y_vel = (int)last.Z;
+                        grounded = (int)last.W == 0 ? false : true;
                         paused = false;
                     }
                 }
@@ -216,16 +217,17 @@ namespace BKP
                     state = -1;
                     if (pastPos.Count > 0)
                     {
-                        Vector3 last = pastPos.Pop();
+                        Vector4 last = pastPos.Pop();
                         x = (int)last.X;
                         y = (int)last.Y;
                         y_vel = last.Z;
+                        grounded = (int)last.W == 0 ? false : true;
                         //checkCollisions(platforms);
                     }
                 }
                 else
                 {
-                    pastPos.Push(new Vector3(x, y, (float)y_vel));
+                    pastPos.Push(new Vector4(x, y, (float)y_vel, grounded ? 1 : 0));
 
                     if (controls.isPressed(Keys.Right, Buttons.RightTrigger))
                     {
