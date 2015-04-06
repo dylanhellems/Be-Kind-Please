@@ -147,18 +147,18 @@ namespace BKP
             TransitionPosition = 1.0F;
             player = new Player(150, 600, 50, 50);
             map = new TmxMap(level);
-            endX = (int.Parse(map.Properties["endx"]) + 1) * 70;
+            endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
             platforms = new List<Obstacle>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
                 TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
-                int x = tile.X * 70;
-                int y = 650 - ((floory - tile.Y) * 70);
+                int x = tile.X * 68;
+                int y = 650 - ((floory - tile.Y) * 68);
                 int gid = tile.Gid;
                 if (gid > 0)
                 {
-                    platforms.Add(new Obstacle(x, y, 70, 70, gid, false));
+                    platforms.Add(new Obstacle(x, y, 68, 68, gid, false));
                 }
             }
             backNobstacles = new List<NonObstacle>();
