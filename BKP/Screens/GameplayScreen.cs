@@ -90,17 +90,17 @@ namespace BKP
                 }
             }
 
-            for (int i = 0; i < map.Layers["circular"].Tiles.Count; i++)
-            {
-                TmxLayerTile tile = map.Layers["circular"].Tiles[i];
-                int x = tile.X * 68;
-                int y = 650 - ((floory - tile.Y) * 68);
-                int gid = tile.Gid;
-                if (gid > 0)
-                {
-                    platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
-                }
-            }
+            //for (int i = 0; i < map.Layers["leftright"].Tiles.Count; i++)
+            //{
+               // TmxLayerTile tile = map.Layers["leftright"].Tiles[i];
+               // int x = tile.X * 68;
+               // int y = 650 - ((floory - tile.Y) * 68);
+               // int gid = tile.Gid;
+               // if (gid > 0)
+               // {
+               //     platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
+               // }
+            //}
             //nobstacles = new List<NonObstacle>();
 
             backNobstacles = new List<NonObstacle>();
