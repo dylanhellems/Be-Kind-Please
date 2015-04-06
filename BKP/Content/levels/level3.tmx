@@ -2,19 +2,24 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="123" height="10" tilewidth="70" tileheight="70" nextobjectid="1">
  <properties>
   <property name="endx" value="118"/>
-  <property name="floory" value="8"/>
+  <property name="floory" value="7"/>
  </properties>
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
  <layer name="background" width="123" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DXsX9BY3w6SEACXDftAAAAADy0jEYAKg==
+   eJztzgENAAAIA6BXs38pY3w6SEACXDftAAAAADy0/tUAQg==
   </data>
  </layer>
  <layer name="platforms" width="123" height="10">
   <data encoding="base64" compression="zlib">
    eJztlWEKgDAIhXetDtP/LuIhum31YzDK0DdtE/KDBxFzs6euUpKRLI0ssT3xiZ671+l3H579PrsGllwssZug5EmUnkGgU7ugL8+uvPUqFYxIs1tBv8Gb1ocItbas8T7TEifdkT33pKcHI2rNzZtXrZEZftuPe4/meiF5ifpJjVA4T6TcNL26Arlzz5r1HnD7afycUWtiZEWTn0c//EHRvZr1v07icQDDVn8J
+  </data>
+ </layer>
+ <layer name="foreground" width="123" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1vBqAAAAAAgDcTOAAB
   </data>
  </layer>
 </map>

@@ -143,30 +143,30 @@ namespace BKP
             {
                 Jump(controls, gameTime);
                 Move(controls, platforms);
-                lastFrame += gameTime.ElapsedGameTime.Milliseconds;
-                if (lastFrame > 50 && state != 0)
+            }
+            lastFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (lastFrame > 50 && state != 0)
+            {
+                lastFrame = 0;
+                if (state == 1)
                 {
-                    lastFrame = 0;
-                    if (state == 1)
-                    {
-                        animCount++;
-                    }
-                    else if (state == -1)
-                    {
-                        animCount--;
-                    }
-                    else
-                    {
-                        animCount += 2;
-                    }
-                    if (animCount > 10)
-                    {
-                        animCount = 0;
-                    }
-                    if (animCount < 0)
-                    {
-                        animCount = 10;
-                    }
+                    animCount++;
+                }
+                else if (state == -1)
+                {
+                    animCount--;
+                }
+                else
+                {
+                    animCount += 2;
+                }
+                if (animCount > 10)
+                {
+                    animCount = 0;
+                }
+                if (animCount < 0)
+                {
+                    animCount = 10;
                 }
             }
 		}
