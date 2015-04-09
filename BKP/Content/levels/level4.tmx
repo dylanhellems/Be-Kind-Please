@@ -9,7 +9,7 @@
  </tileset>
  <layer name="platforms" width="130" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1sENgzAMAEDWYpj+u0BH6N790A9CrTEOJOJO8tNGxI5hmvh6DxC0l+nD0Zy99Wgv24Pqvt15DuYlrrT3Pv/KjeTsqXeXOehB9Nyreh2t19MczKuorNmL7Hc7Ui/7L9jbHIwmc26RO3v2HKzrXOHffc3sh9Y7oHKXZvtYFSPb2mtnPbf6TEeYg6qZeQbisZH3Cuau46jscyNxdd8j0erdAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOMcHzm3AfQ==
+   eJzt1sENwjAMAMCu1WH4swAjMATb8oFPVcAxSZOod5KfdpTYSbssvN0nCNrL9OHfnNJ6tJftQe2+nXkO1lf0VHqfv+VGckrqnWUORhA991q9jtYbaQ7WTdSsOYrsdztSL/svONoczCZzbpE7e/QcbOv08Ou+Zt6H1m9Azbc028daMbO9d+2odWuf6QxzUGtmroG47OTdgrm/6pTKrBuN3n2PRKu9PwLxSSQ3UqdU6brR6N3jSLTauzkwBzV7AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAvifHbTjN
   </data>
  </layer>
  <layer name="background" width="130" height="100">
@@ -19,7 +19,7 @@
  </layer>
  <layer name="foreground" width="130" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgyyyAAAQ==
+   eJztzEEJADAMBMEIqq/6d1AFeQQOQmEG9rtVAAAAAAA5tyn1mcaO05T6TAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgN88BUYNyQ==
   </data>
  </layer>
 </map>

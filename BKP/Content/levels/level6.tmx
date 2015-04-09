@@ -17,4 +17,9 @@
    eJztzgENAAAIA6DXsX9BY3xOSEACwBXTDgAAADyyPXoAKg==
   </data>
  </layer>
+ <layer name="foreground" width="123" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1vBqAAAAAAgDcTOAAB
+  </data>
+ </layer>
 </map>
