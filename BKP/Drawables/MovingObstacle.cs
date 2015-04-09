@@ -23,7 +23,6 @@ namespace BKP
             this.initY = y;
             this.speed = speed;
             this.type = type;
-            this.dir = dir;
         }
 
         override public void Update(GameTime gameTime, int playerState)
@@ -31,6 +30,16 @@ namespace BKP
             switch (type)
             {
                 case 0: // left to right
+                    if (x >= initX || x <= initX + 300)
+                    {
+                        speed = -1 * speed;
+                        x = initX;
+                        x -= speed / 2;
+                    }
+                    x -= speed;
+                    break;
+
+                case 1: // right to left
                     if (x >= initX || x <= initX - 300)
                     {
                         speed = -1 * speed;
@@ -38,43 +47,24 @@ namespace BKP
                         x += speed / 2;
                     }
                     x += speed;
-                    //switch (playerState)
-                    //{
-                    //    case -1:
-                    //        x -= speed;
-                    //        break;
-                    //    case 1:
-                    //        x += speed;
-                    //        break;
-                    //    case 2:
-                    //        x += 2 * speed;
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
                     break;
 
-                case 1: // up down
+                case 2: // up to down
+                    if (y <= initY || y >= initY + 300)
+                    {
+                        speed = -1 * speed;
+                        y -= speed / 2;
+                    }
+                    y -= speed;
+                    break;
+
+                case 3: // down to up
                     if (y >= initY || y <= initY - 300)
                     {
                         speed = -1 * speed;
                         y += speed/2;
                     }
                     y += speed;
-                    //switch (playerState)
-                    //{
-                    //    case -1:
-                    //        y -= speed;
-                    //        break;
-                    //    case 1:
-                    //        y += speed;
-                    //        break;
-                    //    case 2:
-                    //        y += 2 * speed;
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
                     break;
 
                 default:

@@ -130,6 +130,21 @@ namespace BKP
                 }
             }
 
+            if (map.Layers.Contains("rightleft"))
+            {
+                for (int i = 0; i < map.Layers["rightleft"].Tiles.Count; i++)
+                {
+                    TmxLayerTile tile = map.Layers["rightleft"].Tiles[i];
+                    int x = tile.X * 68;
+                    int y = 650 - ((floory - tile.Y) * 68);
+                    int gid = tile.Gid;
+                    if (gid > 0)
+                    {
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 1));
+                    }
+                }
+            }
+
             if (map.Layers.Contains("updown"))
             {
                 for (int i = 0; i < map.Layers["updown"].Tiles.Count; i++)
@@ -140,7 +155,22 @@ namespace BKP
                     int gid = tile.Gid;
                     if (gid > 0)
                     {
-                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 1));
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 2));
+                    }
+                }
+            }
+
+            if (map.Layers.Contains("downup"))
+            {
+                for (int i = 0; i < map.Layers["downup"].Tiles.Count; i++)
+                {
+                    TmxLayerTile tile = map.Layers["downup"].Tiles[i];
+                    int x = tile.X * 68;
+                    int y = 650 - ((floory - tile.Y) * 68);
+                    int gid = tile.Gid;
+                    if (gid > 0)
+                    {
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 3));
                     }
                 }
             }
