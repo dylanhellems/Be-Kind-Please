@@ -70,103 +70,7 @@ namespace BKP
         {
             this.level = level;
 
-            TransitionOnTime = TimeSpan.FromSeconds(1.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
-
-            map = new TmxMap(level);            
-            endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
-            floory = (int.Parse(map.Properties["floory"]));
-            int playerX = 100;
-            int playerY;
-            if (map.Properties.ContainsKey("playery"))
-            {
-                playerY = 650 - ((floory - (int.Parse(map.Properties["playery"]))) * 68);
-            }
-            else
-            {
-                playerY = 600;
-            }
-            player = new Player(playerX, playerY, 50, 50);
-            platforms = new List<Obstacle>();
-            for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
-            {
-                TmxLayerTile tile = map.Layers["platforms"].Tiles[i];
-                int x = tile.X * 68;
-                int y = 650 - ((floory - tile.Y) * 68);
-                int gid = tile.Gid;
-                if (gid > 0)
-                {
-                    platforms.Add(new Obstacle(x, y, 68, 68, gid, false));
-                }
-            }
-
-            if (map.Layers.Contains("leftright"))
-            {
-                for (int i = 0; i < map.Layers["leftright"].Tiles.Count; i++)
-                {
-                    TmxLayerTile tile = map.Layers["leftright"].Tiles[i];
-                    int x = tile.X * 68;
-                    int y = 650 - ((floory - tile.Y) * 68);
-                    int gid = tile.Gid;
-                    if (gid > 0)
-                    {
-                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 0));
-                    }
-                }
-            }
-
-            if (map.Layers.Contains("updown"))
-            {
-                for (int i = 0; i < map.Layers["updown"].Tiles.Count; i++)
-                {
-                    TmxLayerTile tile = map.Layers["updown"].Tiles[i];
-                    int x = tile.X * 68;
-                    int y = 650 - ((floory - tile.Y) * 68);
-                    int gid = tile.Gid;
-                    if (gid > 0)
-                    {
-                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 1));
-                    }
-                }
-            }
-
-            backNobstacles = new List<NonObstacle>();
-
-            for (int i = 0; i < map.Layers["background"].Tiles.Count; i++)
-            {
-                TmxLayerTile tile = map.Layers["background"].Tiles[i];
-                int x = tile.X * 68;
-                int y = 650 - ((floory - tile.Y) * 68);
-                int gid = tile.Gid;
-                if (gid > 0)
-                {
-                    backNobstacles.Add(new NonObstacle(x, y, 68, 68, gid));
-                }
-            }
-            foreNobstacles = new List<NonObstacle>();
-            for (int i = 0; i < map.Layers["foreground"].Tiles.Count; i++)
-            {
-                TmxLayerTile tile = map.Layers["foreground"].Tiles[i];
-                int x = tile.X * 68;
-                int y = 650 - ((floory - tile.Y) * 68);
-                int gid = tile.Gid;
-                if (gid > 0)
-                {
-                    foreNobstacles.Add(new NonObstacle(x, y, 68, 68, gid));
-                }
-            }
-
-            pause = new Overlay(50, 400, 100, 100);
-            rewind = new Overlay(50, 400, 100, 100);
-            ff = new Overlay(50, 400, 100, 100);
-
-            Joystick.Init();
-            Console.WriteLine("Number of joysticks: " + Sdl.SDL_NumJoysticks());
-            controls = new Controls();
-
-            timer = new GameTime();
-            time = "";
-            sinceInit = new TimeSpan(0);
+            Initialize();
         }
 
         public void Initialize()
@@ -265,8 +169,6 @@ namespace BKP
             timer = new GameTime();
             time = "";
             sinceInit = new TimeSpan(0);
-
-            LoadContent();
         }
 
 
@@ -362,6 +264,7 @@ namespace BKP
                 if (controls.onPress(Keys.Back, Buttons.Back))
                 {
                     Initialize();
+                    LoadContent();
                     sinceInit = new TimeSpan(0);
                 }
 
