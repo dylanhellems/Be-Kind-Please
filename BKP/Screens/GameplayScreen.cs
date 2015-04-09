@@ -90,18 +90,20 @@ namespace BKP
                 }
             }
 
-            //for (int i = 0; i < map.Layers["leftright"].Tiles.Count; i++)
-            //{
-               // TmxLayerTile tile = map.Layers["leftright"].Tiles[i];
-               // int x = tile.X * 68;
-               // int y = 650 - ((floory - tile.Y) * 68);
-               // int gid = tile.Gid;
-               // if (gid > 0)
-               // {
-               //     platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
-               // }
-            //}
-            //nobstacles = new List<NonObstacle>();
+            if (map.Layers.Contains("leftright"))
+            {
+                for (int i = 0; i < map.Layers["leftright"].Tiles.Count; i++)
+                {
+                    TmxLayerTile tile = map.Layers["leftright"].Tiles[i];
+                    int x = tile.X * 68;
+                    int y = 650 - ((floory - tile.Y) * 68);
+                    int gid = tile.Gid;
+                    if (gid > 0)
+                    {
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
+                    }
+                }
+            }
 
             backNobstacles = new List<NonObstacle>();
 
@@ -173,6 +175,22 @@ namespace BKP
                     backNobstacles.Add(new NonObstacle(x, y, 68, 68, gid));
                 }
             }
+
+            if (map.Layers.Contains("leftright"))
+            {
+                for (int i = 0; i < map.Layers["leftright"].Tiles.Count; i++)
+                {
+                    TmxLayerTile tile = map.Layers["leftright"].Tiles[i];
+                    int x = tile.X * 68;
+                    int y = 650 - ((floory - tile.Y) * 68);
+                    int gid = tile.Gid;
+                    if (gid > 0)
+                    {
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
+                    }
+                }
+            }
+
             foreNobstacles = new List<NonObstacle>();
             for (int i = 0; i < map.Layers["foreground"].Tiles.Count; i++)
             {

@@ -275,7 +275,7 @@ namespace BKP
 		{
             int lastY = (int)pastPos.Peek().Y;
             int lastX = (int)pastPos.Peek().X;
-            if (y >= 800)
+            if (y >= 850)
             {
                 paused = true;
             }

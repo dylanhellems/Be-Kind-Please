@@ -30,24 +30,22 @@ namespace BKP
         {
             switch (type)
             {
-                case 0:
-                    if (dir == 1)
+                case 0: // left to right
+                    if (x == initX || x == initX - 300)
                     {
-                        x += speed;
+                        speed = -1 * speed;
                     }
-                    if (dir == 0)
-                    {
-                        x -= speed;
-                    }
-                    if (x > initX + 300)
-                    {
-                        dir = 0;
-                    }
-                    if (x < initX - 300)
-                    {
-                        dir = 1;
-                    }
+                    x += speed;
                     break;
+
+                case 1: // up down
+                    if (y == initY || y == initY - 300)
+                    {
+                        speed = -1 * speed;
+                    }
+                    y += speed;
+                    break;
+
                 default:
                     break;
             }
