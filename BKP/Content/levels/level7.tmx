@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="100" tilewidth="70" tileheight="70" nextobjectid="1">
+ <properties>
+  <property name="endx" value="120"/>
+  <property name="floory" value="9"/>
+ </properties>
+ <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
+  <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
+ </tileset>
+ <layer name="platforms" width="150" height="100">
+  <data encoding="base64" compression="zlib">
+  </data>
+ </layer>
+ <layer name="background" width="150" height="100">
+  <data encoding="base64" compression="zlib">
+  </data>
+ </layer>
+ <layer name="foreground" width="150" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
+  </data>
+ </layer>
+</map>
+
