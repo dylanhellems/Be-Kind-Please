@@ -16,7 +16,7 @@ namespace BKP
         public int initX, initY;
         public int dir;
 
-        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, int dir, bool isLethal, int type) 
+        public MovingObstacle(int x, int y, int width, int height, int gid, int speed, bool isLethal, int type) 
             : base(x, y, width, height, gid, isLethal)
         {
             this.initX = x;
@@ -26,16 +26,29 @@ namespace BKP
             this.dir = dir;
         }
 
-        override public void Update(GameTime gameTime)
+        override public void Update(GameTime gameTime, int playerState)
         {
             switch (type)
             {
                 case 0: // left to right
-                    if (x == initX || x == initX - 300)
+                    if (x >= initX || x <= initX - 300)
                     {
                         speed = -1 * speed;
                     }
-                    x += speed;
+                    switch (playerState)
+                    {
+                        case -1:
+                            x -= speed;
+                            break;
+                        case 1:
+                            x += speed;
+                            break;
+                        case 2:
+                            x += 2 * speed;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
 
                 case 1: // up down
@@ -43,7 +56,20 @@ namespace BKP
                     {
                         speed = -1 * speed;
                     }
-                    y += speed;
+                    switch (playerState)
+                    {
+                        case -1:
+                            y -= speed;
+                            break;
+                        case 1:
+                            y += speed;
+                            break;
+                        case 2:
+                            y += 2 * speed;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
 
                 default:

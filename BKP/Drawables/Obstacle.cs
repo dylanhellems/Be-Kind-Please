@@ -35,6 +35,11 @@ namespace BKP
 
         override public void Update(GameTime gameTime)
         {
+            throw new NotImplementedException();
+        }
+
+        virtual public void Update(GameTime gameTime, int playerState)
+        {
 
         }
 

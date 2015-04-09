@@ -100,7 +100,22 @@ namespace BKP
                     int gid = tile.Gid;
                     if (gid > 0)
                     {
-                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 0));
+                    }
+                }
+            }
+
+            if (map.Layers.Contains("updown"))
+            {
+                for (int i = 0; i < map.Layers["updown"].Tiles.Count; i++)
+                {
+                    TmxLayerTile tile = map.Layers["updown"].Tiles[i];
+                    int x = tile.X * 68;
+                    int y = 650 - ((floory - tile.Y) * 68);
+                    int gid = tile.Gid;
+                    if (gid > 0)
+                    {
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 1));
                     }
                 }
             }
@@ -186,7 +201,22 @@ namespace BKP
                     int gid = tile.Gid;
                     if (gid > 0)
                     {
-                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, 1, false, 0));
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 0));
+                    }
+                }
+            }
+
+            if (map.Layers.Contains("updown"))
+            {
+                for (int i = 0; i < map.Layers["updown"].Tiles.Count; i++)
+                {
+                    TmxLayerTile tile = map.Layers["updown"].Tiles[i];
+                    int x = tile.X * 68;
+                    int y = 650 - ((floory - tile.Y) * 68);
+                    int gid = tile.Gid;
+                    if (gid > 0)
+                    {
+                        platforms.Add(new MovingObstacle(x, y, 68, 68, gid, 4, true, 1));
                     }
                 }
             }
@@ -336,7 +366,7 @@ namespace BKP
                 //base.Update(gameTime);
                 foreach (Obstacle platform in platforms)
                 {
-                    platform.Update(gameTime);
+                    platform.Update(gameTime, player.getState());
                 }
                 sinceInit += gameTime.ElapsedGameTime;
             }
