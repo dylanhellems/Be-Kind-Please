@@ -73,10 +73,20 @@ namespace BKP
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
 
-            player = new Player(100, 600, 50, 50);
-            map = new TmxMap(level);
+            map = new TmxMap(level);            
             endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
+            int playerX = 100;
+            int playerY;
+            if (map.Properties.ContainsKey("playery"))
+            {
+                playerY = 650 - ((floory - (int.Parse(map.Properties["playery"]))) * 68);
+            }
+            else
+            {
+                playerY = 600;
+            }
+            player = new Player(playerX, playerY, 50, 50);
             platforms = new List<Obstacle>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
@@ -162,10 +172,20 @@ namespace BKP
         public void Initialize()
         {
             TransitionPosition = 1.0F;
-            player = new Player(150, 600, 50, 50);
             map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
+            int playerX = 100;
+            int playerY;
+            if (map.Properties.ContainsKey("playery"))
+            {
+                playerY = 650 - ((floory - (int.Parse(map.Properties["playery"]))) * 68);
+            }
+            else
+            {
+                playerY = 600;
+            }
+            player = new Player(playerX, playerY, 50, 50);
             platforms = new List<Obstacle>();
             for (int i = 0; i < map.Layers["platforms"].Tiles.Count; i++)
             {
