@@ -9,10 +9,12 @@
  </tileset>
  <layer name="platforms" width="150" height="100">
   <data encoding="base64" compression="zlib">
+   eJzt2KENACAAA0EEq7M3BgSGQEIVd0k3eNVSVvVicEpXJOiGBF2RoCkSdEXCrivNkaArXmhjk6645bciQVck6AoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAfdXmoAi8=
   </data>
  </layer>
  <layer name="background" width="150" height="100">
   <data encoding="base64" compression="zlib">
+   eJzt1SEOwCAQRFFET9H7HxQBsoIEpoJ9L1mP+BlaG555cJKuSPjqSmvsWu3q/ec5XMI2kWCbSLBXAFTk/yNBVyToCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgMo6ZAYAlQ==
   </data>
  </layer>
  <layer name="foreground" width="150" height="100">
@@ -21,4 +23,3 @@
   </data>
  </layer>
 </map>
-

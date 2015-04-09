@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="123" height="10" tilewidth="70" tileheight="70" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="133" height="13" tilewidth="70" tileheight="70" nextobjectid="1">
  <properties>
   <property name="endx" value="118"/>
-  <property name="floory" value="8"/>
-  <property name="playery" value="2"/>
+  <property name="floory" value="10"/>
+  <property name="playery" value="4"/>
  </properties>
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="platforms" width="123" height="10">
+ <layer name="platforms" width="133" height="13">
   <data encoding="base64" compression="zlib">
-   eJztldsNACAIAxnL/SdzAbW8iUoTfkzkio06iGh0fVFR0nIzPbZar6rizlu18pj9VmVIy6t656N7StekXhHXSx686r+d04uzrsmV6507M+onOaudV+TrxPLMGs0h4aN9q71cDuqLvEVmreVVZb2b55astTNasrbyqrPuuqta/2gC0Y15aQ==
+   eJztltsNwCAMAxmL/SfrAlAn4Rlxlu4HidhpI6CWUioAAICDVYr67syIELLpxBkyqlbG3WffDkX9br9fVtf0rnmzKt9ZmuGX5e1hqWVZj/x/a3Zrz6qe51v1sqpcf14nZkL168mp9rX2Wn1UXZVt5UxE/W6fiV7fWWYi2uPITIz6ZZkJAAB4kw//Gv0Z
   </data>
  </layer>
- <layer name="background" width="123" height="10">
+ <layer name="background" width="133" height="13">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DXsX9BY3xOSEACwBXTDgAAADyyPXoAKg==
+   eJztziEBAAAIA7DXoX9BClxhMFuCJQAA0M13AAAAAOBoAc26ACo=
   </data>
  </layer>
- <layer name="foreground" width="123" height="10">
+ <layer name="foreground" width="133" height="13">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1vBqAAAAAAgDcTOAAB
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAB8GRsEAAE=
   </data>
  </layer>
 </map>
