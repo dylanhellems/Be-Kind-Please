@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="100" tilewidth="70" tileheight="70" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="134" height="14" tilewidth="70" tileheight="70" nextobjectid="1">
  <properties>
-  <property name="endx" value="120"/>
-  <property name="floory" value="9"/>
+  <property name="endx" value="121"/>
+  <property name="floory" value="11"/>
  </properties>
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="platforms" width="150" height="100">
+ <layer name="platforms" width="134" height="14">
   <data encoding="base64" compression="zlib">
-   eJzt2KENACAAA0EEq7M3BgSGQEIVd0k3eNVSVvVicEpXJOiGBF2RoCkSdEXCrivNkaArXmhjk6645bciQVck6AoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAfdXmoAi8=
+   eJztl0sOgCAMRDkWF+TexkQ3DZQCHT46k7y4AFpsR4IxhBAJIYQQYoKyaaSWO/WYnvAVyhfoPVrm9io9aGNyPGWwrBtZO7vmrTl28sVIzJPx1gm+kDkQMb36sYMPZudF9h2tkV4G8VzVm5Z3ROcq5d1J2n2g1/e1eRadfDZokvXW1pX6glTuvla7m1m90bsfLaZXf1BeIPZv41bt/+RVS8xWra7Rnymp5ywi5Itcquwb6w==
   </data>
  </layer>
- <layer name="background" width="150" height="100">
+ <layer name="background" width="134" height="14" opacity="0.98">
   <data encoding="base64" compression="zlib">
-   eJzt1SEOwCAQRFFET9H7HxQBsoIEpoJ9L1mP+BlaG555cJKuSPjqSmvsWu3q/ec5XMI2kWCbSLBXAFTk/yNBVyToCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgMo6ZAYAlQ==
+   eJzt08ERQBEMBUB16Eb/Tbk78T/C2L3kkmEmeUkJAPgiD/aO9MOJdmfYzXADOe1TJr61Yub2yCsisu6+1uqZb25qlOj/AQD+qPIYAa4=
   </data>
  </layer>
- <layer name="foreground" width="150" height="100">
+ <layer name="foreground" width="134" height="14">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
+   eJztwYEAAAAAw6D5U1/gCFUBAAAAAAAA8AwdUAAB
+  </data>
+ </layer>
+ <layer name="downup" width="134" height="14">
+  <data encoding="base64" compression="zlib">
+   eJzt0sEJACEMRUHL2v4rs4HPKkiE4AzkYhByeGPU+MKs9qs/lXbv2L37xnSkC10kutBFogtdJLqob6ujzl38vXGmWxfcoQsSXZDogkQXAPCuCXyuVAE=
   </data>
  </layer>
 </map>

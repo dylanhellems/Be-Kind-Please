@@ -33,7 +33,7 @@ namespace BKP
             MenuEntry level3MenuEntry = new MenuEntry("Act 3");
             MenuEntry level4MenuEntry = new MenuEntry("Prologue");
             MenuEntry level6MenuEntry = new MenuEntry("TEST LEVEL 6");
-            MenuEntry level7MenuEntry = new MenuEntry("TEST LEVEL 7");
+            MenuEntry level7MenuEntry = new MenuEntry("Level 7");
             MenuEntry level8MenuEntry = new MenuEntry("TEST LEVEL 8");
             MenuEntry back = new MenuEntry("Back");
 
