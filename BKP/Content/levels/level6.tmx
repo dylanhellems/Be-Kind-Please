@@ -8,17 +8,17 @@
  <tileset firstgid="1" name="tiles_spritesheet_extended" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="platforms" width="133" height="13">
+ <layer name="platforms" width="133" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJztltsNwCAMAxmL/SfrAlAn4Rlxlu4HidhpI6CWUioAAICDVYr67syIELLpxBkyqlbG3WffDkX9br9fVtf0rnmzKt9ZmuGX5e1hqWVZj/x/a3Zrz6qe51v1sqpcf14nZkL168mp9rX2Wn1UXZVt5UxE/W6fiV7fWWYi2uPITIz6ZZkJAAB4kw//Gv0Z
   </data>
  </layer>
  <layer name="background" width="133" height="13">
   <data encoding="base64" compression="zlib">
-   eJztziEBAAAIA7DXoX9BClxhMFuCJQAA0M13AAAAAOBoAc26ACo=
+   eJztziEBAAAIA7BXo38pClxhMFuCJQAA0M13AAAAAOBoAWIYAEI=
   </data>
  </layer>
- <layer name="foreground" width="133" height="13">
+ <layer name="foreground" width="133" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20PBxQAAAAAAAB8GRsEAAE=
   </data>
