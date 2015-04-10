@@ -68,6 +68,9 @@ namespace BKP
         /// </summary>
         public GameplayScreen(string level = "Content/levels/test_extended.tmx")
         {
+            TransitionOnTime = TimeSpan.FromSeconds(1.5);
+            TransitionOffTime = TimeSpan.FromSeconds(0.5);
+
             this.level = level;
 
             Initialize();
@@ -79,7 +82,7 @@ namespace BKP
             map = new TmxMap(level);
             endX = (int.Parse(map.Properties["endx"]) + 1) * 68;
             floory = (int.Parse(map.Properties["floory"]));
-            int playerX = 100;
+            int playerX = 150;
             int playerY;
             if (map.Properties.ContainsKey("playery"))
             {
@@ -306,10 +309,13 @@ namespace BKP
                 if (!(player.getCenterX() > endX))
                 {
                     player.Update(controls, gameTime, platforms, false);
-                    //background.Update(controls, player.getX());
                 }
                 else
                 {
+                    if (player.getCenterY() >= 850)
+                    {
+                        ScreenManager.AddScreen(new EndLevelScreen(level), ControllingPlayer);
+                    }
                     player.Update(controls, gameTime, platforms, true);
                 }
                 pause.Update(cameraWorldPosition);
@@ -415,10 +421,6 @@ namespace BKP
             if (!(player.getCenterX() > endX))
             {
                 time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
-            }
-            else
-            {
-                spriteBatch.DrawString(gameFont, "You Win!", cameraWorldPosition - (new Vector2(70, vp.Height / 4)), Color.White);
             }
 
             spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), Color.White);

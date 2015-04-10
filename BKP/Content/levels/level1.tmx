@@ -14,7 +14,7 @@
  </layer>
  <layer name="platforms" width="130" height="15">
   <data encoding="base64" compression="zlib">
-   eJztk8sNgCAQRLlakh3RgCXYg3SrB002huWzsrCSeckkHhRY5ukcAADMw0oCxqDRgXav8GYecl2ukfwRqzNonGm74u/k9rR0F62ZZcbaOWj/4U5vPMnyca39+3HMov3/h1d6Q/c+HO/C/nqmib2Tgs4fS47Ut9JIkHqf6t+CB5wLsb5LPeA65+YvuYPUt9L08Kd0fgsePC60/NdqO5GceVRq0Fq3BaPvER7AA3gAD+ABPIAH8MCqByckB2WA
+   eJztk8kNwCAMBGmLjmggJVAE3SYPHgiZy2Bw0I60Uh4hYHZiDAAA3INNAs4g0YF0r/DmHlpdWiJ/ROsMEmd6vriY1p6a7mI1t8w4Okfaf4jZjcsyg58/jlqk//+QZTf5/iUXfPachnqnRjo/lRa1tdxw4Hpf61+LB5QLVN+9HpQ6L83fcwe1tdzs8Kd3fi0ezNzLaOdaPOBmBKnvruD0PcIDeAAP4AE8gAfwAB5o9eAFNO5moA==
   </data>
  </layer>
  <layer name="background" width="130" height="15">
@@ -24,12 +24,12 @@
  </layer>
  <layer name="downup" width="130" height="15">
   <data encoding="base64" compression="zlib">
-   eJztxjENAAAIA7Cpwb9ENOzgIGmvJgAAAAAA96Y8AAB/LPgzAJk=
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAA4DceeAAB
   </data>
  </layer>
  <layer name="updown" width="130" height="15">
   <data encoding="base64" compression="zlib">
-   eJztxkERAAAMAiDL2L+iCXYrAC8SAACAX48DAAAAwABiXwBL
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAA4DceeAAB
   </data>
  </layer>
 </map>
