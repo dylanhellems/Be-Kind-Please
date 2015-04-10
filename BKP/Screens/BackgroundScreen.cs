@@ -55,7 +55,7 @@ namespace BKP
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            backgroundTexture = content.Load<Texture2D>("vhs_background");
+            backgroundTexture = content.Load<Texture2D>("vhs_background_notime");
         }
 
 
