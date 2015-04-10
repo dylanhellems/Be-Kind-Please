@@ -34,6 +34,7 @@ namespace BKP
             MenuEntry level4MenuEntry = new MenuEntry("Prologue");
             MenuEntry level6MenuEntry = new MenuEntry("TEST LEVEL 6");
             MenuEntry level7MenuEntry = new MenuEntry("TEST LEVEL 7");
+            MenuEntry level8MenuEntry = new MenuEntry("TEST LEVEL 8");
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
@@ -43,6 +44,7 @@ namespace BKP
             level4MenuEntry.Selected += Level4MenuEntrySelected;
             level6MenuEntry.Selected += Level6MenuEntrySelected;
             level7MenuEntry.Selected += Level7MenuEntrySelected;
+            level8MenuEntry.Selected += Level8MenuEntrySelected;
             back.Selected += OnCancel;
 
             // Add entries to the menu.
@@ -52,6 +54,7 @@ namespace BKP
             MenuEntries.Add(level4MenuEntry);
             MenuEntries.Add(level6MenuEntry);
             MenuEntries.Add(level7MenuEntry);
+            MenuEntries.Add(level8MenuEntry);
             MenuEntries.Add(back);
         }
 
@@ -98,6 +101,12 @@ namespace BKP
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level7.tmx"));
+        }
+
+        void Level8MenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                               new GameplayScreen("Content/levels/level8.tmx"));
         }
 
         /// <summary>
