@@ -6,7 +6,7 @@
   <property name="playery" value="12"/>
  </properties>
  <tileset firstgid="1" name="tileset" tilewidth="70" tileheight="70" spacing="2">
-  <image source="../Be-Kind-Please/BKP/Content/tiles_spritesheet_extended.png" width="914" height="936"/>
+  <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
  <layer name="platforms" width="130" height="17">
   <data encoding="base64" compression="zlib">
