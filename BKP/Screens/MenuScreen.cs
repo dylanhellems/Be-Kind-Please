@@ -27,7 +27,7 @@ namespace BKP
         #region Fields
 
         List<MenuEntry> menuEntries = new List<MenuEntry>();
-        int selectedEntry = 0;
+        public int selectedEntry = 0;
         string menuTitle;
 
         #endregion

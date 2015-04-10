@@ -39,7 +39,9 @@ namespace BKP
             if (time.TotalMilliseconds < ScreenManager.times[level].TotalMilliseconds)
             {
                 ScreenManager.times[level] = time;
-            } 
+            }
+
+            selectedEntry = 1;
 
             // Create our menu entries.
             MenuEntry restartGameMenuEntry = new MenuEntry("Restart Level");
