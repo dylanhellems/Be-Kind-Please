@@ -27,6 +27,8 @@ namespace BKP
         MenuEntry frobnicateMenuEntry;
         MenuEntry elfMenuEntry;
 
+        MenuEntry funMenuEntry;
+
         enum Ungulate
         {
             BactrianCamel,
@@ -40,6 +42,8 @@ namespace BKP
         static int currentLanguage = 0;
 
         static bool frobnicate = true;
+
+        static bool funOption = true;
 
         static int elf = 23;
 
@@ -55,27 +59,30 @@ namespace BKP
             : base("")
         {
             // Create our menu entries.
-            ungulateMenuEntry = new MenuEntry(string.Empty);
-            languageMenuEntry = new MenuEntry(string.Empty);
-            frobnicateMenuEntry = new MenuEntry(string.Empty);
-            elfMenuEntry = new MenuEntry(string.Empty);
+            //ungulateMenuEntry = new MenuEntry(string.Empty);
+            //languageMenuEntry = new MenuEntry(string.Empty);
+            //frobnicateMenuEntry = new MenuEntry(string.Empty);
+            //elfMenuEntry = new MenuEntry(string.Empty);
+            funMenuEntry = new MenuEntry(string.Empty);
 
             SetMenuEntryText();
 
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
-            ungulateMenuEntry.Selected += UngulateMenuEntrySelected;
-            languageMenuEntry.Selected += LanguageMenuEntrySelected;
-            frobnicateMenuEntry.Selected += FrobnicateMenuEntrySelected;
-            elfMenuEntry.Selected += ElfMenuEntrySelected;
+            //ungulateMenuEntry.Selected += UngulateMenuEntrySelected;
+            //languageMenuEntry.Selected += LanguageMenuEntrySelected;
+            //frobnicateMenuEntry.Selected += FrobnicateMenuEntrySelected;
+            //elfMenuEntry.Selected += ElfMenuEntrySelected;
+            funMenuEntry.Selected += FunMenuEntrySelected;
             back.Selected += OnCancel;
             
             // Add entries to the menu.
-            MenuEntries.Add(ungulateMenuEntry);
-            MenuEntries.Add(languageMenuEntry);
-            MenuEntries.Add(frobnicateMenuEntry);
-            MenuEntries.Add(elfMenuEntry);
+            //MenuEntries.Add(ungulateMenuEntry);
+            //MenuEntries.Add(languageMenuEntry);
+            //MenuEntries.Add(frobnicateMenuEntry);
+            //MenuEntries.Add(elfMenuEntry);
+            MenuEntries.Add(funMenuEntry);
             MenuEntries.Add(back);
         }
 
@@ -85,10 +92,11 @@ namespace BKP
         /// </summary>
         void SetMenuEntryText()
         {
-            ungulateMenuEntry.Text = "Preferred ungulate: " + currentUngulate;
-            languageMenuEntry.Text = "Language: " + languages[currentLanguage];
-            frobnicateMenuEntry.Text = "Frobnicate: " + (frobnicate ? "on" : "off");
-            elfMenuEntry.Text = "elf: " + elf;
+            //ungulateMenuEntry.Text = "Preferred ungulate: " + currentUngulate;
+            //languageMenuEntry.Text = "Language: " + languages[currentLanguage];
+            //frobnicateMenuEntry.Text = "Frobnicate: " + (frobnicate ? "on" : "off");
+            //elfMenuEntry.Text = "elf: " + elf;
+            funMenuEntry.Text = "Fun: " + (funOption ? "on" : "off");
         }
 
 
@@ -139,6 +147,13 @@ namespace BKP
         void ElfMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             elf++;
+
+            SetMenuEntryText();
+        }
+
+        void FunMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            funOption = !funOption;
 
             SetMenuEntryText();
         }

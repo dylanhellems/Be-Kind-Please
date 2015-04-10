@@ -29,13 +29,13 @@ namespace BKP
             : base("")
         {
             // Create our menu entries.
-            MenuEntry level1MenuEntry = new LevelMenuEntry("Act 1", "Content/levels/level1.tmx");
-            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 2", "Content/levels/level2.tmx");
-            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 3", "Content/levels/level3.tmx");
-            MenuEntry level4MenuEntry = new LevelMenuEntry("Prologue", "Content/levels/level4.tmx");
-            MenuEntry level6MenuEntry = new LevelMenuEntry("TEST LEVEL 6", "Content/levels/level6.tmx");
-            MenuEntry level7MenuEntry = new LevelMenuEntry("Level 7", "Content/levels/level7.tmx");
-            MenuEntry level8MenuEntry = new LevelMenuEntry("TEST LEVEL 8", "Content/levels/level8.tmx");
+            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", "Content/levels/level1.tmx");
+            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", "Content/levels/level2.tmx");
+            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", "Content/levels/level3.tmx");
+            MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", "Content/levels/level4.tmx");
+            MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", "Content/levels/level6.tmx");
+            MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", "Content/levels/level7.tmx");
+            MenuEntry level8MenuEntry = new LevelMenuEntry("Encore", "Content/levels/level8.tmx");
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
