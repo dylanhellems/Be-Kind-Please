@@ -56,7 +56,7 @@ namespace BKP
             quitGameMenuEntry.Selected += QuitGameMenuEntrySelected;
 
 
-            selectedEntry = 2;
+            selectedEntry = 1;
 
             // Add entries to the menu.
             MenuEntries.Add(restartGameMenuEntry);
