@@ -14,7 +14,7 @@
  </layer>
  <layer name="platforms" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztl8ENwyAMRVmoA2SAjNF7c08HyIEhum3pAcmyCvwYY3zgSV+52AHsb4WEsOB8QC3suJJeSYcwf0/aKno08r164lcXaU1mkXvRqrl3Znsiz0RrLtA4Czz2PrKnBtLeR+V9eMP7+eIfaXHXE5J90FnvnXf+Lolq64+qsxbvUD4XAo1/CnIQnUzoOl6x9MSdOyX1Qs93nsaj/kDvGSVxj3gF9fyotSR5Gne/Um6tBr2emP3fgmK5f+3+jfCEpbyyPLE8wfkC4tu55w==
+   eJztl8ENhiAMhVnIARzAMbz/3nUADwzhtvIfTEgj8igFeuiXvHihUtvXCM4ZlAuU0Y8z6Be0MeOXoPlDUyZeqyf+deHWZBRPL3I1185oTzwzkZsLdF0PNPbek6cE3N574TyMMvyLpCj1BCePeNZr552+iyNkf62eP1z6uxDi9SsjBtFOhO6jmRaz90bJmTL2Qs1/Pl6P+gM9Z6REPaIV1POt9uLESZz9UrFfNaj1xOh7C0rP/KX718ITPaUV84R5gnIDGe63Tg==
   </data>
  </layer>
  <layer name="moving" width="133" height="10">
