@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="123" height="10" tilewidth="68" tileheight="68" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="133" height="10" tilewidth="68" tileheight="68" nextobjectid="1">
  <properties>
   <property name="endx" value="118"/>
   <property name="floory" value="7"/>
@@ -7,24 +7,24 @@
  <tileset firstgid="1" name="spritesheet" tilewidth="70" tileheight="70" spacing="2">
   <image source="../tiles_spritesheet_extended.png" width="914" height="936"/>
  </tileset>
- <layer name="background" width="123" height="10">
+ <layer name="background" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzjEBAAAIwKBVs38pY+gBCSgA4Ju5DgAAAC0E/QBC
+   eJztziEBAAAIA7BXo38pxDUasyVYAgBQ8x0AAAA4LE2lAEI=
   </data>
  </layer>
- <layer name="platforms" width="123" height="10">
+ <layer name="platforms" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlsENgCAMRVnIARzAMbzrXQfwwBBuKx5MSIPybUslkZ/8eGmh9kGoc01UO+gmubbgKXhm5g/B/YO7TH6trM++cHuiravHuV7Wrq9ZX2c9d97ROIlqZOrJV0Ncpl65DivVXrdPWEtvWXPqiO+m9H7StdA1S/VPS6tL/9cE5sfxIyMH8UKM7mMtS9ZvZrGYseQdjeNR7ug7fmfK3lroGS21FydPY2a6y33qgZT113O8ZV3aXEqwtrS1Guv/sD4A03q1bw==
+   eJztl8ENwyAMRVmoA2SAjNF7c08HyIEhum3pAcmyCvwYY3zgSV+52AHsb4WEsOB8QC3suJJeSYcwf0/aKno08r164lcXaU1mkXvRqrl3Znsiz0RrLtA4Czz2PrKnBtLeR+V9eMP7+eIfaXHXE5J90FnvnXf+Lolq64+qsxbvUD4XAo1/CnIQnUzoOl6x9MSdOyX1Qs93nsaj/kDvGSVxj3gF9fyotSR5Gne/Um6tBr2emP3fgmK5f+3+jfCEpbyyPLE8wfkC4tu55w==
   </data>
  </layer>
- <layer name="moving" width="123" height="10">
+ <layer name="moving" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJzt1jENACAQBME3hAAE4AVk4Jw3ABXJNzPJ9ldeBNTZ2cxW9RCuRtazVj0EAPjOFwOAtwOm5wNQ
+   eJzt1jENACAQBEEMIQABeAEZOOc9UDyEmWT7K68UuN+KRjSzh3CsRy2q2UMAgO/4lADwtg0tAwNQ
   </data>
  </layer>
- <layer name="foreground" width="123" height="10">
+ <layer name="foreground" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1vBqAAAAAAgDcTOAAB
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAL4NFMgAAQ==
   </data>
  </layer>
 </map>
