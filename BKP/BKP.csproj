@@ -50,6 +50,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Screens\LevelMenuEntry.cs" />
     <Compile Include="Screens\LevelMenuScreen.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Utilities\CappedStack.cs" />

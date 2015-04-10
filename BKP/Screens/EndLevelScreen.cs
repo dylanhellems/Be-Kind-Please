@@ -8,6 +8,7 @@
 #endregion
 
 #region Using Statements
+using System;
 using Microsoft.Xna.Framework;
 #endregion
 
@@ -22,14 +23,23 @@ namespace BKP
         #region Initialization
 
         public string level;
+        public TimeSpan time;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public EndLevelScreen(string level)
+        public EndLevelScreen(string level, TimeSpan time)
             : base("You Win!")
         {
             this.level = level;
+            this.time = time;
+            if (!ScreenManager.times.ContainsKey(level)) {
+                ScreenManager.times[level] = time;
+            }
+            if (time.TotalMilliseconds < ScreenManager.times[level].TotalMilliseconds)
+            {
+                ScreenManager.times[level] = time;
+            } 
 
             // Create our menu entries.
             MenuEntry restartGameMenuEntry = new MenuEntry("Restart Level");

@@ -103,7 +103,6 @@ namespace BKP
             this.text = text;
         }
 
-
         #endregion
 
         #region Update and Draw

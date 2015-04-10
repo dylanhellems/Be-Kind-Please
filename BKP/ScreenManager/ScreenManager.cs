@@ -29,6 +29,8 @@ namespace BKP
     {
         #region Fields
 
+        public static Dictionary<string, TimeSpan> times = new Dictionary<string, TimeSpan>();
+
         List<GameScreen> screens = new List<GameScreen>();
         List<GameScreen> screensToUpdate = new List<GameScreen>();
 

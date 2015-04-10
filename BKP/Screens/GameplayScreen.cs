@@ -314,7 +314,7 @@ namespace BKP
                 {
                     if (player.getCenterY() >= 850)
                     {
-                        ScreenManager.AddScreen(new EndLevelScreen(level), ControllingPlayer);
+                        ScreenManager.AddScreen(new EndLevelScreen(level, sinceInit), ControllingPlayer);
                     }
                     player.Update(controls, gameTime, platforms, true);
                 }
@@ -327,7 +327,7 @@ namespace BKP
                 {
                     platform.Update(gameTime, player.getState());
                 }
-                sinceInit += gameTime.ElapsedGameTime;
+                
             }
         }
 
@@ -420,6 +420,7 @@ namespace BKP
 
             if (!(player.getCenterX() > endX))
             {
+                sinceInit += gameTime.ElapsedGameTime;
                 time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
             }
 

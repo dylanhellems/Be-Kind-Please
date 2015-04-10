@@ -8,6 +8,7 @@
 #endregion
 
 #region Using Statements
+using System;
 using Microsoft.Xna.Framework;
 #endregion
 
@@ -28,13 +29,13 @@ namespace BKP
             : base("")
         {
             // Create our menu entries.
-            MenuEntry level1MenuEntry = new MenuEntry("Act 1");
-            MenuEntry level2MenuEntry = new MenuEntry("Act 2");
-            MenuEntry level3MenuEntry = new MenuEntry("Act 3");
-            MenuEntry level4MenuEntry = new MenuEntry("Prologue");
-            MenuEntry level6MenuEntry = new MenuEntry("TEST LEVEL 6");
-            MenuEntry level7MenuEntry = new MenuEntry("TEST LEVEL 7");
-            MenuEntry level8MenuEntry = new MenuEntry("TEST LEVEL 8");
+            MenuEntry level1MenuEntry = new LevelMenuEntry("Act 1", "Content/levels/level1.tmx");
+            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 2", "Content/levels/level2.tmx");
+            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 3", "Content/levels/level3.tmx");
+            MenuEntry level4MenuEntry = new LevelMenuEntry("Prologue", "Content/levels/level4.tmx");
+            MenuEntry level6MenuEntry = new LevelMenuEntry("TEST LEVEL 6", "Content/levels/level6.tmx");
+            MenuEntry level7MenuEntry = new LevelMenuEntry("TEST LEVEL 7", "Content/levels/level7.tmx");
+            MenuEntry level8MenuEntry = new LevelMenuEntry("TEST LEVEL 8", "Content/levels/level8.tmx");
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
