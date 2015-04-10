@@ -9,6 +9,7 @@
 
 #region Using Statements
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 #endregion
 
@@ -21,6 +22,16 @@ namespace BKP
     {
         #region Initialization
 
+        public static List<string> levels = new List<string>(){
+                                         "Content/levels/level1.tmx",
+                                         "Content/levels/level2.tmx",
+                                         "Content/levels/level3.tmx",
+                                         "Content/levels/level4.tmx",
+                                         "Content/levels/level6.tmx",
+                                         "Content/levels/level7.tmx",
+                                         "Content/levels/level8.tmx"                                         
+                                     }; 
+
 
         /// <summary>
         /// Constructor fills in the menu contents.
@@ -29,13 +40,21 @@ namespace BKP
             : base("")
         {
             // Create our menu entries.
-            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", "Content/levels/level1.tmx");
-            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", "Content/levels/level2.tmx");
-            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", "Content/levels/level3.tmx");
-            MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", "Content/levels/level4.tmx");
-            MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", "Content/levels/level6.tmx");
-            MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", "Content/levels/level7.tmx");
-            MenuEntry level8MenuEntry = new LevelMenuEntry("Encore", "Content/levels/level8.tmx");
+            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], false);
+            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", levels[1], false);
+            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", levels[2], false);
+            MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", levels[3], false);
+            MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", levels[4], false);
+            MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", levels[5], false);
+            MenuEntry level8MenuEntry;
+            if (ScreenManager.times[levels[5]].TotalMilliseconds < 30000 && ScreenManager.times[levels[5]].TotalMilliseconds > 0)
+            {
+                level8MenuEntry = new LevelMenuEntry("Encore", levels[6], false);
+            }
+            else
+            {
+                level8MenuEntry = new LevelMenuEntry("Encore", levels[6], true);
+            }
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
@@ -45,7 +64,10 @@ namespace BKP
             level4MenuEntry.Selected += Level4MenuEntrySelected;
             level6MenuEntry.Selected += Level6MenuEntrySelected;
             level7MenuEntry.Selected += Level7MenuEntrySelected;
-            level8MenuEntry.Selected += Level8MenuEntrySelected;
+            if (ScreenManager.times[levels[5]].TotalMilliseconds < 30000 && ScreenManager.times[levels[5]].TotalMilliseconds > 0)
+            {
+                level8MenuEntry.Selected += Level8MenuEntrySelected;
+            }
             back.Selected += OnCancel;
 
             // Add entries to the menu.

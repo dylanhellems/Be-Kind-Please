@@ -36,7 +36,7 @@ namespace BKP
         /// <remarks>
         /// The entries transition out of the selection effect when they are deselected.
         /// </remarks>
-        float selectionFade;
+        public float selectionFade;
 
         /// <summary>
         /// The position at which the entry is drawn. This is set by the MenuScreen

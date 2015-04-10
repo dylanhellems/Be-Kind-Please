@@ -9,6 +9,7 @@
 
 #region Using Statements
 using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 #endregion
 
@@ -23,6 +24,7 @@ namespace BKP
         #region Initialization
 
         public string level;
+        public int levelindex;
         public TimeSpan time;
 
         /// <summary>
@@ -32,27 +34,36 @@ namespace BKP
             : base("You Win!")
         {
             this.level = level;
+            this.levelindex = LevelMenuScreen.levels.FindIndex(a => a == level);
             this.time = time;
-            if (!ScreenManager.times.ContainsKey(level)) {
+            if (ScreenManager.times[level].TotalMilliseconds <= 0) {
+                Debug.Print(ScreenManager.times[level].TotalMilliseconds.ToString());
                 ScreenManager.times[level] = time;
             }
-            if (time.TotalMilliseconds < ScreenManager.times[level].TotalMilliseconds)
+            else if (time.TotalMilliseconds < ScreenManager.times[level].TotalMilliseconds)
             {
                 ScreenManager.times[level] = time;
             }
 
-            selectedEntry = 1;
-
             // Create our menu entries.
             MenuEntry restartGameMenuEntry = new MenuEntry("Restart Level");
+            MenuEntry nextLevelMenuEntry = new MenuEntry("Next Level");
             MenuEntry quitGameMenuEntry = new MenuEntry("Back to the Menu");
             
             // Hook up menu event handlers.
             restartGameMenuEntry.Selected += RestartLevelSelected;
+            nextLevelMenuEntry.Selected += NextLevelSelected;
             quitGameMenuEntry.Selected += QuitGameMenuEntrySelected;
+
+
+            selectedEntry = 2;
 
             // Add entries to the menu.
             MenuEntries.Add(restartGameMenuEntry);
+            if (levelindex < LevelMenuScreen.levels.Count)
+            {
+                MenuEntries.Add(nextLevelMenuEntry);
+            }
             MenuEntries.Add(quitGameMenuEntry);
         }
 
@@ -75,6 +86,12 @@ namespace BKP
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen(level));
+        }
+
+        void NextLevelSelected(object sender, PlayerIndexEventArgs e)
+        {
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                               new GameplayScreen(LevelMenuScreen.levels[levelindex+1]));
         }
 
 
