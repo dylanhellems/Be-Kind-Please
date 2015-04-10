@@ -34,7 +34,7 @@ namespace BKP
             MenuEntry level3MenuEntry = new LevelMenuEntry("Act 3", "Content/levels/level3.tmx");
             MenuEntry level4MenuEntry = new LevelMenuEntry("Prologue", "Content/levels/level4.tmx");
             MenuEntry level6MenuEntry = new LevelMenuEntry("TEST LEVEL 6", "Content/levels/level6.tmx");
-            MenuEntry level7MenuEntry = new LevelMenuEntry("TEST LEVEL 7", "Content/levels/level7.tmx");
+            MenuEntry level7MenuEntry = new LevelMenuEntry("Level 7", "Content/levels/level7.tmx");
             MenuEntry level8MenuEntry = new LevelMenuEntry("TEST LEVEL 8", "Content/levels/level8.tmx");
             MenuEntry back = new MenuEntry("Back");
 
