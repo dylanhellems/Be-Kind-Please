@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="130" height="17" tilewidth="70" tileheight="70" nextobjectid="1">
  <properties>
-  <property name="endx" value="118"/>
+  <property name="endx" value="124"/>
   <property name="floory" value="14"/>
   <property name="playery" value="12"/>
  </properties>
