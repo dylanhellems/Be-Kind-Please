@@ -34,10 +34,10 @@ namespace BKP
             throw new NotImplementedException();
         }
 
-        public void Update(Vector2 pos)
+        public void Update(Vector2 pos, int xOff, int yOff)
         {
-            x = (int)Math.Floor(pos.X) + 300;
-            y = (int)Math.Floor(pos.Y) - 250;
+            x = (int)Math.Floor(pos.X) + xOff;
+            y = (int)Math.Floor(pos.Y) + yOff;
         }
     }
 }

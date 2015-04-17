@@ -44,6 +44,7 @@ namespace BKP
         public Player player;
 
         public Overlay pause, rewind, ff;
+        public Overlay vhsEffect;
         public List<Obstacle> platforms;
         public List<NonObstacle> backNobstacles, foreNobstacles;
 
@@ -194,6 +195,7 @@ namespace BKP
             pause = new Overlay(50, 400, 100, 100);
             rewind = new Overlay(50, 400, 100, 100);
             ff = new Overlay(50, 400, 100, 100);
+            vhsEffect = new Overlay(0, 0, 853, 480);
 
             Joystick.Init();
             Console.WriteLine("Number of joysticks: " + Sdl.SDL_NumJoysticks());
@@ -242,6 +244,7 @@ namespace BKP
             pause.LoadContent(content, "pause");
             rewind.LoadContent(content, "rewind");
             ff.LoadContent(content, "fastforward");
+            vhsEffect.LoadContent(content, "vhs_effect_2");
             //background = new ScrollingBackground();
             //background.Load(ScreenManager.GraphicsDevice, content.Load<Texture2D>("gamebackground"));
 
@@ -318,9 +321,10 @@ namespace BKP
                     }
                     player.Update(controls, gameTime, platforms, true);
                 }
-                pause.Update(cameraWorldPosition);
-                rewind.Update(cameraWorldPosition);
-                ff.Update(cameraWorldPosition);
+                pause.Update(cameraWorldPosition, 300, -250);
+                rewind.Update(cameraWorldPosition, 300, -250);
+                ff.Update(cameraWorldPosition, 300, -250);
+                vhsEffect.Update(cameraWorldPosition, -426, -240);
 
                 //base.Update(gameTime);
                 foreach (Obstacle platform in platforms)
@@ -394,28 +398,32 @@ namespace BKP
             {
                 nobstacle.Draw(spriteBatch);
             }
+
+            foreach (NonObstacle nobstacle in foreNobstacles)
+            {
+                nobstacle.Draw(spriteBatch);
+            }
+
+            player.Draw(spriteBatch);
             if (!(player.getCenterX() > endX))
             {
                 switch (player.getState())
                 {
                     case -1:
+                        vhsEffect.Draw(spriteBatch);
                         rewind.Draw(spriteBatch);
                         break;
                     case 0:
+                        vhsEffect.Draw(spriteBatch);
                         pause.Draw(spriteBatch);
                         break;
                     case 2:
+                        vhsEffect.Draw(spriteBatch);
                         ff.Draw(spriteBatch);
                         break;
                     default:
                         break;
                 }
-            }
-
-            player.Draw(spriteBatch);
-            foreach (NonObstacle nobstacle in foreNobstacles)
-            {
-                nobstacle.Draw(spriteBatch);
             }
 
             if (!(player.getCenterX() > endX))
