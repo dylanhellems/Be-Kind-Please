@@ -58,6 +58,8 @@ namespace BKP
 
         float pauseAlpha;
 
+        public Sound sound;
+
         #endregion
 
         #region Initialization
@@ -202,6 +204,7 @@ namespace BKP
             timer = new GameTime();
             time = "";
             sinceInit = new TimeSpan(0);
+            sound = new Sound();
         }
 
 
@@ -242,6 +245,7 @@ namespace BKP
             pause.LoadContent(content, "pause");
             rewind.LoadContent(content, "rewind");
             ff.LoadContent(content, "fastforward");
+            sound.LoadContent(content);
             //background = new ScrollingBackground();
             //background.Load(ScreenManager.GraphicsDevice, content.Load<Texture2D>("gamebackground"));
 
@@ -321,6 +325,7 @@ namespace BKP
                 pause.Update(cameraWorldPosition);
                 rewind.Update(cameraWorldPosition);
                 ff.Update(cameraWorldPosition);
+                sound.Update();
 
                 //base.Update(gameTime);
                 foreach (Obstacle platform in platforms)
