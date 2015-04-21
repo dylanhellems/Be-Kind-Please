@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +23,8 @@ namespace BKP
 
         public void LoadContent(ContentManager content)
         {
-            rewind = content.Load<SoundEffect>("Sound/rewind");
-            ff = content.Load<SoundEffect>("Sound/fastforward");
+            rewind = content.Load<SoundEffect>("soundeffects/rewind");
+            ff = content.Load<SoundEffect>("soundeffects/fastforward");
             control = new Controls();
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
@@ -34,32 +32,26 @@ namespace BKP
 
         public void Update()
         {
-            if (control.onPress(Keys.Left, Buttons.LeftTrigger) == true)
+            if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
             {
-                rewindInstance.Volume = 1.0f;
+                //rewindInstance.Volume = 1.0f;
                 rewindInstance.IsLooped = true;
                 rewindInstance.Play();
-                //Console.WriteLine("Played rewind");
+                Console.WriteLine("Played rewind");
             }
 
-            else
+            else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
             {
-                rewindInstance.Stop();
-                //Console.WriteLine("Stopped rewind");
-            }
-
-            if (control.onPress(Keys.Right, Buttons.RightTrigger) == true)
-            {
-                ffInstance.Volume = 1.0f;
+                //ffInstance.Volume = 1.0f;
                 ffInstance.IsLooped = true;
                 ffInstance.Play();
-                //Console.WriteLine("Played ff");
+                Console.WriteLine("Played ff");
             }
 
             else
             {
                 ffInstance.Stop();
-                //Console.WriteLine("Stopped ff");
+                Console.WriteLine("Stopped sound");
             }
 
         }
