@@ -25,13 +25,16 @@ namespace BKP
         {
             rewind = content.Load<SoundEffect>("soundeffects/rewind");
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
-            control = new Controls();
+            //control = new Controls();
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
         }
 
-        public void Update()
+        public void Update(Controls control)
         {
+            Console.WriteLine(control.isPressed(Keys.Left, Buttons.LeftTrigger));
+            Console.WriteLine(control.isPressed(Keys.Right, Buttons.RightTrigger));
+
             if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
             {
                 //rewindInstance.Volume = 1.0f;
@@ -50,8 +53,8 @@ namespace BKP
 
             else
             {
+                rewindInstance.Stop();
                 ffInstance.Stop();
-                Console.WriteLine("Stopped sound");
             }
 
         }
