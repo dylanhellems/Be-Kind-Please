@@ -9,12 +9,12 @@
  </tileset>
  <layer name="background" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzkERAAAEADDVhNNbAm/ubAkWAQB/1XbgmNwOAAAADBpyzgDH
+   eJztziEBAAAIA7BXo38pxDUasyVYAgBQ8x0AAAA4LE2lAEI=
   </data>
  </layer>
  <layer name="platforms" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztl8ENhiAMhVnIARzAMbz/3nUADwzhtvIfTEgj8igFeuiXvHihUtvXCM4ZlAuU0Y8z6Be0MeOXoPlDUyZeqyf+deHWZBRPL3I1185oTzwzkZsLdF0PNPbek6cE3N574TyMMvyLpCj1BCePeNZr552+iyNkf62eP1z6uxDi9SsjBtFOhO6jmRaz90bJmTL2Qs1/Pl6P+gM9Z6REPaIV1POt9uLESZz9UrFfNaj1xOh7C0rP/KX718ITPaUV84R5gnIDGe63Tg==
+   eJztl8ENwyAMRVkoA3SAjJF7e28HyIEhum3pIZJlBfgYAz74Sf+GY2J/K04IDucLypnHmfRMegnj96RHQVsl3qon/nWR1mQVVy9qNbfOak9cM1GbC/TcDCz2PhJpIe299j2cNuKNtGj1hOQedNZ7550/SyIkv1XPf0L+vRDo+UMQg+jNhOaxzIjZu6Nlp6Re6PnO0/OoP9A9IyfuEaugnh+VSxKnsfvlYks16PXE6v8WlJn31+7fCE/MlFXcE+4Jzg8/F7fT
   </data>
  </layer>
  <layer name="moving" width="133" height="10">
