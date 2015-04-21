@@ -60,7 +60,7 @@ namespace BKP
 
             // Add entries to the menu.
             MenuEntries.Add(restartGameMenuEntry);
-            if (levelindex < LevelMenuScreen.levels.Count)
+            if (levelindex < LevelMenuScreen.levels.Count - 1)
             {
                 MenuEntries.Add(nextLevelMenuEntry);
             }
