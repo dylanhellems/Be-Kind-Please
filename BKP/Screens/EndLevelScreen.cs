@@ -60,7 +60,7 @@ namespace BKP
 
             // Add entries to the menu.
             MenuEntries.Add(restartGameMenuEntry);
-            if (levelindex < LevelMenuScreen.levels.Count)
+            if (levelindex+1 < LevelMenuScreen.levels.Count)
             {
                 MenuEntries.Add(nextLevelMenuEntry);
             }
@@ -90,10 +90,9 @@ namespace BKP
 
         void NextLevelSelected(object sender, PlayerIndexEventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
-                               new GameplayScreen(LevelMenuScreen.levels[levelindex+1]));
+                LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                                   new GameplayScreen(LevelMenuScreen.levels[levelindex + 1]));
         }
-
 
         #endregion
     }
