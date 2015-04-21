@@ -45,6 +45,7 @@ namespace BKP
 
         public Overlay pause, rewind, ff;
         public ScrollingForeground vhsEffect;
+
         public List<Obstacle> platforms;
         public List<NonObstacle> backNobstacles, foreNobstacles;
 
@@ -58,6 +59,8 @@ namespace BKP
         public GameTime timer;
 
         float pauseAlpha;
+
+        public Sound sound;
 
         #endregion
 
@@ -204,6 +207,7 @@ namespace BKP
             timer = new GameTime();
             time = "";
             sinceInit = new TimeSpan(0);
+            sound = new Sound();
         }
 
 
@@ -245,6 +249,7 @@ namespace BKP
             rewind.LoadContent(content, "rewind");
             ff.LoadContent(content, "fastforward");
             vhsEffect.Load(ScreenManager.GraphicsDevice, content.Load<Texture2D>("vhs_effect_2"));
+            sound.LoadContent(content);
             //background = new ScrollingBackground();
             //background.Load(ScreenManager.GraphicsDevice, content.Load<Texture2D>("gamebackground"));
 
@@ -254,7 +259,7 @@ namespace BKP
             ScreenManager.Game.ResetElapsedTime();
         }
 
-        
+
         /// <summary>
         /// Unload graphics content used by the game.
         /// </summary>
@@ -296,6 +301,7 @@ namespace BKP
             {
                 //set our keyboardstate tracker update can change the gamestate on every cycle
                 controls.Update();
+                sound.Update(controls, player.isGrounded());
 
                 if (controls.onPress(Keys.Back, Buttons.Back))
                 {
@@ -331,7 +337,7 @@ namespace BKP
                 {
                     platform.Update(gameTime, player.getState());
                 }
-                
+
             }
         }
 
@@ -364,7 +370,7 @@ namespace BKP
             }
             else
             {
-                
+
             }
         }
 
@@ -411,20 +417,23 @@ namespace BKP
                 switch (player.getState())
                 {
                     case -1:
-                        vhsEffect.Draw(spriteBatch);
                         rewind.Draw(spriteBatch);
                         break;
                     case 0:
-                        vhsEffect.Draw(spriteBatch);
                         pause.Draw(spriteBatch);
                         break;
                     case 2:
-                        vhsEffect.Draw(spriteBatch);
                         ff.Draw(spriteBatch);
                         break;
                     default:
                         break;
                 }
+            }
+
+            player.Draw(spriteBatch);
+            foreach (NonObstacle nobstacle in foreNobstacles)
+            {
+                nobstacle.Draw(spriteBatch);
             }
 
             if (!(player.getCenterX() > endX))

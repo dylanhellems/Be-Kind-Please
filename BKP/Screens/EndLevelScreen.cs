@@ -90,10 +90,9 @@ namespace BKP
 
         void NextLevelSelected(object sender, PlayerIndexEventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
-                               new GameplayScreen(LevelMenuScreen.levels[levelindex+1]));
+                LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                                   new GameplayScreen(LevelMenuScreen.levels[levelindex + 1]));
         }
-
 
         #endregion
     }
