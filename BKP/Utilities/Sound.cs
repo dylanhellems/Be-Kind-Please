@@ -12,8 +12,10 @@ namespace BKP
     {
         public SoundEffect rewind;
         public SoundEffect ff;
+        public SoundEffect jump;
         public SoundEffectInstance rewindInstance;
         public SoundEffectInstance ffInstance;
+        public SoundEffectInstance jumpInstance;
         public Controls control;
 
         public Sound()
@@ -25,30 +27,36 @@ namespace BKP
         {
             rewind = content.Load<SoundEffect>("soundeffects/rewind");
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
-            //control = new Controls();
+            jump = content.Load<SoundEffect>("soundeffects/jump");
+            
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
+            jumpInstance = jump.CreateInstance();
         }
 
-        public void Update(Controls control)
+        public void Update(Controls control, bool grounded)
         {
-            Console.WriteLine(control.isPressed(Keys.Left, Buttons.LeftTrigger));
-            Console.WriteLine(control.isPressed(Keys.Right, Buttons.RightTrigger));
+            //Console.WriteLine(control.isPressed(Keys.Left, Buttons.LeftTrigger));
+            //Console.WriteLine(control.isPressed(Keys.Right, Buttons.RightTrigger));
 
             if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
             {
-                //rewindInstance.Volume = 1.0f;
                 rewindInstance.IsLooped = true;
                 rewindInstance.Play();
-                Console.WriteLine("Played rewind");
+                //Console.WriteLine("Played rewind");
             }
 
             else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
             {
-                //ffInstance.Volume = 1.0f;
                 ffInstance.IsLooped = true;
                 ffInstance.Play();
-                Console.WriteLine("Played ff");
+               // Console.WriteLine("Played ff");
+            }
+
+            else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
+            {
+                jumpInstance.IsLooped = false;
+                jumpInstance.Play();
             }
 
             else

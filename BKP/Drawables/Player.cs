@@ -13,7 +13,7 @@ namespace BKP
     {
         private int state;
         private bool paused;
-        private bool grounded;
+        public bool grounded;
 		private int speed;
 		private int x_accel;
 		private double friction;
@@ -370,6 +370,11 @@ namespace BKP
         public bool rewind()
         {
             return false;
+        }
+
+        public bool isGrounded()
+        {
+            return grounded;
         }
     }
 }
