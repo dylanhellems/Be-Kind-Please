@@ -69,8 +69,8 @@ namespace BKP
                 se = SpriteEffects.FlipVertically;
                 flipper = new Random().Next(100);
             }
-            batch.Draw(tex, screenpos + 2 * texturesize, null, Color.White, 0, origin, 1, se, 0f);
-            batch.Draw(tex, screenpos + texturesize, null, Color.White, 0, origin, 1, se, 0f);
+            batch.Draw(tex, screenpos - 2 * texturesize, null, Color.White, 0, origin, 1, se, 0f);
+            batch.Draw(tex, screenpos - texturesize, null, Color.White, 0, origin, 1, se, 0f);
             batch.Draw(tex, screenpos, null, Color.White, 0, origin, 1, se, 0f);
         }
     }
