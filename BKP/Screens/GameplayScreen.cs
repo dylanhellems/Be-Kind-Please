@@ -417,20 +417,23 @@ namespace BKP
                 switch (player.getState())
                 {
                     case -1:
-                        vhsEffect.Draw(spriteBatch);
                         rewind.Draw(spriteBatch);
                         break;
                     case 0:
-                        vhsEffect.Draw(spriteBatch);
                         pause.Draw(spriteBatch);
                         break;
                     case 2:
-                        vhsEffect.Draw(spriteBatch);
                         ff.Draw(spriteBatch);
                         break;
                     default:
                         break;
                 }
+            }
+
+            player.Draw(spriteBatch);
+            foreach (NonObstacle nobstacle in foreNobstacles)
+            {
+                nobstacle.Draw(spriteBatch);
             }
 
             if (!(player.getCenterX() > endX))

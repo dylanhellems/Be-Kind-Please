@@ -29,9 +29,9 @@ namespace BKP
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
             jump = content.Load<SoundEffect>("soundeffects/jump");
             
-            //rewindInstance = rewind.CreateInstance();
-            //ffInstance = ff.CreateInstance();
-            //jumpInstance = jump.CreateInstance();
+            rewindInstance = rewind.CreateInstance();
+            ffInstance = ff.CreateInstance();
+            jumpInstance = jump.CreateInstance();
         }
 
         public void Update(Controls control, bool grounded)
@@ -39,31 +39,31 @@ namespace BKP
             //Console.WriteLine(control.isPressed(Keys.Left, Buttons.LeftTrigger));
             //Console.WriteLine(control.isPressed(Keys.Right, Buttons.RightTrigger));
 
-            //if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
-            //{
-            //    rewindInstance.IsLooped = true;
-            //    rewindInstance.Play();
-            //    //Console.WriteLine("Played rewind");
-            //}
+            if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
+            {
+                rewindInstance.IsLooped = true;
+                rewindInstance.Play();
+                //Console.WriteLine("Played rewind");
+            }
 
-            //else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
-            //{
-            //    ffInstance.IsLooped = true;
-            //    ffInstance.Play();
-            //   // Console.WriteLine("Played ff");
-            //}
+            else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
+            {
+                ffInstance.IsLooped = true;
+                ffInstance.Play();
+               // Console.WriteLine("Played ff");
+            }
 
-            //else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
-            //{
-            //    jumpInstance.IsLooped = false;
-            //    jumpInstance.Play();
-            //}
+            else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
+            {
+                jumpInstance.IsLooped = false;
+                jumpInstance.Play();
+            }
 
-            //else
-            //{
-            //    rewindInstance.Stop();
-            //    ffInstance.Stop();
-            //}
+            else
+            {
+                rewindInstance.Stop();
+                ffInstance.Stop();
+            }
 
         }
 
