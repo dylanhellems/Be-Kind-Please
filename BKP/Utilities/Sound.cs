@@ -18,6 +18,11 @@ namespace BKP
         public SoundEffectInstance jumpInstance;
         public Controls control;
 
+        public SoundEffect musicCall;
+        public SoundEffectInstance musicCallInstance;
+        public SoundEffect musicVivacity;
+        public SoundEffectInstance musicVivacityInstance;
+
         public Sound()
         {
 
@@ -32,6 +37,13 @@ namespace BKP
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
             jumpInstance = jump.CreateInstance();
+
+            musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
+            musicCallInstance = musicCall.CreateInstance();
+            musicCallInstance.Play();
+            musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
+            musicVivacityInstance = musicVivacity.CreateInstance();
+            //musicVivacityInstance.Play();
         }
 
         public void Update(Controls control, bool grounded)
