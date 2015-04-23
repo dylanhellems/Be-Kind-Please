@@ -22,9 +22,11 @@ namespace BKP
     {
         #region Fields
 
+        MenuEntry funMenuEntry;
         MenuEntry musicMenuEntry;
         MenuEntry fxMenuEntry;
 
+        static bool funOption = true;
         static bool musicOption = true;
         static bool fxOption = true;
 
@@ -40,23 +42,22 @@ namespace BKP
             : base("")
         {
             // Create our menu entries.
-            //ungulateMenuEntry = new MenuEntry(string.Empty);
-            //languageMenuEntry = new MenuEntry(string.Empty);
-            //frobnicateMenuEntry = new MenuEntry(string.Empty);
-            //elfMenuEntry = new MenuEntry(string.Empty);
+            funMenuEntry = new MenuEntry(string.Empty);
             musicMenuEntry = new MenuEntry(string.Empty);
             fxMenuEntry = new MenuEntry(string.Empty);
-
             SetMenuEntryText();
 
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
+
+            funMenuEntry.Selected += FunMenuEntrySelected;
             musicMenuEntry.Selected += MusicMenuEntrySelected;
             fxMenuEntry.Selected += FXMenuEntrySelected;
             back.Selected += OnCancel;
             
             // Add entries to the menu.
+            MenuEntries.Add(funMenuEntry);
             MenuEntries.Add(musicMenuEntry);
             MenuEntries.Add(fxMenuEntry);
             MenuEntries.Add(back);
@@ -68,8 +69,9 @@ namespace BKP
         /// </summary>
         void SetMenuEntryText()
         {
-            musicMenuEntry.Text = "Fun: " + (musicOption ? "on" : "off");
-            fxMenuEntry.Text = "Fun: " + (fxOption ? "on" : "off");
+            funMenuEntry.Text = "Fun: " + (funOption ? "on" : "off");
+            musicMenuEntry.Text = "Music: " + (musicOption ? "on" : "off");
+            fxMenuEntry.Text = "Sound effects: " + (fxOption ? "on" : "off");
         }
 
 
@@ -77,20 +79,24 @@ namespace BKP
 
         #region Handle Input
 
+        void FunMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            funOption = !funOption;
+        }
+
         void MusicMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             musicOption = !musicOption;
-
+            Sound.musicOn = musicOption;
             SetMenuEntryText();
         }
 
         void FXMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             fxOption = !fxOption;
-
+            Sound.soundOn = fxOption;
             SetMenuEntryText();
         }
-
         #endregion
     }
 }
