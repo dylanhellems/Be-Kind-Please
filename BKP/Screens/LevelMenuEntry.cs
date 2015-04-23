@@ -78,7 +78,7 @@ namespace BKP
                 }
                 else
                 {
-                    spriteBatch.DrawString(font, "Last Par:", pos - new Vector2(0, 75), Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
+                    spriteBatch.DrawString(font, "To Unlock:", pos - new Vector2(25, 75), Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
                     spriteBatch.DrawString(font, string.Format("{0:mm\\:ss\\.ff}", ScreenManager.pars[level]), pos, Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
                 }
             }

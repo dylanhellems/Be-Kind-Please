@@ -108,13 +108,13 @@ namespace BKP
 
             isInitialized = true;
 
-            pars.Add("Content/levels/level1.tmx", new TimeSpan(0, 0, 0, 0, 60000));
-            pars.Add("Content/levels/level2.tmx", new TimeSpan(0, 0, 0, 0, 60000));
-            pars.Add("Content/levels/level3.tmx", new TimeSpan(0, 0, 0, 0, 60000));
-            pars.Add("Content/levels/level4.tmx", new TimeSpan(0, 0, 0, 0, 60000));
-            pars.Add("Content/levels/level6.tmx", new TimeSpan(0, 0, 0, 0, 60000));
-            pars.Add("Content/levels/level7.tmx", new TimeSpan(0, 0, 0, 0, 60000));
-            pars.Add("Content/levels/level8.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level1.tmx", new TimeSpan(0, 0, 0, 0, 45000));
+            pars.Add("Content/levels/level2.tmx", new TimeSpan(0, 0, 0, 0, 45000));
+            pars.Add("Content/levels/level3.tmx", new TimeSpan(0, 0, 0, 0, 45000));
+            pars.Add("Content/levels/level4.tmx", new TimeSpan(0, 0, 0, 0, 45000));
+            pars.Add("Content/levels/level6.tmx", new TimeSpan(0, 0, 0, 0, 45000));
+            pars.Add("Content/levels/level7.tmx", new TimeSpan(0, 0, 0, 0, 45000));
+            pars.Add("Content/levels/level8.tmx", new TimeSpan(0, 0, 0, 0, 45000));
         }
 
 
