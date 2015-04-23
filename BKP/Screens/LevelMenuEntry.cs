@@ -68,12 +68,12 @@ namespace BKP
 
                 if (ScreenManager.times[level].TotalMilliseconds > 0)
                 {
-                    spriteBatch.DrawString(font, "Best Time:", pos - new Vector2(0, 75), Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
+                    spriteBatch.DrawString(font, "Best Time:", pos - new Vector2(25, 75), Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
                     spriteBatch.DrawString(font, string.Format("{0:mm\\:ss\\.ff}", ScreenManager.times[level]), pos, Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
                 }
                 else if (currIndex == 0 || ScreenManager.times[LevelMenuScreen.levels[currIndex - 1]].TotalMilliseconds < ScreenManager.pars[LevelMenuScreen.levels[currIndex - 1]].TotalMilliseconds && ScreenManager.times[LevelMenuScreen.levels[currIndex - 1]].TotalMilliseconds > 0)
                 {
-                    spriteBatch.DrawString(font, "Best Time:", pos - new Vector2(0, 75), Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
+                    spriteBatch.DrawString(font, "Best Time:", pos - new Vector2(25, 75), Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
                     spriteBatch.DrawString(font, "--:--.--", pos, Color.White, 0, new Vector2(0, 0), scaler, SpriteEffects.None, 0);
                 }
                 else
