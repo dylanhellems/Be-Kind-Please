@@ -74,12 +74,12 @@ namespace BKP
             jumpInstance = jump.CreateInstance();
             musicInstance = music.CreateInstance();
 
-            //musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
-            //musicCallInstance = musicCall.CreateInstance();
-            //musicCallInstance.Play();
-            //musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
-            //musicVivacityInstance = musicVivacity.CreateInstance();
-            //musicVivacityInstance.Play();
+//             musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
+//             musicCallInstance = musicCall.CreateInstance();
+//             //musicCallInstance.Play();
+//             musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
+//             musicVivacityInstance = musicVivacity.CreateInstance();
+//             //musicVivacityInstance.Play();
         }
 
         public void Update(Controls control, bool grounded)
