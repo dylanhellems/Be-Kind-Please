@@ -20,19 +20,11 @@ namespace BKP
         public static SoundEffectInstance musicInstance;
         public Controls control;
 
-
-        public SoundEffect musicCall;
-        public SoundEffectInstance musicCallInstance;
-        public SoundEffect musicVivacity;
-        public SoundEffectInstance musicVivacityInstance;
-
         public static bool soundOn = true;
         public static bool musicOn = true;
 
-<<<<<<< HEAD
         public static string song = "";
-=======
->>>>>>> origin/expo
+        public static int level;
 
         public Sound()
         {
@@ -41,6 +33,36 @@ namespace BKP
 
         public void LoadContent(ContentManager content)
         {
+            switch (level)
+            {
+                case 1:
+                    song = "Vivacity";
+                    break;
+
+                case 2:
+                    song = "Vivacity";
+                    break;
+
+                case 3:
+                    song = "Vivacity";
+                    break;
+
+                case 4:
+                    song = "Daily Beetle";
+                    break;
+
+                case 5:
+                    song = "Call to Adventure";
+                    break;
+
+                case 6:
+                    song = "Call to Adventure";
+                    break;
+
+                case 7: 
+                    song = "Call to Adventure";
+                    break;
+            }
             rewind = content.Load<SoundEffect>("soundeffects/rewind");
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
             jump = content.Load<SoundEffect>("soundeffects/jump");
@@ -49,17 +71,9 @@ namespace BKP
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
             jumpInstance = jump.CreateInstance();
-<<<<<<< HEAD
-            musicInstance = music.CreateInstance();
-=======
 
-            musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
-            musicCallInstance = musicCall.CreateInstance();
-            musicCallInstance.Play();
-            musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
-            musicVivacityInstance = musicVivacity.CreateInstance();
-            //musicVivacityInstance.Play();
->>>>>>> origin/expo
+            musicInstance = music.CreateInstance();
+
         }
 
         public void Update(Controls control, bool grounded)
