@@ -29,7 +29,7 @@ namespace BKP
         public static bool soundOn = true;
         public static bool musicOn = true;
 
-        public static string song = "";
+        public static string song = "calltoadventure";
 
         public Sound()
         {
@@ -48,11 +48,11 @@ namespace BKP
             jumpInstance = jump.CreateInstance();
             musicInstance = music.CreateInstance();
 
-            musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
-            musicCallInstance = musicCall.CreateInstance();
-            musicCallInstance.Play();
-            musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
-            musicVivacityInstance = musicVivacity.CreateInstance();
+            //musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
+            //musicCallInstance = musicCall.CreateInstance();
+            //musicCallInstance.Play();
+            //musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
+            //musicVivacityInstance = musicVivacity.CreateInstance();
             //musicVivacityInstance.Play();
         }
 
@@ -81,6 +81,11 @@ namespace BKP
                     ffInstance.IsLooped = true;
                     ffInstance.Play();
                     // Console.WriteLine("Played ff");
+                }
+
+                else if (control.isPressed(Keys.Down, Buttons.B) == true)
+                {
+                    musicInstance.Volume = 0f;
                 }
 
                 else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
