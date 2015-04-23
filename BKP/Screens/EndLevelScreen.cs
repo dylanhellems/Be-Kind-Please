@@ -31,7 +31,7 @@ namespace BKP
         /// Constructor.
         /// </summary>
         public EndLevelScreen(string level, TimeSpan time)
-            : base("You Win!")
+            : base(((ScreenManager.times[level].TotalMilliseconds <= 0) || (time.TotalMilliseconds < ScreenManager.times[level].TotalMilliseconds)) ? "New Best Time!" : "Try Again!")
         {
             this.level = level;
             this.levelindex = LevelMenuScreen.levels.FindIndex(a => a == level);
@@ -60,7 +60,7 @@ namespace BKP
 
             // Add entries to the menu.
             MenuEntries.Add(restartGameMenuEntry);
-            if (levelindex < LevelMenuScreen.levels.Count - 1)
+            if (levelindex < LevelMenuScreen.levels.Count - 1 && ScreenManager.times[LevelMenuScreen.levels[levelindex]].TotalMilliseconds < ScreenManager.pars[LevelMenuScreen.levels[levelindex]].TotalMilliseconds && ScreenManager.times[LevelMenuScreen.levels[levelindex]].TotalMilliseconds > 0)
             {
                 MenuEntries.Add(nextLevelMenuEntry);
             }

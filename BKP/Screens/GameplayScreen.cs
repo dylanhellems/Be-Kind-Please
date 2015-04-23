@@ -439,7 +439,9 @@ namespace BKP
                 time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
             }
 
-            spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), Color.White);
+            Color afterPar = (sinceInit.TotalMilliseconds < ScreenManager.pars[level].TotalMilliseconds) ? (sinceInit.TotalMilliseconds < (ScreenManager.pars[level].TotalMilliseconds * 3/4)) ? Color.White : Color.Orange : Color.Red;
+
+            spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), afterPar);
             spriteBatch.End();
 
             // If the game is transitioning on or off, fade it out to black.
