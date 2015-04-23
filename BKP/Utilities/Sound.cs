@@ -83,7 +83,7 @@ namespace BKP
 
             musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
             musicCallInstance = musicCall.CreateInstance();
-            musicCallInstance.Play();
+            //musicCallInstance.Play();
             musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
             musicVivacityInstance = musicVivacity.CreateInstance();
             //musicVivacityInstance.Play();
