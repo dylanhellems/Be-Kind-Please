@@ -18,6 +18,9 @@ namespace BKP
         public SoundEffectInstance jumpInstance;
         public Controls control;
 
+        public static bool soundOn = true;
+        public static bool musicOn = true;
+
         public Sound()
         {
 
@@ -36,34 +39,34 @@ namespace BKP
 
         public void Update(Controls control, bool grounded)
         {
-            //Console.WriteLine(control.isPressed(Keys.Left, Buttons.LeftTrigger));
-            //Console.WriteLine(control.isPressed(Keys.Right, Buttons.RightTrigger));
-
-            if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
+            if (soundOn == true)
             {
-                rewindInstance.IsLooped = true;
-                rewindInstance.Play();
-                //Console.WriteLine("Played rewind");
-            }
+                if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
+                {
+                    rewindInstance.IsLooped = true;
+                    rewindInstance.Play();
+                    //Console.WriteLine("Played rewind");
+                }
 
-            else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
-            {
-                ffInstance.IsLooped = true;
-                ffInstance.Play();
-               // Console.WriteLine("Played ff");
-            }
+                else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
+                {
+                    ffInstance.IsLooped = true;
+                    ffInstance.Play();
+                    // Console.WriteLine("Played ff");
+                }
 
-            else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
-            {
-                jumpInstance.IsLooped = false;
-                jumpInstance.Play();
-            }
+                else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
+                {
+                    jumpInstance.IsLooped = false;
+                    jumpInstance.Play();
+                }
 
-            else
-            {
-                rewindInstance.Stop();
-                ffInstance.Stop();
-            }
+                else
+                {
+                    rewindInstance.Stop();
+                    ffInstance.Stop();
+                }
+            }         
 
         }
 

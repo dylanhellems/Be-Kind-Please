@@ -22,28 +22,14 @@ namespace BKP
     {
         #region Fields
 
-        MenuEntry ungulateMenuEntry;
-        MenuEntry languageMenuEntry;
-        MenuEntry frobnicateMenuEntry;
-        MenuEntry elfMenuEntry;
-
         MenuEntry funMenuEntry;
-
-        enum Ungulate
-        {
-            BactrianCamel,
-            Dromedary,
-            Llama,
-        }
-
-        static Ungulate currentUngulate = Ungulate.Dromedary;
-
-        static string[] languages = { "C#", "French", "Deoxyribonucleic acid" };
-        static int currentLanguage = 0;
-
-        static bool frobnicate = true;
+        MenuEntry soundOnEntry;
+        MenuEntry musicOnEntry;
 
         static bool funOption = true;
+
+        public bool soundOn = true;
+        public bool musicOn = true;
 
         static int elf = 23;
 
@@ -59,30 +45,25 @@ namespace BKP
             : base("")
         {
             // Create our menu entries.
-            //ungulateMenuEntry = new MenuEntry(string.Empty);
-            //languageMenuEntry = new MenuEntry(string.Empty);
-            //frobnicateMenuEntry = new MenuEntry(string.Empty);
-            //elfMenuEntry = new MenuEntry(string.Empty);
+
             funMenuEntry = new MenuEntry(string.Empty);
+            soundOnEntry = new MenuEntry(string.Empty);
+            musicOnEntry = new MenuEntry(string.Empty);
 
             SetMenuEntryText();
 
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.
-            //ungulateMenuEntry.Selected += UngulateMenuEntrySelected;
-            //languageMenuEntry.Selected += LanguageMenuEntrySelected;
-            //frobnicateMenuEntry.Selected += FrobnicateMenuEntrySelected;
-            //elfMenuEntry.Selected += ElfMenuEntrySelected;
             funMenuEntry.Selected += FunMenuEntrySelected;
+            soundOnEntry.Selected += SoundOnEntrySelected;
+            musicOnEntry.Selected += MusicOnEntrySelected;
             back.Selected += OnCancel;
             
             // Add entries to the menu.
-            //MenuEntries.Add(ungulateMenuEntry);
-            //MenuEntries.Add(languageMenuEntry);
-            //MenuEntries.Add(frobnicateMenuEntry);
-            //MenuEntries.Add(elfMenuEntry);
             MenuEntries.Add(funMenuEntry);
+            MenuEntries.Add(soundOnEntry);
+            MenuEntries.Add(musicOnEntry);
             MenuEntries.Add(back);
         }
 
@@ -92,11 +73,9 @@ namespace BKP
         /// </summary>
         void SetMenuEntryText()
         {
-            //ungulateMenuEntry.Text = "Preferred ungulate: " + currentUngulate;
-            //languageMenuEntry.Text = "Language: " + languages[currentLanguage];
-            //frobnicateMenuEntry.Text = "Frobnicate: " + (frobnicate ? "on" : "off");
-            //elfMenuEntry.Text = "elf: " + elf;
             funMenuEntry.Text = "Fun: " + (funOption ? "on" : "off");
+            soundOnEntry.Text = "Sound effects: " + (soundOn ? "on" : "off");
+            musicOnEntry.Text = "Music: " + (musicOn ? "on" : "off");
         }
 
 
@@ -104,57 +83,24 @@ namespace BKP
 
         #region Handle Input
 
-
-        /// <summary>
-        /// Event handler for when the Ungulate menu entry is selected.
-        /// </summary>
-        void UngulateMenuEntrySelected(object sender, PlayerIndexEventArgs e)
-        {
-            currentUngulate++;
-
-            if (currentUngulate > Ungulate.Llama)
-                currentUngulate = 0;
-
-            SetMenuEntryText();
-        }
-
-
-        /// <summary>
-        /// Event handler for when the Language menu entry is selected.
-        /// </summary>
-        void LanguageMenuEntrySelected(object sender, PlayerIndexEventArgs e)
-        {
-            currentLanguage = (currentLanguage + 1) % languages.Length;
-
-            SetMenuEntryText();
-        }
-
-
-        /// <summary>
-        /// Event handler for when the Frobnicate menu entry is selected.
-        /// </summary>
-        void FrobnicateMenuEntrySelected(object sender, PlayerIndexEventArgs e)
-        {
-            frobnicate = !frobnicate;
-
-            SetMenuEntryText();
-        }
-
-
-        /// <summary>
-        /// Event handler for when the Elf menu entry is selected.
-        /// </summary>
-        void ElfMenuEntrySelected(object sender, PlayerIndexEventArgs e)
-        {
-            elf++;
-
-            SetMenuEntryText();
-        }
-
         void FunMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             funOption = !funOption;
 
+            SetMenuEntryText();
+        }
+
+        public void SoundOnEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            soundOn = !soundOn;
+            Sound.soundOn = soundOn;
+            SetMenuEntryText();
+        }
+
+        public void MusicOnEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            musicOn = !musicOn;
+            Sound.musicOn = musicOn;
             SetMenuEntryText();
         }
 
