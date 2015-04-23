@@ -82,7 +82,7 @@ namespace BKP
 //             //musicVivacityInstance.Play();
         }
 
-        public void Update(Controls control, bool grounded)
+        public void Update(Controls control, bool grounded, int state)
         {
             if (musicOn == true)
             {
@@ -109,7 +109,7 @@ namespace BKP
                     // Console.WriteLine("Played ff");
                 }
 
-                else if (control.isPressed(Keys.Down, Buttons.B) == true)
+                else if (state == 0)
                 {
                     musicInstance.Volume = 0f;
                 }

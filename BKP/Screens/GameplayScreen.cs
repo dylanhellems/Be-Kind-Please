@@ -301,7 +301,7 @@ namespace BKP
             {
                 //set our keyboardstate tracker update can change the gamestate on every cycle
                 controls.Update();
-                sound.Update(controls, player.isGrounded());
+                sound.Update(controls, player.isGrounded(), player.getState());
 
                 if (controls.onPress(Keys.Back, Buttons.Back))
                 {
