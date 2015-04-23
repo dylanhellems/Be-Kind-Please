@@ -95,6 +95,8 @@ namespace BKP
                 LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                    new GameplayScreen(LevelMenuScreen.levels[levelindex + 1]));
                 Sound.musicInstance.Stop();
+                Sound.level = levelindex+1;
+
         }
 
         #endregion

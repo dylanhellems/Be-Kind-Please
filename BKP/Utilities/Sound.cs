@@ -20,16 +20,12 @@ namespace BKP
         public static SoundEffectInstance musicInstance;
         public Controls control;
 
-
-        public SoundEffect musicCall;
-        public SoundEffectInstance musicCallInstance;
-        public SoundEffect musicVivacity;
-        public SoundEffectInstance musicVivacityInstance;
-
         public static bool soundOn = true;
         public static bool musicOn = true;
 
-        public static string song = "calltoadventure";
+        public static string song = "";
+        public static int level;
+
 
         public Sound()
         {
@@ -38,6 +34,36 @@ namespace BKP
 
         public void LoadContent(ContentManager content)
         {
+            switch (level)
+            {
+                case 1:
+                    song = "Vivacity";
+                    break;
+
+                case 2:
+                    song = "Vivacity";
+                    break;
+
+                case 3:
+                    song = "Vivacity";
+                    break;
+
+                case 4:
+                    song = "Daily Beetle";
+                    break;
+
+                case 5:
+                    song = "Call to Adventure";
+                    break;
+
+                case 6:
+                    song = "Call to Adventure";
+                    break;
+
+                case 7: 
+                    song = "Call to Adventure";
+                    break;
+            }
             rewind = content.Load<SoundEffect>("soundeffects/rewind");
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
             jump = content.Load<SoundEffect>("soundeffects/jump");
