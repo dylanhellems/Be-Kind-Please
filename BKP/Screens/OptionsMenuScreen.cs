@@ -69,7 +69,7 @@ namespace BKP
         /// </summary>
         void SetMenuEntryText()
         {
-            funMenuEntry.Text = "Fun: " + (funOption ? "on" : "off");
+            funMenuEntry.Text = "Fun: " + (funOption ? "on" : "yes");
             musicMenuEntry.Text = "Music: " + (musicOption ? "on" : "off");
             fxMenuEntry.Text = "Sound effects: " + (fxOption ? "on" : "off");
         }
@@ -82,6 +82,7 @@ namespace BKP
         void FunMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             funOption = !funOption;
+            SetMenuEntryText();
         }
 
         void MusicMenuEntrySelected(object sender, PlayerIndexEventArgs e)
