@@ -80,18 +80,21 @@ namespace BKP
         {
             LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(),
                                                            new MainMenuScreen());
+            Sound.musicInstance.Stop();
         }
 
         void RestartLevelSelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen(level));
+            Sound.musicInstance.Stop();
         }
 
         void NextLevelSelected(object sender, PlayerIndexEventArgs e)
         {
                 LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                    new GameplayScreen(LevelMenuScreen.levels[levelindex + 1]));
+                Sound.musicInstance.Stop();
         }
 
         #endregion

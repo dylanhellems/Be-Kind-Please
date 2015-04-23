@@ -100,42 +100,49 @@ namespace BKP
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level1.tmx"));
+            Sound.song = "Vivacity";
         }
 
         void Level2MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level2.tmx"));
+            Sound.song = "Vivacity";
         }
 
         void Level3MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level3.tmx"));
+            Sound.song = "Vivacity";
         }
 
         void Level4MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level4.tmx"));
+            Sound.song = "Daily Beetle";
         }
 
         void Level6MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level6.tmx"));
+            Sound.song = "Call to Adventure";
         }
 
         void Level7MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level7.tmx"));
+            Sound.song = "Call to Adventure";
         }
 
         void Level8MenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level8.tmx"));
+            Sound.song = "Call to Adventure";
         }
 
         /// <summary>

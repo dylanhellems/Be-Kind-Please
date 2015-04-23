@@ -71,6 +71,7 @@ namespace BKP
         {
             LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(),
                                                            new MainMenuScreen());
+            Sound.musicInstance.Stop();
         }
 
 

@@ -13,13 +13,17 @@ namespace BKP
         public SoundEffect rewind;
         public SoundEffect ff;
         public SoundEffect jump;
+        public SoundEffect music;
         public SoundEffectInstance rewindInstance;
         public SoundEffectInstance ffInstance;
         public SoundEffectInstance jumpInstance;
+        public static SoundEffectInstance musicInstance;
         public Controls control;
 
         public static bool soundOn = true;
         public static bool musicOn = true;
+
+        public static string song = "";
 
         public Sound()
         {
@@ -31,18 +35,28 @@ namespace BKP
             rewind = content.Load<SoundEffect>("soundeffects/rewind");
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
             jump = content.Load<SoundEffect>("soundeffects/jump");
+            music = content.Load<SoundEffect>("soundeffects/" + song);
             
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
             jumpInstance = jump.CreateInstance();
+            musicInstance = music.CreateInstance();
         }
 
         public void Update(Controls control, bool grounded)
         {
+            if (musicOn == true)
+            {
+                musicInstance.IsLooped = true;
+                musicInstance.Volume = 1f;
+                musicInstance.Play();
+            }
+
             if (soundOn == true)
             {
                 if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
                 {
+                    musicInstance.Volume = 0f;
                     rewindInstance.IsLooped = true;
                     rewindInstance.Play();
                     //Console.WriteLine("Played rewind");
@@ -50,6 +64,7 @@ namespace BKP
 
                 else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
                 {
+                    musicInstance.Volume = 0f;
                     ffInstance.IsLooped = true;
                     ffInstance.Play();
                     // Console.WriteLine("Played ff");
@@ -66,8 +81,8 @@ namespace BKP
                     rewindInstance.Stop();
                     ffInstance.Stop();
                 }
-            }         
-
+            }        
+             
         }
 
     }
