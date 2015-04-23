@@ -39,22 +39,28 @@ namespace BKP
         public LevelMenuScreen()
             : base("")
         {
+            List<bool> locks = new List<bool>();
+            locks.Add(false);
+            for (int i = 1; i < 7; i++)
+            {
+                if (ScreenManager.times.ContainsKey(levels[i - 1]))
+                {
+                    locks.Add(!(ScreenManager.times[levels[i - 1]].TotalMilliseconds < ScreenManager.pars[levels[i - 1]].TotalMilliseconds && ScreenManager.times[levels[i - 1]].TotalMilliseconds > 0));
+                }
+                else
+                {
+                    locks.Add(true);
+                }
+            }
+
             // Create our menu entries.
-            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], false);
-            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", levels[1], false);
-            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", levels[2], false);
-            MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", levels[3], false);
-            MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", levels[4], false);
-            MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", levels[5], false);
-            MenuEntry level8MenuEntry;
-            if (ScreenManager.times[levels[5]].TotalMilliseconds < 30000 && ScreenManager.times[levels[5]].TotalMilliseconds > 0)
-            {
-                level8MenuEntry = new LevelMenuEntry("Encore", levels[6], false);
-            }
-            else
-            {
-                level8MenuEntry = new LevelMenuEntry("Encore", levels[6], true);
-            }
+            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], locks[0]);
+            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", levels[1], locks[1]);
+            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", levels[2], locks[2]);
+            MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", levels[3], locks[3]);
+            MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", levels[4], locks[4]);
+            MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", levels[5], locks[5]);
+            MenuEntry level8MenuEntry = new LevelMenuEntry("Encore", levels[6], locks[6]);
             MenuEntry back = new MenuEntry("Back");
 
             // Hook up menu event handlers.

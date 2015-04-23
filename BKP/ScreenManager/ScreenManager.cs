@@ -30,6 +30,7 @@ namespace BKP
         #region Fields
 
         public static Dictionary<string, TimeSpan> times = new Dictionary<string, TimeSpan>();
+        public static Dictionary<string, TimeSpan> pars = new Dictionary<string, TimeSpan>();
 
         List<GameScreen> screens = new List<GameScreen>();
         List<GameScreen> screensToUpdate = new List<GameScreen>();
@@ -106,6 +107,14 @@ namespace BKP
             base.Initialize();
 
             isInitialized = true;
+
+            pars.Add("Content/levels/level1.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level2.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level3.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level4.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level6.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level7.tmx", new TimeSpan(0, 0, 0, 0, 60000));
+            pars.Add("Content/levels/level8.tmx", new TimeSpan(0, 0, 0, 0, 60000));
         }
 
 
