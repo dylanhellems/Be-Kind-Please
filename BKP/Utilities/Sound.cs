@@ -29,10 +29,7 @@ namespace BKP
         public static bool soundOn = true;
         public static bool musicOn = true;
 
-<<<<<<< HEAD
         public static string song = "";
-=======
->>>>>>> origin/expo
 
         public Sound()
         {
@@ -49,9 +46,7 @@ namespace BKP
             rewindInstance = rewind.CreateInstance();
             ffInstance = ff.CreateInstance();
             jumpInstance = jump.CreateInstance();
-<<<<<<< HEAD
             musicInstance = music.CreateInstance();
-=======
 
             musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
             musicCallInstance = musicCall.CreateInstance();
@@ -59,7 +54,6 @@ namespace BKP
             musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
             musicVivacityInstance = musicVivacity.CreateInstance();
             //musicVivacityInstance.Play();
->>>>>>> origin/expo
         }
 
         public void Update(Controls control, bool grounded)
