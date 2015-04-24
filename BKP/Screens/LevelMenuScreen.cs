@@ -54,31 +54,38 @@ namespace BKP
             }
 
             // Create our menu entries.
-            /*MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], locks[0]);
+            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], locks[0]);
             MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", levels[1], locks[1]);
             MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", levels[2], locks[2]);
             MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", levels[3], locks[3]);
             MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", levels[4], locks[4]);
             MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", levels[5], locks[5]);
-            MenuEntry level8MenuEntry = new LevelMenuEntry("Encore", levels[6], locks[6]);*/
+            MenuEntry level8MenuEntry = new LevelMenuEntry("Encore", levels[6], locks[6]);
             MenuEntry back = new MenuEntry("Back");
-
-            MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], locks[0]);
-            MenuEntry level2MenuEntry = new LevelMenuEntry("Act 1", levels[1], locks[0]);
-            MenuEntry level3MenuEntry = new LevelMenuEntry("Act 2", levels[2], locks[0]);
-            MenuEntry level4MenuEntry = new LevelMenuEntry("Intermission", levels[3], locks[0]);
-            MenuEntry level6MenuEntry = new LevelMenuEntry("Act 3", levels[4], locks[0]);
-            MenuEntry level7MenuEntry = new LevelMenuEntry("Epilogue", levels[5], locks[0]);
-            MenuEntry level8MenuEntry = new LevelMenuEntry("Encore", levels[6], locks[0]);
 
             // Hook up menu event handlers.
             level1MenuEntry.Selected += Level1MenuEntrySelected;
-            level2MenuEntry.Selected += Level2MenuEntrySelected;
-            level3MenuEntry.Selected += Level3MenuEntrySelected;
-            level4MenuEntry.Selected += Level4MenuEntrySelected;
-            level6MenuEntry.Selected += Level6MenuEntrySelected;
-            level7MenuEntry.Selected += Level7MenuEntrySelected;
-            if (ScreenManager.times[levels[5]].TotalMilliseconds < 30000 && ScreenManager.times[levels[5]].TotalMilliseconds > 0)
+            if (!locks[1])
+            {
+                level2MenuEntry.Selected += Level2MenuEntrySelected;
+            }
+            if (!locks[2])
+            {
+                level3MenuEntry.Selected += Level3MenuEntrySelected;
+            }
+            if (!locks[3])
+            {
+                level4MenuEntry.Selected += Level4MenuEntrySelected;
+            }
+            if (!locks[4])
+            {
+                level6MenuEntry.Selected += Level6MenuEntrySelected;
+            }
+            if (!locks[5])
+            {
+                level7MenuEntry.Selected += Level7MenuEntrySelected;
+            }
+            if (!locks[6])
             {
                 level8MenuEntry.Selected += Level8MenuEntrySelected;
             }
