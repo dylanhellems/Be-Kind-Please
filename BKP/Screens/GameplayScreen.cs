@@ -306,9 +306,11 @@ namespace BKP
 
                 if (controls.onPress(Keys.Back, Buttons.Back))
                 {
+                    Sound.musicInstance.Stop();
                     Initialize();
                     LoadContent();
                     sinceInit = new TimeSpan(0);
+
                 }
 
                 //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
