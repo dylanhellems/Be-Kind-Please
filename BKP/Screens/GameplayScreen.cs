@@ -439,6 +439,12 @@ namespace BKP
                 time = string.Format("{0:mm\\:ss\\.ff}", sinceInit);
             }
 
+            if (sinceInit.TotalMilliseconds < 3000)
+            {
+                float alpha = 1.0f - (float)(sinceInit.TotalMilliseconds / 3000.0);
+                spriteBatch.DrawString(gameFont, LevelMenuScreen.levelNames[level], cameraWorldPosition - new Vector2(70, 70), Color.White * alpha);
+            }
+
             Color afterPar = (sinceInit.TotalMilliseconds < ScreenManager.pars[level].TotalMilliseconds) ? (sinceInit.TotalMilliseconds < (ScreenManager.pars[level].TotalMilliseconds * 3/4)) ? Color.White : Color.Orange : Color.Red;
 
             spriteBatch.DrawString(gameFont, time, cameraWorldPosition - (new Vector2(70, vp.Height / 2)), afterPar);
