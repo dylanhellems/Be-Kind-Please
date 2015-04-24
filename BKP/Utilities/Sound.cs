@@ -113,8 +113,15 @@ namespace BKP
                     rewindInstance.Stop();
                     ffInstance.Stop();
                 }
-            }        
+            }
              
+        }
+
+        public void StopAll() 
+        {
+            musicInstance.Stop();
+            rewindInstance.Stop();
+            ffInstance.Stop();
         }
 
     }

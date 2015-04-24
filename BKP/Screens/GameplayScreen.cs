@@ -306,7 +306,7 @@ namespace BKP
 
                 if (controls.onPress(Keys.Back, Buttons.Back))
                 {
-                    Sound.musicInstance.Stop();
+                    sound.StopAll();
                     Initialize();
                     LoadContent();
                     sinceInit = new TimeSpan(0);

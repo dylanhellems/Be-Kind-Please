@@ -54,6 +54,13 @@ namespace BKP
                 }
             }
 
+            if (new Controls().isPressed(Microsoft.Xna.Framework.Input.Keys.C, Microsoft.Xna.Framework.Input.Buttons.Y)) {
+                for (int i = 0; i < 7; i++)
+                {
+                    locks.Insert(i, false);
+                }
+            }
+
             if (levelNames.Count == 0)
             {
                 levelNames.Add("Content/levels/level1.tmx", "Prologue");
