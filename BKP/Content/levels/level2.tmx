@@ -14,12 +14,12 @@
  </layer>
  <layer name="platforms" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztl8ENwyAMRVkoA3SAjJF7e28HyIEhum3pIZJlBfgYAz74Sf+GY2J/K04IDucLypnHmfRMegnj96RHQVsl3qon/nWR1mQVVy9qNbfOak9cM1GbC/TcDCz2PhJpIe299j2cNuKNtGj1hOQedNZ7550/SyIkv1XPf0L+vRDo+UMQg+jNhOaxzIjZu6Nlp6Re6PnO0/OoP9A9IyfuEaugnh+VSxKnsfvlYks16PXE6v8WlJn31+7fCE/MlFXcE+4Jzg8/F7fT
+   eJztl8ENwyAMRVmoA3SAjpF7ek8HyIEhum1SKZEsK8CPMeBKftK/4UDwQyEhOJwvGOd/eO15ZvIo1Ft1Yt3zHjBvDWcvSntundFO/Ho/H8k5gI7rgcXeRxItpL3XXodzj3gRLe46IVkHPeu1550/SxJkfqvOf0L6vRDo+ElQg2RhQeexTIuzd8XpN+IodaHmO0/Ho36g94xUuCNWQZ1vNZekTuPul6rN7UGtE6P/W1B6rl+7fy2c6BmruBPuBGcDVFe2gQ==
   </data>
  </layer>
  <layer name="moving" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJzt1jENACAQBEEMIQABeAEZOOc9UDyEmWT7K68UuN+KRjSzh3CsRy2q2UMAgO/4lADwtg0tAwNQ
+   eJztzjERACAMALEaQgAC8AIycE41MNCB5O73jwB4Z2Q9a9UjAMB3djazVT0CAFw5QkMB/g==
   </data>
  </layer>
  <layer name="foreground" width="133" height="10">

@@ -24,48 +24,32 @@ namespace BKP
         public static bool musicOn = true;
 
         public static string song = "";
-        public static int level;
-
+        public static int level = 0;
 
         public Sound()
         {
 
         }
 
-        public void LoadContent(ContentManager content, string level)
+        public void LoadContent(ContentManager content, string l)
         {
-            int levelIndex = LevelMenuScreen.levels.FindIndex(a => a == level) + 1;
+            int level = LevelMenuScreen.levels.FindIndex(a => a == l) + 1;
 
-            switch (levelIndex)
+            if (level == 1 || level == 2 || level == 3)
             {
-                case 1:
-                    song = "Vivacity";
-                    break;
-
-                case 2:
-                    song = "Vivacity";
-                    break;
-
-                case 3:
-                    song = "Vivacity";
-                    break;
-
-                case 4:
-                    song = "Daily Beetle";
-                    break;
-
-                case 5:
-                    song = "Call to Adventure";
-                    break;
-
-                case 6:
-                    song = "Call to Adventure";
-                    break;
-
-                case 7: 
-                    song = "Call to Adventure";
-                    break;
+                song = "Vivacity";
             }
+
+            else if (level == 4)
+            {
+                song = "Daily Beetle";
+            }
+
+            else if (level == 5 || level == 6 || level == 7)
+            {
+                song = "Call to Adventure";
+            }
+
             rewind = content.Load<SoundEffect>("soundeffects/rewind");
             ff = content.Load<SoundEffect>("soundeffects/fastforward");
             jump = content.Load<SoundEffect>("soundeffects/jump");
@@ -75,19 +59,12 @@ namespace BKP
             ffInstance = ff.CreateInstance();
             jumpInstance = jump.CreateInstance();
             musicInstance = music.CreateInstance();
-
-//             musicCall = content.Load<SoundEffect>("soundeffects/calltoadventure");
-//             musicCallInstance = musicCall.CreateInstance();
-//             //musicCallInstance.Play();
-//             musicVivacity = content.Load<SoundEffect>("soundeffects/vivacity");
-//             musicVivacityInstance = musicVivacity.CreateInstance();
-//             //musicVivacityInstance.Play();
         }
 
         public void Update(Controls control, bool grounded, int state)
         {
             if (musicOn == true)
-            {
+            {             
                 musicInstance.IsLooped = true;
                 musicInstance.Volume = 1f;
                 musicInstance.Play();

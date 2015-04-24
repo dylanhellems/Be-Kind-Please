@@ -50,7 +50,7 @@ namespace BKP
 
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 853;
-            graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferHeight = 515;
 
             // Create the screen manager component.
             screenManager = new ScreenManager(this);
