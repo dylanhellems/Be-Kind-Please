@@ -303,6 +303,7 @@ namespace BKP
                 controls.Update();
                 sound.Update(controls, player.isGrounded(), player.getState());
 
+
                 if (controls.onPress(Keys.Back, Buttons.Back))
                 {
                     Initialize();
