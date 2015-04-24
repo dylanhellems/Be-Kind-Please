@@ -54,13 +54,16 @@ namespace BKP
                 }
             }
 
-            levelNames.Add("Content/levels/level1.tmx", "Prologue");
-            levelNames.Add("Content/levels/level2.tmx", "Act 1");  
-            levelNames.Add("Content/levels/level3.tmx", "Act 2");  
-            levelNames.Add("Content/levels/level4.tmx", "Intermission");  
-            levelNames.Add("Content/levels/level6.tmx", "Act 3");  
-            levelNames.Add("Content/levels/level7.tmx", "Epilogue");  
-            levelNames.Add("Content/levels/level8.tmx", "Encore");  
+            if (levelNames.Count == 0)
+            {
+                levelNames.Add("Content/levels/level1.tmx", "Prologue");
+                levelNames.Add("Content/levels/level2.tmx", "Act 1");
+                levelNames.Add("Content/levels/level3.tmx", "Act 2");
+                levelNames.Add("Content/levels/level4.tmx", "Intermission");
+                levelNames.Add("Content/levels/level6.tmx", "Act 3");
+                levelNames.Add("Content/levels/level7.tmx", "Epilogue");
+                levelNames.Add("Content/levels/level8.tmx", "Encore");
+            }
 
             // Create our menu entries.
             MenuEntry level1MenuEntry = new LevelMenuEntry("Prologue", levels[0], locks[0]);
