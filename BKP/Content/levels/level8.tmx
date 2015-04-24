@@ -10,7 +10,7 @@
  </tileset>
  <layer name="platforms" width="140" height="17">
   <data encoding="base64" compression="zlib">
-   eJztllEOAiEMRHuYPcQewRMZ/7z6aiIJIRTaUhjMdpL5qFEZ2mfXk4hOR+eq1auNPDssnw8xNSoPui/h9nyIqVF50H0Jt+dDTI3Kg+5LuD0fYmpUHnRfav2ZIfT9gpf9GcmFnn/w4s/K8bNGD+FrtOBOd+XFS1pOpOdzPFjy7Ooyt9c9tOrxIpF1XqVKTpLLPSPZO1wmr6w9zZqX9ixvcbyM6GDce792B+4sNC9avT9+OeWRKv12ud5we0Lb23/lZeZZEmmZGGHo+9lnxbXv681dy8nKHehlr0wzpX02c/yM7qaR/18WfnbM6JVpRIhnjEXBS19pX+fzbO3iWTttBwUvtnki+4FU8GLLG7zcl5cLaLJA4A==
+   eJztllEOAiEMRHuYPcQewRMZ/7z6aiIJIRRaaBnMdpL5wOzK0D6LJxGdhs5VW682cu+wvD/ErFF50HUJt/tDzBqVB12XcLs/xKxRedB1Cbf7Q8walQddl1p9PIQ+X/CyPyO50P0PXuxZOX7W6CH8jBac6a68WEnLiXR/joeRPLu6zG11Dq16vKxUyUlyOWckc4djaJQtrbz6pd3LWhwvMzoY957XzsCdheZFq/fHL6M8UqXfLlcbbk5oa/uvvHjuJZGWiRmGvu8+K659X6/vWk5WzkArW2XylNXdPDubZv5/jfCzY0arTDOyvmO87qzgpa80r/P6t2ax10zbQcHLWD+R9UAqeBnLG7zcl5cLEllAmA==
   </data>
  </layer>
  <layer name="foreground" width="140" height="17">
