@@ -65,12 +65,27 @@ namespace BKP
 
             // Hook up menu event handlers.
             level1MenuEntry.Selected += Level1MenuEntrySelected;
-            level2MenuEntry.Selected += Level2MenuEntrySelected;
-            level3MenuEntry.Selected += Level3MenuEntrySelected;
-            level4MenuEntry.Selected += Level4MenuEntrySelected;
-            level6MenuEntry.Selected += Level6MenuEntrySelected;
-            level7MenuEntry.Selected += Level7MenuEntrySelected;
-            if (ScreenManager.times[levels[5]].TotalMilliseconds < 30000 && ScreenManager.times[levels[5]].TotalMilliseconds > 0)
+            if (!locks[1])
+            {
+                level2MenuEntry.Selected += Level2MenuEntrySelected;
+            }
+            if (!locks[2])
+            {
+                level3MenuEntry.Selected += Level3MenuEntrySelected;
+            }
+            if (!locks[3])
+            {
+                level4MenuEntry.Selected += Level4MenuEntrySelected;
+            }
+            if (!locks[4])
+            {
+                level6MenuEntry.Selected += Level6MenuEntrySelected;
+            }
+            if (!locks[5])
+            {
+                level7MenuEntry.Selected += Level7MenuEntrySelected;
+            }
+            if (!locks[6])
             {
                 level8MenuEntry.Selected += Level8MenuEntrySelected;
             }
