@@ -22,4 +22,14 @@
    eJztwTEBAAAAwqD1T20ND6AAAAAAAL4NFMgAAQ==
   </data>
  </layer>
+ <layer name="rightleft" width="133" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7DZwr8xriVI4GiTJgDUnAAAAMAfC4/uAKw=
+  </data>
+ </layer>
+ <layer name="leftright" width="133" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztw6ENAAAIA7C9xf+PYSfwmDZpAsBlKgAAAPBrAYfqAKw=
+  </data>
+ </layer>
 </map>

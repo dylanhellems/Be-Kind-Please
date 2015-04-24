@@ -25,12 +25,10 @@
  </layer>
  <layer name="updown" width="133" height="13">
   <data encoding="base64" compression="zlib">
-   eJzt0rERADAIAzHGYv/J0nsBCCc1bl18FQAA3NDTB1inY0ETJE2QNEHSBMC/HlC7Amk=
   </data>
  </layer>
  <layer name="downup" width="133" height="13">
   <data encoding="base64" compression="zlib">
-   eJzt0qENAAAMw7Cetf8vG680PmCTPJAE4KepgidonuDiCQAAAGABR4YBiQ==
   </data>
  </layer>
 </map>
