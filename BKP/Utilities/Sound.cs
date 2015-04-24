@@ -80,7 +80,7 @@ namespace BKP
 
             if (soundOn == true)
             {
-                if (control.isPressed(Keys.Left, Buttons.LeftTrigger) == true)
+                if (state == -1)
                 {
                     musicInstance.Volume = 0f;
                     rewindInstance.IsLooped = true;
@@ -88,7 +88,7 @@ namespace BKP
                     //Console.WriteLine("Played rewind");
                 }
 
-                else if (control.isPressed(Keys.Right, Buttons.RightTrigger) == true)
+                else if (state == 2)
                 {
                     musicInstance.Volume = 0f;
                     ffInstance.IsLooped = true;
