@@ -32,9 +32,11 @@ namespace BKP
 
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, string level)
         {
-            switch (level)
+            int levelIndex = LevelMenuScreen.levels.FindIndex(a => a == level) + 1;
+
+            switch (levelIndex)
             {
                 case 1:
                     song = "Vivacity";
