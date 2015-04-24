@@ -249,7 +249,7 @@ namespace BKP
             rewind.LoadContent(content, "rewind");
             ff.LoadContent(content, "fastforward");
             vhsEffect.Load(ScreenManager.GraphicsDevice, content.Load<Texture2D>("vhs_effect_2"));
-            sound.LoadContent(content);
+            sound.LoadContent(content, level);
             //background = new ScrollingBackground();
             //background.Load(ScreenManager.GraphicsDevice, content.Load<Texture2D>("gamebackground"));
 

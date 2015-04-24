@@ -128,7 +128,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level1.tmx"));
             Sound.song = "Vivacity";
-            Sound.level = 1;
         }
 
         void Level2MenuEntrySelected(object sender, PlayerIndexEventArgs e)
@@ -136,7 +135,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level2.tmx"));
             Sound.song = "Vivacity";
-            Sound.level = 2;
         }
 
         void Level3MenuEntrySelected(object sender, PlayerIndexEventArgs e)
@@ -144,7 +142,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level3.tmx"));
             Sound.song = "Vivacity";
-            Sound.level = 3;
         }
 
         void Level4MenuEntrySelected(object sender, PlayerIndexEventArgs e)
@@ -152,7 +149,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level4.tmx"));
             Sound.song = "Daily Beetle";
-            Sound.level = 4;
         }
 
         void Level6MenuEntrySelected(object sender, PlayerIndexEventArgs e)
@@ -160,7 +156,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level6.tmx"));
             Sound.song = "Call to Adventure";
-            Sound.level = 5;
         }
 
 
@@ -169,7 +164,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level7.tmx"));
             Sound.song = "Call to Adventure";
-            Sound.level = 6;
         }
 
         void Level8MenuEntrySelected(object sender, PlayerIndexEventArgs e)
@@ -177,7 +171,6 @@ namespace BKP
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new GameplayScreen("Content/levels/level8.tmx"));
             Sound.song = "Call to Adventure";
-            Sound.level = 7;
         }
 
         /// <summary>

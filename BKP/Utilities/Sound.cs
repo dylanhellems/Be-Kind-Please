@@ -24,15 +24,16 @@ namespace BKP
         public static bool musicOn = true;
 
         public static string song = "";
-        public static int level = 0;
 
         public Sound()
         {
 
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, string l)
         {
+            int level = LevelMenuScreen.levels.FindIndex(a => a == l) + 1;
+
             if (level == 1 || level == 2 || level == 3)
             {
                 song = "Vivacity";

@@ -289,35 +289,38 @@ namespace BKP
                         x = lastX;
                         paused = true;
                     }
-                    Vector2 up = new Vector2(0, platform.getCenterY());
-                    up.Normalize();
-                    Vector2 toPlayer = new Vector2(platform.getCenterX() - this.getCenterX(), platform.getCenterY() - this.getCenterY());
-                    toPlayer.Normalize();
-                    double angleToPlayer = Vector2.Dot(up, toPlayer) / (up.Length() * toPlayer.Length());
+                    else
+                    {
+                        Vector2 up = new Vector2(0, platform.getCenterY());
+                        up.Normalize();
+                        Vector2 toPlayer = new Vector2(platform.getCenterX() - this.getCenterX(), platform.getCenterY() - this.getCenterY());
+                        toPlayer.Normalize();
+                        double angleToPlayer = Vector2.Dot(up, toPlayer) / (up.Length() * toPlayer.Length());
 
-                    if (angleToPlayer < 0.6 && angleToPlayer > -0.6)
-                    {
-                        if (this.getCenterX() < platform.getCenterX())
+                        if (angleToPlayer < 0.6 && angleToPlayer > -0.6)
                         {
-                            // Collision on right side of player
-                            x = lastX;
-                            paused = true;
+                            if (this.getCenterX() < platform.getCenterX())
+                            {
+                                // Collision on right side of player
+                                x = lastX;
+                                paused = true;
+                            }
                         }
-                    }
-                    else if (angleToPlayer > 0.6 || angleToPlayer < -0.6)
-                    {
-                        if (this.getCenterY() < platform.getCenterY())
+                        else if (angleToPlayer > 0.6 || angleToPlayer < -0.6)
                         {
-                            // Collision on bottom side of player
-                            grounded = true;
+                            if (this.getCenterY() < platform.getCenterY())
+                            {
+                                // Collision on bottom side of player
+                                grounded = true;
+                            }
+                            else
+                            {
+                                // Collision on top side of player
+                                y += 1;
+                                y_vel = 0;
+                            }
+                            moveToStopOverlap(platform);
                         }
-                        else
-                        {
-                            // Collision on top side of player
-                            y += 1;
-                            y_vel = 0;
-                        }
-                        moveToStopOverlap(platform);
                     }
                 }
             }
