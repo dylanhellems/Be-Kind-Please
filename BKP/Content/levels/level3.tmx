@@ -24,12 +24,12 @@
  </layer>
  <layer name="rightleft" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAIA7DZwr8xriVI4GiTJgDUnAAAAMAfC4/uAKw=
+   eJztxbENAAAIA6D6/9Omqxc4wEICQM0ZAAAA+GMBNDAAAw==
   </data>
  </layer>
  <layer name="leftright" width="133" height="10">
   <data encoding="base64" compression="zlib">
-   eJztw6ENAAAIA7C9xf+PYSfwmDZpAsBlKgAAAPBrAYfqAKw=
+   eJztxaENAAAIA7Dx/9P4BY9pTRMALlMDAAAAfxY0EAAD
   </data>
  </layer>
 </map>

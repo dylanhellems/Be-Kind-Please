@@ -30,20 +30,18 @@ namespace BKP
             switch (type)
             {
                 case 0: // left to right
-                    if (x >= initX || x <= initX + 300)
+                    if (x <= initX || x >= initX + 200)
                     {
                         speed = -1 * speed;
-                        x = initX;
                         x -= speed / 2;
                     }
                     x -= speed;
                     break;
 
                 case 1: // right to left
-                    if (x >= initX || x <= initX - 300)
+                    if (x >= initX || x <= initX - 200)
                     {
                         speed = -1 * speed;
-                        x = initX;
                         x += speed / 2;
                     }
                     x += speed;
