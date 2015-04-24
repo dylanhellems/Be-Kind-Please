@@ -101,7 +101,7 @@ namespace BKP
                     musicInstance.Volume = 0f;
                 }
 
-                else if (control.isPressed(Keys.Space, Buttons.A) == true && grounded == true)
+                else if (control.onPress(Keys.Space, Buttons.A) == true && grounded == true)
                 {
                     jumpInstance.IsLooped = false;
                     jumpInstance.Play();
